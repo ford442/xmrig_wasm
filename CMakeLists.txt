@@ -177,6 +177,7 @@ if (XMRIG_OS_WASM)
     list(APPEND SOURCES_OS
         src/App_wasm.cpp
         src/crypto/common/VirtualMemory_wasm.cpp
+        src/wasm/uv_wasm.cpp
         )
 elseif (XMRIG_OS_WIN)
     list(APPEND SOURCES_OS
@@ -253,6 +254,10 @@ endif()
 include(src/hw/api/api.cmake)
 include(src/hw/dmi/dmi.cmake)
 
+if (EMSCRIPTEN)
+    # WASM libuv shim must come before system includes so <uv.h> resolves here
+    include_directories(src/wasm)
+endif()
 include_directories(src)
 include_directories(src/3rdparty)
 if (NOT EMSCRIPTEN)
