@@ -262,6 +262,9 @@ public:
 - [ ] Test: `emcmake cmake -B build_wasm -DCMAKE_BUILD_TYPE=Release`
 - [ ] Verify: No undefined POSIX references
 - [ ] Fix: Any remaining compilation errors
+- [ ] Note: `CMAKE_PROJECT_NAME` may be rewritten to `xmrig-notls` when OpenSSL/TLS support is disabled, so avoid hardcoding `xmrig` target names in CMake post-build commands.
+- [ ] Note: Disable GhostRider for WASM builds because it uses x86 intrinsics and libuv threading that are not compatible with Emscripten.
+- [ ] Note: Activate the Emscripten environment before configuring. Run `source ./emsdk/emsdk_env.sh` or use `emcmake` from a shell where `emcc`/`em++` are on `PATH`.
 
 ### 7.2 Build
 - [ ] Test: `cmake --build build_wasm -j4`
