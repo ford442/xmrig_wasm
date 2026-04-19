@@ -1,0 +1,155 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineSystem.cmake:228 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The target system is: Emscripten - 1 - x86
+      The host system is: Linux - 6.8.0-1044-azure - x86_64
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/CheckCXXCompilerFlag.cmake:34 (cmake_check_compiler_flag)"
+      - "cmake/cpu.cmake:17 (CHECK_CXX_COMPILER_FLAG)"
+      - "CMakeLists.txt:70 (include)"
+    checks:
+      - "Performing Test VAES_SUPPORTED"
+    directories:
+      source: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-V6ZOCh"
+      binary: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-V6ZOCh"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/cmake"
+    buildResult:
+      variable: "VAES_SUPPORTED"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-V6ZOCh'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8bb22/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8bb22.dir/build.make CMakeFiles/cmTC_8bb22.dir/build
+        gmake[1]: Entering directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-V6ZOCh'
+        Building CXX object CMakeFiles/cmTC_8bb22.dir/src.cxx.o
+        /workspaces/xmrig_wasm/emsdk/upstream/emscripten/em++ -DVAES_SUPPORTED  -mavx2 -mvaes -MD -MT CMakeFiles/cmTC_8bb22.dir/src.cxx.o -MF CMakeFiles/cmTC_8bb22.dir/src.cxx.o.d -o CMakeFiles/cmTC_8bb22.dir/src.cxx.o -c /workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-V6ZOCh/src.cxx
+        em++: error: passing any of -msse, -msse2, -msse3, -mssse3, -msse4.1, -msse4.2, -msse4, -mavx, -mavx2, -mfpu=neon flags also requires passing -msimd128 (or -mrelaxed-simd)!
+        gmake[1]: *** [CMakeFiles/cmTC_8bb22.dir/build.make:79: CMakeFiles/cmTC_8bb22.dir/src.cxx.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-V6ZOCh'
+        gmake: *** [Makefile:127: cmTC_8bb22/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake:90 (try_compile)"
+      - "src/base/base.cmake:182 (CHECK_INCLUDE_FILE)"
+      - "CMakeLists.txt:72 (include)"
+    checks:
+      - "Looking for syslog.h"
+    directories:
+      source: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-L1mCV3"
+      binary: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-L1mCV3"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/cmake"
+    buildResult:
+      variable: "HAVE_SYSLOG_H"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-L1mCV3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2ba47/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2ba47.dir/build.make CMakeFiles/cmTC_2ba47.dir/build
+        gmake[1]: Entering directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-L1mCV3'
+        Building C object CMakeFiles/cmTC_2ba47.dir/CheckIncludeFile.c.o
+        /workspaces/xmrig_wasm/emsdk/upstream/emscripten/emcc    -MD -MT CMakeFiles/cmTC_2ba47.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_2ba47.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_2ba47.dir/CheckIncludeFile.c.o -c /workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-L1mCV3/CheckIncludeFile.c
+        Linking C executable cmTC_2ba47.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ba47.dir/link.txt --verbose=1
+        /workspaces/xmrig_wasm/emsdk/upstream/emscripten/emcc CMakeFiles/cmTC_2ba47.dir/CheckIncludeFile.c.o -o cmTC_2ba47.js 
+        gmake[1]: Leaving directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-L1mCV3'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "cmake/flags.cmake:109 (check_symbol_exists)"
+      - "CMakeLists.txt:243 (include)"
+    checks:
+      - "Looking for __builtin___clear_cache"
+    directories:
+      source: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh"
+      binary: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: " -Wall"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: " -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=134217728 -s MAXIMUM_MEMORY=536870912 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap']"
+      CMAKE_MODULE_PATH: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/cmake"
+    buildResult:
+      variable: "HAVE_BUILTIN_CLEAR_CACHE"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7196f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7196f.dir/build.make CMakeFiles/cmTC_7196f.dir/build
+        gmake[1]: Entering directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh'
+        Building C object CMakeFiles/cmTC_7196f.dir/CheckSymbolExists.c.o
+        /workspaces/xmrig_wasm/emsdk/upstream/emscripten/emcc   -Wall  -std=gnu99 -MD -MT CMakeFiles/cmTC_7196f.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_7196f.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_7196f.dir/CheckSymbolExists.c.o -c /workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh/CheckSymbolExists.c
+        /workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh/CheckSymbolExists.c:8:19: error: builtin functions must be directly called
+            8 |   return ((int*)(&__builtin___clear_cache))[argc];
+              |                   ^
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_7196f.dir/build.make:79: CMakeFiles/cmTC_7196f.dir/CheckSymbolExists.c.o] Error 1
+        gmake[1]: Leaving directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-wcXaIh'
+        gmake: *** [Makefile:127: cmTC_7196f/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:140 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckSymbolExists.cmake:66 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "cmake/randomx.cmake:10 (check_symbol_exists)"
+      - "CMakeLists.txt:244 (include)"
+    checks:
+      - "Looking for posix_memalign"
+    directories:
+      source: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-E0V13W"
+      binary: "/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-E0V13W"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: " -Wall"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: " -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=134217728 -s MAXIMUM_MEMORY=536870912 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap']"
+      CMAKE_MODULE_PATH: "/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/emsdk/upstream/emscripten/cmake/Modules;/workspaces/xmrig_wasm/cmake"
+    buildResult:
+      variable: "HAVE_POSIX_MEMALIGN"
+      cached: true
+      stdout: |
+        Change Dir: '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-E0V13W'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4e10c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4e10c.dir/build.make CMakeFiles/cmTC_4e10c.dir/build
+        gmake[1]: Entering directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-E0V13W'
+        Building C object CMakeFiles/cmTC_4e10c.dir/CheckSymbolExists.c.o
+        /workspaces/xmrig_wasm/emsdk/upstream/emscripten/emcc   -Wall  -std=gnu99 -MD -MT CMakeFiles/cmTC_4e10c.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_4e10c.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_4e10c.dir/CheckSymbolExists.c.o -c /workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-E0V13W/CheckSymbolExists.c
+        Linking C executable cmTC_4e10c.js
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e10c.dir/link.txt --verbose=1
+        /workspaces/xmrig_wasm/emsdk/upstream/emscripten/emcc  -Wall   -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=134217728 -s MAXIMUM_MEMORY=536870912 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap']  CMakeFiles/cmTC_4e10c.dir/CheckSymbolExists.c.o -o cmTC_4e10c.js 
+        gmake[1]: Leaving directory '/workspaces/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-E0V13W'
+        
+      exitCode: 0
+...

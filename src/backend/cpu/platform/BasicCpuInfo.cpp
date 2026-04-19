@@ -25,7 +25,7 @@
 
 #ifdef _MSC_VER
 #   include <intrin.h>
-#else
+#elif !defined(XMRIG_OS_WASM)
 #   include <cpuid.h>
 #endif
 
@@ -76,7 +76,7 @@ static inline void cpuid(uint32_t level, int32_t output[4])
 
 #   ifdef _MSC_VER
     __cpuidex(output, static_cast<int>(level), 0);
-#   else
+#   elif !defined(XMRIG_OS_WASM)
     __cpuid_count(level, 0, output[0], output[1], output[2], output[3]);
 #   endif
 }
@@ -132,6 +132,8 @@ static inline uint64_t xgetbv()
 {
 #ifdef _MSC_VER
     return _xgetbv(_XCR_XFEATURE_ENABLED_MASK);
+#elif defined(XMRIG_OS_WASM)
+    return 0;
 #else
     uint32_t eax_reg = 0;
     uint32_t edx_reg = 0;

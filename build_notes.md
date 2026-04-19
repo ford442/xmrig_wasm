@@ -17,6 +17,10 @@ To port this project to Emscripten/WASM, the following areas need dedicated chan
 - Disable or avoid native OpenSSL and use browser/Emscripten-friendly TLS options if needed.
 - Customize threading logic for Emscripten, including `std::thread`/`pthread` use and worker thread behavior.
 - Review and adapt `mlock`, hugepage, and other native memory management calls.
+- Disable file logging for WASM builds; the current Emscripten port does not include a compatible libuv filesystem backend.
 - Do not attempt the CUDA plugin for Emscripten; focus on CPU/OpenCL and native browser-friendly code paths.
+- Disable GhostRider for WASM builds: it depends on x86 intrinsics and libuv threading that are not compatible with Emscripten.
+- Note: `CMAKE_PROJECT_NAME` may be rewritten to `xmrig-notls` when OpenSSL/TLS support is disabled, so use the actual generated target name rather than hardcoding `xmrig` in post-build commands.
+- Emscripten build note: source `./emsdk/emsdk_env.sh` or otherwise activate `emcc`/`emcmake` before configuring. The JS/WASM build path depends on the Emscripten toolchain, not just `-DEMSCRIPTEN=1`.
 
 If OpenCL CPU support is desired, prioritize that path and avoid native CUDA/OpenCL GPU plugins.

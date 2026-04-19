@@ -27,6 +27,7 @@
 
 #include <sys/types.h>
 #include <sys/socket.h>
+#include <arpa/inet.h>
 #include <netdb.h>
 
 /* -------------------------------------------------------------------------
@@ -47,6 +48,7 @@ const char *uv_version_string(void);
  * ---------------------------------------------------------------------- */
 #define UV__EOF       (-4095)
 #define UV__ENOTSUP   (-4094)
+#define UV__ENOBUFS   (-4093)
 #define UV__EINVAL    (-22)
 #define UV__ENOMEM    (-12)
 #define UV__ECONNREFUSED (-111)
@@ -344,6 +346,16 @@ static inline int uv_tcp_keepalive(uv_tcp_t *h, int en, unsigned int d)         
 static inline int uv_tcp_connect(uv_connect_t *r, uv_tcp_t *h, const struct sockaddr *a, uv_connect_cb cb) { (void)r;(void)h;(void)a;(void)cb; return UV_ENOTSUP; }
 static inline int uv_ip4_addr(const char *ip, int port, struct sockaddr_in *addr)  { (void)ip;(void)port;(void)addr; return 0; }
 static inline int uv_ip6_addr(const char *ip, int port, struct sockaddr_in6 *addr) { (void)ip;(void)port;(void)addr; return 0; }
+static inline int uv_ip4_name(const struct sockaddr_in *src, char *dst, size_t size) {
+    if (src == NULL || dst == NULL) return -1;
+    if (inet_ntop(AF_INET, &src->sin_addr, dst, size) == NULL) return -1;
+    return 0;
+}
+static inline int uv_ip6_name(const struct sockaddr_in6 *src, char *dst, size_t size) {
+    if (src == NULL || dst == NULL) return -1;
+    if (inet_ntop(AF_INET6, &src->sin6_addr, dst, size) == NULL) return -1;
+    return 0;
+}
 
 /* -------------------------------------------------------------------------
  * TTY (no-ops; terminal I/O not available in browser)
@@ -361,6 +373,7 @@ static inline uv_handle_type uv_guess_handle(int fd) { (void)fd; return UV_UNKNO
 static inline int uv_read_start(uv_stream_t *s, uv_alloc_cb a, uv_read_cb r)  { (void)s;(void)a;(void)r; return 0; }
 static inline int uv_read_stop(uv_stream_t *s)                                 { (void)s; return 0; }
 static inline int uv_write(uv_write_t *req, uv_stream_t *s, const uv_buf_t *b, unsigned int n, uv_write_cb cb) { (void)req;(void)s;(void)b;(void)n;(void)cb; return UV_ENOTSUP; }
+static inline int uv_try_write(uv_stream_t *s, const uv_buf_t *b, unsigned int n) { (void)s; (void)b; (void)n; return UV_ENOTSUP; }
 static inline int uv_shutdown(uv_shutdown_t *req, uv_stream_t *s, uv_shutdown_cb cb) { (void)req;(void)s;(void)cb; return 0; }
 
 /* -------------------------------------------------------------------------
@@ -394,6 +407,7 @@ static inline int uv_fs_read(uv_loop_t *l, uv_fs_t *r, int fd, const uv_buf_t *b
 static inline int uv_fs_write(uv_loop_t *l, uv_fs_t *r, int fd, const uv_buf_t *b, unsigned n, int64_t o, uv_fs_cb cb) { (void)l;(void)r;(void)fd;(void)b;(void)n;(void)o;(void)cb; return 0; }
 static inline int uv_fs_stat(uv_loop_t *l, uv_fs_t *r, const char *p, uv_fs_cb cb)                { (void)l;(void)r;(void)p;(void)cb; return 0; }
 static inline void uv_fs_req_cleanup(uv_fs_t *r)                                                   { (void)r; }
+static inline void uv_setup_args(int argc, char **argv)                                            { (void)argc; (void)argv; }
 
 /* -------------------------------------------------------------------------
  * OS helpers

@@ -1,0 +1,23 @@
+CMakeFiles/xmrig-notls.dir/src/base/crypto/keccak.cpp.o: \
+  /workspaces/xmrig_wasm/src/base/crypto/keccak.cpp \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/memory.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/abi.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/compiler.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/platform.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/availability.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/language.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /workspaces/xmrig_wasm/src/base/crypto/keccak.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdint \
+  /workspaces/xmrig_wasm/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstring \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__cstddef/size_t.h \
+  /workspaces/xmrig_wasm/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_constant_evaluated.h

@@ -51,12 +51,18 @@ if (EMSCRIPTEN)
     set(WITH_CUDA     OFF CACHE BOOL "" FORCE)
     set(WITH_NVML     OFF CACHE BOOL "" FORCE)
     set(WITH_ADL      OFF CACHE BOOL "" FORCE)
+    set(WITH_GHOSTRIDER OFF CACHE BOOL "" FORCE)
+    set(WITH_CN_LITE OFF CACHE BOOL "" FORCE)
+    set(WITH_CN_HEAVY OFF CACHE BOOL "" FORCE)
+    set(WITH_CN_PICO OFF CACHE BOOL "" FORCE)
+    set(WITH_CN_FEMTO OFF CACHE BOOL "" FORCE)
     set(WITH_SSE4_1   OFF CACHE BOOL "" FORCE)
     set(WITH_AVX2     OFF CACHE BOOL "" FORCE)
     set(WITH_VAES     OFF CACHE BOOL "" FORCE)
     set(WITH_ASM      OFF CACHE BOOL "" FORCE)
     set(WITH_SECURE_JIT OFF CACHE BOOL "" FORCE)
     set(WITH_HTTP     OFF CACHE BOOL "" FORCE)
+    include_directories(${CMAKE_SOURCE_DIR}/src/wasm)
     message(STATUS "Emscripten/WASM build detected — disabling incompatible features")
 endif()
 
@@ -148,6 +154,17 @@ set(SOURCES_CRYPTO
     src/crypto/common/Nonce.cpp
     src/crypto/common/VirtualMemory.cpp
    )
+
+if (EMSCRIPTEN)
+    list(REMOVE_ITEM SOURCES_CRYPTO
+        src/crypto/cn/c_blake256.c
+        src/crypto/cn/c_groestl.c
+        src/crypto/cn/c_jh.c
+        src/crypto/cn/c_skein.c
+        src/crypto/cn/CnCtx.cpp
+        src/crypto/cn/CnHash.cpp
+    )
+endif()
 
 if (CMAKE_C_COMPILER_ID MATCHES GNU)
     set_source_files_properties(src/crypto/cn/CnHash.cpp PROPERTIES COMPILE_FLAGS "-Ofast -fno-tree-vectorize")
@@ -288,5 +305,5 @@ if (WIN32)
 endif()
 
 if (CMAKE_CXX_COMPILER_ID MATCHES Clang AND CMAKE_BUILD_TYPE STREQUAL Release AND NOT CMAKE_GENERATOR STREQUAL Xcode)
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_STRIP} "$<TARGET_FILE:${CMAKE_PROJECT_NAME}>")
+    add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_STRIP} "$<TARGET_FILE:${CMAKE_PROJECT_NAME}>")
 endif()
