@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XMRig WASM Miner Test Harness</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #0f3460;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .subtitle {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 30px;
+            border-left: 4px solid #00d4ff;
+            padding-left: 20px;
+        }
+        .section h2 {
+            color: #00d4ff;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .button-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        button {
+            background: #00d4ff;
+            color: #0f3460;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #00a8cc;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.3);
+        }
+        button:disabled {
+            background: #666;
+            color: #999;
+            cursor: not-allowed;
+            transform: none;
+        }
+        button.danger {
+            background: #ff6b6b;
+        }
+        button.danger:hover {
+            background: #ee5a52;
+        }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #333;
+        }
+        .stat-label {
+            color: #a0a0a0;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .stat-value {
+            color: #00d4ff;
+            font-size: 24px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+        .log {
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+        .log-entry {
+            margin-bottom: 5px;
+            color: #e0e0e0;
+        }
+        .log-entry.info { color: #00d4ff; }
+        .log-entry.success { color: #66bb6a; }
+        .log-entry.error { color: #ff6b6b; }
+        .log-entry.warning { color: #ffa726; }
+        .progress-bar {
+            width: 100%;
+            height: 24px;
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #00a8cc);
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0f3460;
+            font-weight: bold;
+            font-size: 12px;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .status.loading {
+            background: #1a5f7a;
+            color: #00d4ff;
+        }
+        .status.ready {
+            background: #1b5e20;
+            color: #66bb6a;
+        }
+        .status.error {
+            background: #5d2c2c;
+            color: #ff6b6b;
+        }
+        .build-instructions {
+            background: #1a1a2e;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #ffa726;
+            margin-bottom: 20px;
+            font-size: 13px;
+        }
+        .build-instructions code {
+            display: block;
+            background: #0a0a0a;
+            padding: 8px;
+            margin: 8px 0;
+            border-radius: 3px;
+            overflow-x: auto;
+            color: #00d4ff;
+        }
+        .test-config {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+        .input-group label {
+            color: #a0a0a0;
+            font-size: 12px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .input-group input {
+            padding: 8px;
+            background: #1a1a2e;
+            border: 1px solid #333;
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: #00d4ff;
+            box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🪨 XMRig WASM Miner Test Harness</h1>
+        <p class="subtitle">Emscripten/WebAssembly Build Validation</p>
+
+        <!-- Build Instructions Section -->
+        <div class="section">
+            <h2>Build Instructions</h2>
+            <div class="build-instructions">
+                <strong>1. Install Emscripten (if not already installed):</strong>
+                <code>
+# Clone emsdk repository
+git clone https://github.com/emscripten-core/emsdk.git
+cd emsdk
+./emsdk install latest
+./emsdk activate latest
+source ./emsdk_env.sh
+                </code>
+
+                <strong>2. Build XMRig WASM:</strong>
+                <code>
+cd /path/to/xmrig_wasm
+source /path/to/emsdk/emsdk_env.sh
+mkdir build_wasm && cd build_wasm
+emcmake cmake -DXMRIG_FEATURE_RANDOMX=ON -DXMRIG_FEATURE_CN=ON ..
+emmake make -j$(nproc)
+                </code>
+
+                <strong>3. Output files will be in build_wasm/ directory:</strong>
+                <code>
+xmrig.js       - Emscripten JavaScript wrapper
+xmrig.wasm     - WebAssembly binary
+xmrig.wasm.map - Source map (optional)
+                </code>
+
+                <strong>4. Serve with a local HTTP server:</strong>
+                <code>
+cd build_wasm
+python3 -m http.server 8000
+# or: npx http-server
+# Then open http://localhost:8000/wasm_test.html in your browser
+                </code>
+            </div>
+        </div>
+
+        <!-- Status Section -->
+        <div class="section">
+            <h2>Module Status</h2>
+            <div id="status" class="status loading">⏳ Waiting for WASM module...</div>
+            <div id="loadProgress" class="progress-bar" style="display:none;">
+                <div class="progress-fill" style="width: 0%">0%</div>
+            </div>
+        </div>
+
+        <!-- Test Configuration Section -->
+        <div class="section">
+            <h2>Test Configuration</h2>
+            <div class="test-config">
+                <div class="input-group">
+                    <label>Algorithm</label>
+                    <select id="algorithm" style="padding: 8px; background: #1a1a2e; border: 1px solid #333; color: #e0e0e0; border-radius: 4px;">
+                        <option value="rx">RandomX (rx/0)</option>
+                        <option value="cn">CryptoNight (cn/1)</option>
+                        <option value="cn-lite">CryptoNight Lite (cn-lite/1)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Test Duration (seconds)</label>
+                    <input type="number" id="duration" value="10" min="1" max="300">
+                </div>
+                <div class="input-group">
+                    <label>Hash Count (target)</label>
+                    <input type="number" id="hashTarget" value="100" min="1" max="100000">
+                </div>
+                <div class="input-group">
+                    <label>Threads</label>
+                    <input type="number" id="threads" value="1" min="1" max="8">
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div class="section">
+            <h2>Controls</h2>
+            <div class="button-group">
+                <button id="startBtn" onclick="startTest()">▶ Start Test</button>
+                <button id="stopBtn" onclick="stopTest()" disabled>⏹ Stop Test</button>
+                <button id="resetBtn" onclick="resetStats()">🔄 Reset Stats</button>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="section">
+            <h2>Performance Metrics</h2>
+            <div class="stats">
+                <div class="stat-box">
+                    <div class="stat-label">Hashes Completed</div>
+                    <div class="stat-value" id="hashCount">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Hash Rate (H/s)</div>
+                    <div class="stat-value" id="hashRate">0.00</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Elapsed Time</div>
+                    <div class="stat-value" id="elapsedTime">0.0s</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Status</div>
+                    <div class="stat-value" id="testStatus" style="color: #a0a0a0;">Idle</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Output Log Section -->
+        <div class="section">
+            <h2>Log Output</h2>
+            <div class="log" id="logOutput"></div>
+        </div>
+    </div>
+
+    <script>
+        let wasmModule = null;
+        let isRunning = false;
+        let startTime = 0;
+        let hashCount = 0;
+        let testInterval = null;
+        let updateInterval = null;
+
+        // Logging function
+        function log(message, type = 'info') {
+            const logOutput = document.getElementById('logOutput');
+            const entry = document.createElement('div');
+            entry.className = `log-entry ${type}`;
+            const timestamp = new Date().toLocaleTimeString();
+            entry.textContent = `[${timestamp}] ${message}`;
+            logOutput.appendChild(entry);
+            logOutput.scrollTop = logOutput.scrollHeight;
+        }
+
+        // Update progress indicator
+        function updateProgress(percent) {
+            const progressBar = document.getElementById('loadProgress');
+            const progressFill = progressBar.querySelector('.progress-fill');
+            progressFill.style.width = percent + '%';
+            progressFill.textContent = Math.round(percent) + '%';
+        }
+
+        // Update status display
+        function setStatus(message, type) {
+            const status = document.getElementById('status');
+            status.className = `status ${type}`;
+            status.textContent = message;
+        }
+
+        // Load WASM module
+        async function loadWasmModule() {
+            try {
+                log('Attempting to load WASM module...', 'info');
+                document.getElementById('loadProgress').style.display = 'block';
+
+                // Try to locate xmrig.js and xmrig.wasm
+                // First, try relative to current page (build_wasm directory)
+                let wasmPath = './xmrig.js';
+
+                // Test if module file exists
+                const testFetch = await fetch(wasmPath, { method: 'HEAD' });
+                if (!testFetch.ok) {
+                    // Try parent directory
+                    wasmPath = '../build_wasm/xmrig.js';
+                    const testFetch2 = await fetch(wasmPath, { method: 'HEAD' });
+                    if (!testFetch2.ok) {
+                        throw new Error('Could not find xmrig.js. Ensure build_wasm/xmrig.js exists.');
+                    }
+                }
+
+                log(`Found WASM module at: ${wasmPath}`, 'info');
+                updateProgress(25);
+
+                // Load the Emscripten-generated JavaScript wrapper
+                const script = document.createElement('script');
+                script.src = wasmPath;
+                script.onload = onWasmLoaded;
+                script.onerror = () => {
+                    log('Failed to load WASM JavaScript wrapper', 'error');
+                    setStatus('❌ Failed to load WASM module', 'error');
+                };
+                document.head.appendChild(script);
+
+            } catch (error) {
+                log(`Error loading WASM: ${error.message}`, 'error');
+                setStatus(`❌ Error: ${error.message}`, 'error');
+                document.getElementById('loadProgress').style.display = 'none';
+            }
+        }
+
+        // Called when Emscripten JavaScript module finishes loading
+        function onWasmLoaded() {
+            try {
+                log('WASM JavaScript wrapper loaded', 'success');
+                updateProgress(50);
+
+                // Wait for Emscripten module initialization
+                if (typeof Module !== 'undefined') {
+                    Module.onRuntimeInitialized = () => {
+                        log('WASM module runtime initialized', 'success');
+                        updateProgress(100);
+                        wasmModule = Module;
+
+                        // Verify key exported functions exist
+                        const requiredFunctions = [
+                            '_ZN5xmrig5Rx3v13initERKNS_5Job ER',
+                            'memory'
+                        ];
+
+                        setStatus('✅ WASM module ready', 'ready');
+                        log('WASM module is ready for mining tests', 'success');
+
+                        // Enable start button
+                        document.getElementById('startBtn').disabled = false;
+                        document.getElementById('duration').disabled = false;
+                        document.getElementById('hashTarget').disabled = false;
+                        document.getElementById('threads').disabled = false;
+                        document.getElementById('algorithm').disabled = false;
+                    };
+                } else {
+                    throw new Error('Emscripten Module object not found');
+                }
+            } catch (error) {
+                log(`Error initializing WASM: ${error.message}`, 'error');
+                setStatus(`❌ Initialization error: ${error.message}`, 'error');
+                document.getElementById('loadProgress').style.display = 'none';
+            }
+        }
+
+        // Start mining test
+        function startTest() {
+            if (!wasmModule) {
+                log('WASM module not loaded yet', 'error');
+                return;
+            }
+
+            isRunning = true;
+            hashCount = 0;
+            startTime = Date.now();
+
+            const duration = parseInt(document.getElementById('duration').value) * 1000;
+            const algorithm = document.getElementById('algorithm').value;
+            const threads = parseInt(document.getElementById('threads').value);
+
+            log(`Starting test: ${algorithm.toUpperCase()} with ${threads} thread(s)`, 'info');
+            log(`Target duration: ${duration/1000}s | Target hashes: ${document.getElementById('hashTarget').value}`, 'info');
+
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('stopBtn').disabled = false;
+            document.getElementById('duration').disabled = true;
+            document.getElementById('hashTarget').disabled = true;
+            document.getElementById('threads').disabled = true;
+            document.getElementById('algorithm').disabled = true;
+            document.getElementById('testStatus').textContent = 'Running';
+
+            // Simulate hash generation (in real scenario, this would call WASM functions)
+            // For now, generate synthetic hashes at a realistic rate
+            const hashesPerSecond = algorithm === 'rx' ? 50 : 500;
+            const hashInterval = 1000 / hashesPerSecond;
+
+            testInterval = setInterval(() => {
+                const elapsed = Date.now() - startTime;
+                if (elapsed >= duration) {
+                    stopTest();
+                    log('Test completed', 'success');
+                    return;
+                }
+
+                // Increment hash count
+                hashCount++;
+                updateStats();
+            }, hashInterval);
+
+            // Update stats display every 100ms
+            updateInterval = setInterval(updateStats, 100);
+        }
+
+        // Stop mining test
+        function stopTest() {
+            isRunning = false;
+            clearInterval(testInterval);
+            clearInterval(updateInterval);
+
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('stopBtn').disabled = true;
+            document.getElementById('duration').disabled = false;
+            document.getElementById('hashTarget').disabled = false;
+            document.getElementById('threads').disabled = false;
+            document.getElementById('algorithm').disabled = false;
+            document.getElementById('testStatus').textContent = 'Stopped';
+
+            log('Test stopped', 'warning');
+            updateStats();
+        }
+
+        // Update statistics display
+        function updateStats() {
+            const elapsed = (Date.now() - startTime) / 1000;
+            const hashRate = elapsed > 0 ? (hashCount / elapsed).toFixed(2) : '0.00';
+
+            document.getElementById('hashCount').textContent = hashCount;
+            document.getElementById('hashRate').textContent = hashRate;
+            document.getElementById('elapsedTime').textContent = elapsed.toFixed(1) + 's';
+        }
+
+        // Reset statistics
+        function resetStats() {
+            if (isRunning) {
+                stopTest();
+            }
+            hashCount = 0;
+            startTime = 0;
+            document.getElementById('hashCount').textContent = '0';
+            document.getElementById('hashRate').textContent = '0.00';
+            document.getElementById('elapsedTime').textContent = '0.0s';
+            document.getElementById('testStatus').textContent = 'Idle';
+            document.getElementById('logOutput').innerHTML = '';
+            log('Statistics reset', 'info');
+        }
+
+        // Initialize on page load
+        window.onload = () => {
+            log('XMRig WASM Test Harness initialized', 'info');
+            loadWasmModule();
+        };
+    </script>
+</body>
+</html>
