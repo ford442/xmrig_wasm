@@ -178,6 +178,12 @@ if (WITH_RANDOMX)
             src/hw/msr/Msr.cpp
             src/hw/msr/MsrItem.cpp
             )
+    elseif (EMSCRIPTEN)
+        list(APPEND HEADERS_CRYPTO src/crypto/rx/RxFix.h)
+        list(APPEND SOURCES_CRYPTO src/crypto/rx/RxFix_wasm.cpp)
+        remove_definitions(/DXMRIG_FEATURE_MSR)
+        remove_definitions(/DXMRIG_FIX_RYZEN)
+        message("-- WITH_MSR=OFF (WASM)")
     else()
         remove_definitions(/DXMRIG_FEATURE_MSR)
         remove_definitions(/DXMRIG_FIX_RYZEN)
