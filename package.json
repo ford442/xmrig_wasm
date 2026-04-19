@@ -1,23 +1,34 @@
 {
-  "name": "xmrig",
+  "name": "xmrig-wasm",
   "version": "3.0.0",
-  "description": "RandomX, CryptoNight and Argon2 miner",
-  "main": "index.js",
+  "description": "RandomX, CryptoNight and Argon2 miner — Emscripten/WASM build",
+  "main": "build_wasm/xmrig.js",
   "directories": {
     "doc": "doc"
   },
   "scripts": {
-    "build": "node scripts/generate_cl.js"
+    "configure":      "node scripts/wasm_build.js configure",
+    "build":          "node scripts/wasm_build.js build",
+    "build:debug":    "BUILD_TYPE=Debug node scripts/wasm_build.js build",
+    "build:release":  "BUILD_TYPE=Release node scripts/wasm_build.js build",
+    "clean":          "node scripts/wasm_build.js clean",
+    "rebuild":        "npm run clean && npm run build",
+    "serve":          "node scripts/wasm_build.js serve",
+    "dev":            "npm run build && npm run serve",
+    "generate-cl":    "node scripts/generate_cl.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xmrig/xmrig.git"
+    "url": "git+https://github.com/ford442/xmrig_wasm.git"
   },
-  "keywords": [],
+  "keywords": ["xmrig", "webassembly", "wasm", "monero", "randomx", "cryptonight", "miner"],
   "author": "",
-  "license": "GPLv3",
+  "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/xmrig/xmrig/issues"
+    "url": "https://github.com/ford442/xmrig_wasm/issues"
   },
-  "homepage": "https://github.com/xmrig/xmrig#readme"
+  "homepage": "https://github.com/ford442/xmrig_wasm#readme",
+  "engines": {
+    "node": ">=14.0.0"
+  }
 }
