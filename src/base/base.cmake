@@ -104,7 +104,7 @@ set(SOURCES_BASE
     src/base/io/log/FileLogWriter.cpp
     src/base/io/log/Log.cpp
     src/base/io/log/Tags.cpp
-    src/base/io/Signals.cpp
+    $<IF:$<BOOL:${EMSCRIPTEN}>,src/base/io/Signals_wasm.cpp,src/base/io/Signals.cpp>
     src/base/io/Watcher.cpp
     src/base/kernel/Base.cpp
     src/base/kernel/config/BaseConfig.cpp
