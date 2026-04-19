@@ -1,0 +1,36 @@
+CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o: \
+  /root/xmrig_wasm/src/crypto/randomx/blake2_generator.cpp \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stddef.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/abi.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/compiler.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/platform.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/availability.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/language.h \
+  /root/emsdk/upstream/lib/clang/23/include/stddef.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/stddef.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_header_macro.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_ptrdiff_t.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_size_t.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_wchar_t.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_null.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_nullptr_t.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_max_align_t.h \
+  /root/emsdk/upstream/lib/clang/23/include/__stddef_offsetof.h \
+  /root/xmrig_wasm/src/crypto/randomx/blake2/blake2.h \
+  /root/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
+  /root/emsdk/upstream/lib/clang/23/include/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
+  /root/xmrig_wasm/src/crypto/randomx/blake2/endian.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /root/xmrig_wasm/src/crypto/randomx/blake2_generator.hpp \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdint

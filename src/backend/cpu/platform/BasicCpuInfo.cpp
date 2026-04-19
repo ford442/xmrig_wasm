@@ -321,8 +321,10 @@ xmrig::BasicCpuInfo::BasicCpuInfo() :
     }
 #   endif
 
+#   ifndef XMRIG_OS_WASM
     cn_sse41_enabled = has(FLAG_SSE41);
-    cn_vaes_enabled = has(FLAG_VAES);
+    cn_vaes_enabled  = has(FLAG_VAES);
+#   endif
 }
 
 

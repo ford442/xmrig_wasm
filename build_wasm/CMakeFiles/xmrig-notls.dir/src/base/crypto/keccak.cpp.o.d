@@ -1,0 +1,24 @@
+CMakeFiles/xmrig-notls.dir/src/base/crypto/keccak.cpp.o: \
+  /root/xmrig_wasm/src/base/crypto/keccak.cpp \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/memory.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/abi.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/compiler.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/platform.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/availability.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/language.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /root/xmrig_wasm/src/base/crypto/keccak.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdint \
+  /root/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstring \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__cstddef/size_t.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_constant_evaluated.h

@@ -71,7 +71,7 @@ char *xmrig::Platform::createUserAgent()
 
 
 #ifndef XMRIG_FEATURE_HWLOC
-#if defined(__DragonFly__) || defined(XMRIG_OS_OPENBSD) || defined(XMRIG_OS_HAIKU)
+#if defined(__DragonFly__) || defined(XMRIG_OS_OPENBSD) || defined(XMRIG_OS_HAIKU) || defined(XMRIG_OS_WASM)
 
 bool xmrig::Platform::setThreadAffinity(uint64_t cpu_id)
 {
@@ -144,7 +144,7 @@ void xmrig::Platform::setThreadPriority(int priority)
 
     setpriority(PRIO_PROCESS, 0, prio);
 
-#   ifdef SCHED_IDLE
+#   if defined(SCHED_IDLE) && !defined(XMRIG_OS_WASM)
     if (priority == 0) {
         sched_param param;
         param.sched_priority = 0;
