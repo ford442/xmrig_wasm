@@ -100,8 +100,6 @@ set(SOURCES_BASE
     src/base/io/json/JsonChain.cpp
     src/base/io/json/JsonRequest.cpp
     src/base/io/log/backends/ConsoleLog.cpp
-    src/base/io/log/backends/FileLog.cpp
-    src/base/io/log/FileLogWriter.cpp
     src/base/io/log/Log.cpp
     src/base/io/log/Tags.cpp
     $<IF:$<BOOL:${EMSCRIPTEN}>,src/base/io/Signals_wasm.cpp,src/base/io/Signals.cpp>
@@ -143,6 +141,13 @@ set(SOURCES_BASE
     src/base/tools/String.cpp
     src/base/tools/Timer.cpp
    )
+
+if (NOT EMSCRIPTEN)
+    list(APPEND SOURCES_BASE
+        src/base/io/log/backends/FileLog.cpp
+        src/base/io/log/FileLogWriter.cpp
+    )
+endif()
 
 
 if (WIN32)

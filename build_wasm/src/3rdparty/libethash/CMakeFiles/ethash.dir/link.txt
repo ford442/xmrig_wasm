@@ -1,0 +1,2 @@
+/workspaces/xmrig_wasm/emsdk/upstream/emscripten/emar qc libethash.a CMakeFiles/ethash.dir/ethash_internal.c.o CMakeFiles/ethash.dir/keccakf800.c.o
+/workspaces/xmrig_wasm/emsdk/upstream/emscripten/emranlib libethash.a
