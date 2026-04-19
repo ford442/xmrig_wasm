@@ -110,7 +110,9 @@ xmrig::CpuWorker<N>::~CpuWorker()
     RxVm::destroy(m_vm);
 #   endif
 
+#   ifndef XMRIG_OS_WASM
     CnCtx::release(m_ctx, N);
+#   endif
 
 #   ifdef XMRIG_ALGO_CN_HEAVY
     if (m_memory != cn_heavyZen3Memory)
@@ -164,7 +166,9 @@ bool xmrig::CpuWorker<N>::selfTest()
     }
 #   endif
 
+#   ifndef XMRIG_OS_WASM
     allocateCnCtx();
+#   endif
 
 #   ifdef XMRIG_ALGO_GHOSTRIDER
     if (m_algorithm.family() == Algorithm::GHOSTRIDER) {
@@ -172,6 +176,7 @@ bool xmrig::CpuWorker<N>::selfTest()
     }
 #   endif
 
+#   ifndef XMRIG_OS_WASM
     if (m_algorithm.family() == Algorithm::CN) {
         const bool rc = verify(Algorithm::CN_0,      test_output_v0)   &&
                         verify(Algorithm::CN_1,      test_output_v1)   &&
@@ -188,6 +193,7 @@ bool xmrig::CpuWorker<N>::selfTest()
 
         return rc;
     }
+#   endif
 
 #   ifdef XMRIG_ALGO_CN_LITE
     if (m_algorithm.family() == Algorithm::CN_LITE) {
@@ -341,9 +347,11 @@ void xmrig::CpuWorker<N>::start()
                     break;
 #               endif
 
+#               ifndef XMRIG_OS_WASM
                 default:
                     fn(job.algorithm())(m_job.blob(), job.size(), m_hash, m_ctx, job.height());
                     break;
+#               endif
                 }
 
                 if (!nextRound()) {
@@ -548,11 +556,15 @@ void xmrig::CpuWorker<N>::consumeJob()
     if (m_job.currentJob().algorithm().family() == Algorithm::RANDOM_X) {
         allocateRandomX_VM();
     }
+#   endif
+#   ifndef XMRIG_OS_WASM
+#   ifdef XMRIG_ALGO_RANDOMX
     else
 #   endif
     {
         allocateCnCtx();
     }
+#   endif
 }
 
 
