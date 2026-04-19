@@ -23,7 +23,7 @@
 #include "crypto/common/VirtualMemory.h"
 
 
-#if defined(XMRIG_ARM) || defined(XMRIG_RISCV)
+#if defined(XMRIG_ARM) || defined(XMRIG_RISCV) || defined(XMRIG_OS_WASM)
 #   include "crypto/cn/CryptoNight_arm.h"
 #else
 #   include "crypto/cn/CryptoNight_x86.h"

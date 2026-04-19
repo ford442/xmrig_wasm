@@ -131,6 +131,7 @@ const char *uv_strerror(int err)
     case UV_ETIMEDOUT:    return "connection timed out";
     case UV_EPIPE:        return "broken pipe";
     case UV_ENOENT:       return "no such file or directory";
+    case UV_ENOBUFS:      return "no buffer space available";
     case UV_EAI_NONAME:   return "host not found";
     default:              return "unknown error";
     }
@@ -148,6 +149,7 @@ const char *uv_err_name(int err)
     case UV_ETIMEDOUT:    return "ETIMEDOUT";
     case UV_EPIPE:        return "EPIPE";
     case UV_ENOENT:       return "ENOENT";
+    case UV_ENOBUFS:      return "ENOBUFS";
     case UV_EAI_NONAME:   return "EAI_NONAME";
     default:              return "UNKNOWN";
     }

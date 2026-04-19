@@ -23,16 +23,19 @@
 #include <thread>
 
 
+#ifndef XMRIG_OS_WASM
 #ifdef _MSC_VER
 #   include <intrin.h>
 #else
 #   include <cpuid.h>
 #endif
-
+#endif
 
 #include "crypto/cn/CryptoNight_monero.h"
 #ifdef XMRIG_VAES
+#   ifndef XMRIG_OS_WASM
 #   include "crypto/cn/CryptoNight_x86_vaes.h"
+#   endif
 #endif
 
 
@@ -74,10 +77,12 @@ static inline void cpuid(uint32_t level, int32_t output[4])
 {
     memset(output, 0, sizeof(int32_t) * 4);
 
+#   ifndef XMRIG_OS_WASM
 #   ifdef _MSC_VER
     __cpuidex(output, static_cast<int>(level), 0);
 #   else
     __cpuid_count(level, 0, output[0], output[1], output[2], output[3]);
+#   endif
 #   endif
 }
 
@@ -130,7 +135,9 @@ static inline int32_t get_masked(int32_t val, int32_t h, int32_t l)
 
 static inline uint64_t xgetbv()
 {
-#ifdef _MSC_VER
+#ifdef XMRIG_OS_WASM
+    return 0; /* No AVX support in WASM */
+#elif defined(_MSC_VER)
     return _xgetbv(_XCR_XFEATURE_ENABLED_MASK);
 #else
     uint32_t eax_reg = 0;

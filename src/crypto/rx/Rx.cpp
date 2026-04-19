@@ -145,13 +145,13 @@ bool xmrig::Rx::init(const T &seed, const RxConfig &config, const CpuConfig &cpu
             SelectSoftAESImpl(cpu.threads().get(seed.algorithm()).count());
         }
 
-#       if defined(XMRIG_FEATURE_SSE4_1)
+#       if defined(XMRIG_FEATURE_SSE4_1) && !defined(XMRIG_OS_WASM)
         if (Cpu::info()->has(ICpuInfo::FLAG_SSE41)) {
             rx_blake2b_compress = rx_blake2b_compress_sse41;
         }
 #       endif
 
-#if     defined(XMRIG_FEATURE_AVX2)
+#if     defined(XMRIG_FEATURE_AVX2) && !defined(XMRIG_OS_WASM)
         if (Cpu::info()->has(ICpuInfo::FLAG_AVX2)) {
             rx_blake2b = blake2b_avx2;
         }

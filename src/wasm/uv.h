@@ -45,16 +45,17 @@ const char *uv_version_string(void);
 /* -------------------------------------------------------------------------
  * Error codes
  * ---------------------------------------------------------------------- */
-#define UV__EOF       (-4095)
-#define UV__ENOTSUP   (-4094)
-#define UV__EINVAL    (-22)
-#define UV__ENOMEM    (-12)
+#define UV__EOF          (-4095)
+#define UV__ENOTSUP      (-4094)
+#define UV__EINVAL       (-22)
+#define UV__ENOMEM       (-12)
 #define UV__ECONNREFUSED (-111)
 #define UV__ECONNRESET   (-104)
 #define UV__ETIMEDOUT    (-110)
 #define UV__EPIPE        (-32)
 #define UV__ENOENT       (-2)
 #define UV__EACCES       (-13)
+#define UV__ENOBUFS      (-105)
 #define UV__EAI_NONAME   (-3008)
 #define UV__EAI_AGAIN    (-3001)
 #define UV__EAI_FAIL     (-3002)
@@ -69,6 +70,7 @@ const char *uv_version_string(void);
 #define UV_EPIPE          UV__EPIPE
 #define UV_ENOENT         UV__ENOENT
 #define UV_EACCES         UV__EACCES
+#define UV_ENOBUFS        UV__ENOBUFS
 #define UV_EAI_NONAME     UV__EAI_NONAME
 #define UV_EAI_AGAIN      UV__EAI_AGAIN
 #define UV_EAI_FAIL       UV__EAI_FAIL
