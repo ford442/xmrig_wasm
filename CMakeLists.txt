@@ -41,6 +41,24 @@ option(HWLOC_DEBUG          "Enable hwloc debug helpers and log" OFF)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake")
 
+# Emscripten/WASM: force-disable incompatible features before any includes
+if (EMSCRIPTEN)
+    set(WITH_HWLOC    OFF CACHE BOOL "" FORCE)
+    set(WITH_TLS      OFF CACHE BOOL "" FORCE)
+    set(WITH_MSR      OFF CACHE BOOL "" FORCE)
+    set(WITH_DMI      OFF CACHE BOOL "" FORCE)
+    set(WITH_OPENCL   OFF CACHE BOOL "" FORCE)
+    set(WITH_CUDA     OFF CACHE BOOL "" FORCE)
+    set(WITH_NVML     OFF CACHE BOOL "" FORCE)
+    set(WITH_ADL      OFF CACHE BOOL "" FORCE)
+    set(WITH_SSE4_1   OFF CACHE BOOL "" FORCE)
+    set(WITH_AVX2     OFF CACHE BOOL "" FORCE)
+    set(WITH_VAES     OFF CACHE BOOL "" FORCE)
+    set(WITH_ASM      OFF CACHE BOOL "" FORCE)
+    set(WITH_SECURE_JIT OFF CACHE BOOL "" FORCE)
+    set(WITH_HTTP     OFF CACHE BOOL "" FORCE)
+    message(STATUS "Emscripten/WASM build detected — disabling incompatible features")
+endif()
 
 include (CheckIncludeFile)
 include (cmake/cpu.cmake)
@@ -155,7 +173,12 @@ if (WITH_HWLOC)
         )
 endif()
 
-if (XMRIG_OS_WIN)
+if (XMRIG_OS_WASM)
+    list(APPEND SOURCES_OS
+        src/App_wasm.cpp
+        src/crypto/common/VirtualMemory_wasm.cpp
+        )
+elseif (XMRIG_OS_WIN)
     list(APPEND SOURCES_OS
         res/app.rc
         src/App_win.cpp
@@ -195,7 +218,9 @@ endif()
 add_definitions(-DXMRIG_MINER_PROJECT -DXMRIG_JSON_SINGLE_LINE_ARRAY)
 add_definitions(-D__STDC_FORMAT_MACROS -DUNICODE -D_FILE_OFFSET_BITS=64)
 
-find_package(UV REQUIRED)
+if (NOT EMSCRIPTEN)
+    find_package(UV REQUIRED)
+endif()
 
 include(cmake/flags.cmake)
 include(cmake/randomx.cmake)
@@ -230,14 +255,20 @@ include(src/hw/dmi/dmi.cmake)
 
 include_directories(src)
 include_directories(src/3rdparty)
-include_directories(${UV_INCLUDE_DIR})
+if (NOT EMSCRIPTEN)
+    include_directories(${UV_INCLUDE_DIR})
+endif()
 
 if (WITH_DEBUG_LOG)
     add_definitions(/DAPP_DEBUG)
 endif()
 
 add_executable(${CMAKE_PROJECT_NAME} ${HEADERS} ${SOURCES} ${SOURCES_OS} ${HEADERS_CRYPTO} ${SOURCES_CRYPTO} ${SOURCES_SYSLOG} ${TLS_SOURCES} ${XMRIG_ASM_SOURCES})
-target_link_libraries(${CMAKE_PROJECT_NAME} ${XMRIG_ASM_LIBRARY} ${OPENSSL_LIBRARIES} ${UV_LIBRARIES} ${EXTRA_LIBS} ${CPUID_LIB} ${ARGON2_LIBRARY} ${ETHASH_LIBRARY} ${GHOSTRIDER_LIBRARY})
+if (EMSCRIPTEN)
+    target_link_libraries(${CMAKE_PROJECT_NAME} ${XMRIG_ASM_LIBRARY} ${EXTRA_LIBS} ${ARGON2_LIBRARY} ${ETHASH_LIBRARY} ${GHOSTRIDER_LIBRARY})
+else()
+    target_link_libraries(${CMAKE_PROJECT_NAME} ${XMRIG_ASM_LIBRARY} ${OPENSSL_LIBRARIES} ${UV_LIBRARIES} ${EXTRA_LIBS} ${CPUID_LIB} ${ARGON2_LIBRARY} ${ETHASH_LIBRARY} ${GHOSTRIDER_LIBRARY})
+endif()
 
 if (WIN32)
     if (NOT ARM_TARGET)

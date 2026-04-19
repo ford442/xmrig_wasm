@@ -1,4 +1,7 @@
-if (WIN32)
+if (EMSCRIPTEN OR CMAKE_SYSTEM_NAME STREQUAL "Emscripten")
+    set(XMRIG_OS_WASM ON)
+    add_definitions(-DXMRIG_OS_WASM)
+elseif (WIN32)
     set(XMRIG_OS_WIN ON)
 elseif (APPLE)
     set(XMRIG_OS_APPLE ON)
