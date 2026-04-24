@@ -622,4 +622,10 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_char_like_type.h \
   /root/xmrig_wasm/src/crypto/randomx/randomx.h \
   /root/xmrig_wasm/src/crypto/randomx/intrin_portable.h \
-  /root/xmrig_wasm/src/crypto/randomx/blake2/endian.h
+  /root/xmrig_wasm/src/crypto/randomx/blake2/endian.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/emmintrin.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/xmmintrin.h \
+  /root/emsdk/upstream/lib/clang/23/include/wasm_simd128.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdbool.h \
+  /root/emsdk/upstream/lib/clang/23/include/stdbool.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdbool.h

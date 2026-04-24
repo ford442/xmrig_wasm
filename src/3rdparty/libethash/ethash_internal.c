@@ -34,7 +34,9 @@
 #include "base/crypto/sha3.h"
 
 #if defined(_M_X64) || defined(__x86_64__) || defined(__SSE2__)
-	#ifdef __GNUC__
+	#if defined(__EMSCRIPTEN__)
+		#include <emmintrin.h>
+	#elif defined(__GNUC__)
 		#include <x86intrin.h>
 	#else
 		#include <intrin.h>

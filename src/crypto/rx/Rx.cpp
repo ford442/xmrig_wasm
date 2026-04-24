@@ -46,7 +46,7 @@ static RxPrivate *d_ptr     = nullptr;
 class RxPrivate
 {
 public:
-    inline explicit RxPrivate(IRxListener *listener) : queue(listener) {}
+    inline explicit RxPrivate(std::function<void()> callback) : queue(std::move(callback)) {}
 
     RxQueue queue;
 };
@@ -79,9 +79,9 @@ void xmrig::Rx::destroy()
 }
 
 
-void xmrig::Rx::init(IRxListener *listener)
+void xmrig::Rx::init(std::function<void()> callback)
 {
-    d_ptr = new RxPrivate(listener);
+    d_ptr = new RxPrivate(std::move(callback));
 }
 
 
@@ -98,6 +98,7 @@ int (*rx_blake2b)(void* out, size_t outlen, const void* in, size_t inlen) = rx_b
 template<typename T>
 bool xmrig::Rx::init(const T &seed, const RxConfig &config, const CpuConfig &cpu)
 {
+    fprintf(stderr, "DEBUG Rx::init enter\n");
     const auto f = seed.algorithm().family();
     if ((f != Algorithm::RANDOM_X)
 #       ifdef XMRIG_ALGO_CN_HEAVY
@@ -132,17 +133,21 @@ bool xmrig::Rx::init(const T &seed, const RxConfig &config, const CpuConfig &cpu
     }
 #   endif
 
+    fprintf(stderr, "DEBUG Rx::init setting randomx params\n");
     randomx_set_scratchpad_prefetch_mode(config.scratchpadPrefetchMode());
     randomx_set_huge_pages_jit(cpu.isHugePagesJit());
     randomx_set_optimized_dataset_init(config.initDatasetAVX2());
 
     if (!osInitialized) {
+        fprintf(stderr, "DEBUG Rx::init osInitializing\n");
 #       ifdef XMRIG_FIX_RYZEN
         RxFix::setupMainLoopExceptionFrame();
 #       endif
 
         if (!cpu.isHwAES()) {
+            fprintf(stderr, "DEBUG Rx::init selecting soft AES\n");
             SelectSoftAESImpl(cpu.threads().get(seed.algorithm()).count());
+            fprintf(stderr, "DEBUG Rx::init soft AES done\n");
         }
 
 #       if defined(XMRIG_FEATURE_SSE4_1) && !defined(XMRIG_OS_WASM)
@@ -160,11 +165,15 @@ bool xmrig::Rx::init(const T &seed, const RxConfig &config, const CpuConfig &cpu
         osInitialized = true;
     }
 
+    fprintf(stderr, "DEBUG Rx::init checking ready\n");
     if (isReady(seed)) {
+        fprintf(stderr, "DEBUG Rx::init already ready\n");
         return true;
     }
 
+    fprintf(stderr, "DEBUG Rx::init enqueuing\n");
     d_ptr->queue.enqueue(seed, config.nodeset(), config.threads(cpu.limit()), cpu.isHugePages(), config.isOneGbPages(), config.mode(), cpu.priority());
+    fprintf(stderr, "DEBUG Rx::init enqueue done\n");
 
     return false;
 }

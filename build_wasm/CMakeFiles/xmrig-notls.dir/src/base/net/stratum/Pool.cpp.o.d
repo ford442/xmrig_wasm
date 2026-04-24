@@ -704,6 +704,7 @@ CMakeFiles/xmrig-notls.dir/src/base/net/stratum/Pool.cpp.o: \
   /root/xmrig_wasm/src/base/net/stratum/SubmitResult.h \
   /root/xmrig_wasm/src/base/net/tools/LineReader.h \
   /root/xmrig_wasm/src/base/net/tools/Storage.h \
+  /root/xmrig_wasm/src/base/net/stratum/WebSocketClient.h \
   /root/xmrig_wasm/src/base/net/stratum/AutoClient.h \
   /root/xmrig_wasm/src/base/net/stratum/EthStratumClient.h \
   /root/xmrig_wasm/src/base/net/stratum/benchmark/BenchClient.h \

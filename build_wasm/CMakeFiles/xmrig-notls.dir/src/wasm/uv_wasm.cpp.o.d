@@ -657,4 +657,12 @@ CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/em_types.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/promise.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/version.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/wget.h
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/wget.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/threading.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/atomic.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/threading_legacy.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/html5.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/console.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/eventloop.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/html5_webgl.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/emscripten/threading_primitives.h

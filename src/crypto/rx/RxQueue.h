@@ -30,6 +30,7 @@
 
 
 #include <condition_variable>
+#include <functional>
 #include <mutex>
 #include <thread>
 
@@ -71,7 +72,7 @@ class RxQueue : public IAsyncListener
 public:
     XMRIG_DISABLE_COPY_MOVE(RxQueue);
 
-    RxQueue(IRxListener *listener);
+    RxQueue(std::function<void()> callback);
     ~RxQueue() override;
 
     HugePagesInfo hugePages();
@@ -91,9 +92,10 @@ private:
 
     template<typename T> bool isReadyUnsafe(const T &seed) const;
     void backgroundInit();
+    void processOne();
     void onReady();
 
-    IRxListener *m_listener = nullptr;
+    std::function<void()> m_callback;
     IRxStorage *m_storage   = nullptr;
     RxSeed m_seed;
     State m_state = STATE_IDLE;

@@ -52,10 +52,6 @@ if (EMSCRIPTEN)
     set(WITH_NVML     OFF CACHE BOOL "" FORCE)
     set(WITH_ADL      OFF CACHE BOOL "" FORCE)
     set(WITH_GHOSTRIDER OFF CACHE BOOL "" FORCE)
-    set(WITH_CN_LITE OFF CACHE BOOL "" FORCE)
-    set(WITH_CN_HEAVY OFF CACHE BOOL "" FORCE)
-    set(WITH_CN_PICO OFF CACHE BOOL "" FORCE)
-    set(WITH_CN_FEMTO OFF CACHE BOOL "" FORCE)
     set(WITH_SSE4_1   OFF CACHE BOOL "" FORCE)
     set(WITH_AVX2     OFF CACHE BOOL "" FORCE)
     set(WITH_VAES     OFF CACHE BOOL "" FORCE)
@@ -142,6 +138,10 @@ set(SOURCES
     src/xmrig.cpp
    )
 
+if (EMSCRIPTEN)
+    list(APPEND SOURCES src/base/net/stratum/WebSocketClient.cpp)
+endif()
+
 set(SOURCES_CRYPTO
     src/crypto/cn/c_blake256.c
     src/crypto/cn/c_groestl.c
@@ -155,16 +155,8 @@ set(SOURCES_CRYPTO
     src/crypto/common/VirtualMemory.cpp
    )
 
-if (EMSCRIPTEN)
-    list(REMOVE_ITEM SOURCES_CRYPTO
-        src/crypto/cn/c_blake256.c
-        src/crypto/cn/c_groestl.c
-        src/crypto/cn/c_jh.c
-        src/crypto/cn/c_skein.c
-        src/crypto/cn/CnCtx.cpp
-        src/crypto/cn/CnHash.cpp
-    )
-endif()
+# CryptoNight sources kept for Emscripten builds
+# (previously removed; restored for full algorithm support)
 
 if (CMAKE_C_COMPILER_ID MATCHES GNU)
     set_source_files_properties(src/crypto/cn/CnHash.cpp PROPERTIES COMPILE_FLAGS "-Ofast -fno-tree-vectorize")

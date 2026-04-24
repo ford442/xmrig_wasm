@@ -175,10 +175,12 @@ xmrig::IWorker *xmrig::Workers<T>::create(Thread<T> *)
 template<class T>
 void *xmrig::Workers<T>::onReady(void *arg)
 {
+    fprintf(stderr, "DEBUG Workers::onReady enter\n");
     auto handle = static_cast<Thread<T>* >(arg);
 
     IWorker *worker = create(handle);
     assert(worker != nullptr);
+    fprintf(stderr, "DEBUG Workers::onReady worker created\n");
 
     if (!worker || !worker->selfTest()) {
         LOG_ERR("%s " RED("thread ") RED_BOLD("#%zu") RED(" self-test failed"), T::tag(), worker ? worker->id() : 0);
@@ -188,11 +190,14 @@ void *xmrig::Workers<T>::onReady(void *arg)
 
         return nullptr;
     }
+    fprintf(stderr, "DEBUG Workers::onReady self-test passed\n");
 
     assert(handle->backend() != nullptr);
 
     handle->setWorker(worker);
+    fprintf(stderr, "DEBUG Workers::onReady calling backend->start\n");
     handle->backend()->start(worker, true);
+    fprintf(stderr, "DEBUG Workers::onReady backend->start done\n");
 
     return nullptr;
 }
@@ -201,6 +206,7 @@ void *xmrig::Workers<T>::onReady(void *arg)
 template<class T>
 void xmrig::Workers<T>::start(const std::vector<T> &data, bool /*sleep*/)
 {
+    fprintf(stderr, "DEBUG Workers::start enter, data.size=%zu\n", data.size());
     for (const auto &item : data) {
         m_workers.push_back(new Thread<T>(d_ptr->backend, m_workers.size(), item));
     }
@@ -211,9 +217,13 @@ void xmrig::Workers<T>::start(const std::vector<T> &data, bool /*sleep*/)
     Nonce::touch(T::backend());
 #   endif
 
+    fprintf(stderr, "DEBUG Workers::start starting workers\n");
     for (auto worker : m_workers) {
+        fprintf(stderr, "DEBUG Workers::start starting one worker\n");
         worker->start(Workers<T>::onReady);
+        fprintf(stderr, "DEBUG Workers::start worker started\n");
     }
+    fprintf(stderr, "DEBUG Workers::start done\n");
 }
 
 

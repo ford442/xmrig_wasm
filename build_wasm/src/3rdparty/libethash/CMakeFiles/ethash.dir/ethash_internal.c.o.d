@@ -38,4 +38,10 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o: \
   /root/xmrig_wasm/src/3rdparty/libethash/ethash_internal.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/stdio.h \
   /root/xmrig_wasm/src/3rdparty/libethash/data_sizes.h \
-  /root/xmrig_wasm/src/3rdparty/libethash/../../base/crypto/sha3.h
+  /root/xmrig_wasm/src/3rdparty/libethash/../../base/crypto/sha3.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/emmintrin.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/xmmintrin.h \
+  /root/emsdk/upstream/lib/clang/23/include/wasm_simd128.h \
+  /root/emsdk/upstream/lib/clang/23/include/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h

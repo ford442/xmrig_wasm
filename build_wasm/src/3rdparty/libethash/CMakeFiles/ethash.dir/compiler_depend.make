@@ -6,15 +6,19 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o: /root/xmrig_wa
   /root/emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/errno.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/byteswap.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/emmintrin.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/stdlib.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/xmmintrin.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/endian.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/errno.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/inttypes.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/math.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/stdbool.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/stddef.h \
@@ -32,9 +36,11 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o: /root/xmrig_wa
   /root/emsdk/upstream/lib/clang/23/include/__stddef_wchar_t.h \
   /root/emsdk/upstream/lib/clang/23/include/endian.h \
   /root/emsdk/upstream/lib/clang/23/include/inttypes.h \
+  /root/emsdk/upstream/lib/clang/23/include/limits.h \
   /root/emsdk/upstream/lib/clang/23/include/stdbool.h \
   /root/emsdk/upstream/lib/clang/23/include/stddef.h \
   /root/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /root/emsdk/upstream/lib/clang/23/include/wasm_simd128.h \
   /root/xmrig_wasm/src/base/crypto/sha3.h \
   /root/xmrig_wasm/src/3rdparty/libethash/data_sizes.h \
   /root/xmrig_wasm/src/3rdparty/libethash/endian.h \
@@ -53,8 +59,6 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o: /root/xmrig_wasm/sr
 
 /root/xmrig_wasm/src/3rdparty/libethash/ethash.h:
 
-/root/xmrig_wasm/src/3rdparty/libethash/endian.h:
-
 /root/xmrig_wasm/src/3rdparty/libethash/data_sizes.h:
 
 /root/emsdk/upstream/lib/clang/23/include/stdint.h:
@@ -63,13 +67,29 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o: /root/xmrig_wasm/sr
 
 /root/emsdk/upstream/lib/clang/23/include/endian.h:
 
-/root/emsdk/upstream/lib/clang/23/include/inttypes.h:
-
-/root/emsdk/upstream/emscripten/cache/sysroot/include/features.h:
+/root/emsdk/upstream/lib/clang/23/include/__stddef_offsetof.h:
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h:
 
+/root/xmrig_wasm/src/3rdparty/libethash/endian.h:
+
+/root/emsdk/upstream/lib/clang/23/include/wasm_simd128.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/compat/emmintrin.h:
+
 /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/compat/xmmintrin.h:
+
+/root/emsdk/upstream/lib/clang/23/include/limits.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/assert.h:
+
+/root/xmrig_wasm/src/base/crypto/sha3.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/endian.h:
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/stdlib.h:
 
@@ -81,13 +101,11 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o: /root/xmrig_wasm/sr
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h:
 
+/root/emsdk/upstream/lib/clang/23/include/__stddef_wchar_t.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h:
+
 /root/emsdk/upstream/emscripten/cache/sysroot/include/stdio.h:
-
-/root/emsdk/upstream/emscripten/cache/sysroot/include/assert.h:
-
-/root/xmrig_wasm/src/base/crypto/sha3.h:
-
-/root/emsdk/upstream/emscripten/cache/sysroot/include/endian.h:
 
 /root/xmrig_wasm/src/3rdparty/libethash/ethash_internal.h:
 
@@ -95,15 +113,25 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o: /root/xmrig_wasm/sr
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/wasi/api.h:
 
-/root/emsdk/upstream/emscripten/cache/sysroot/include/math.h:
+/root/emsdk/upstream/lib/clang/23/include/stdbool.h:
 
-/root/emsdk/upstream/lib/clang/23/include/__stddef_offsetof.h:
+/root/emsdk/upstream/lib/clang/23/include/__stddef_ptrdiff_t.h:
+
+/root/xmrig_wasm/src/3rdparty/libethash/ethash_internal.c:
+
+/root/emsdk/upstream/lib/clang/23/include/inttypes.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/features.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h:
 
 /root/emsdk/upstream/lib/clang/23/include/__stddef_size_t.h:
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/byteswap.h:
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/stdbool.h:
+
+/root/emsdk/upstream/emscripten/cache/sysroot/include/math.h:
 
 /root/emsdk/upstream/emscripten/cache/sysroot/include/errno.h:
 
@@ -120,13 +148,3 @@ src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o: /root/xmrig_wasm/sr
 /root/emsdk/upstream/emscripten/cache/sysroot/include/strings.h:
 
 /root/emsdk/upstream/lib/clang/23/include/__stddef_null.h:
-
-/root/emsdk/upstream/lib/clang/23/include/stdbool.h:
-
-/root/xmrig_wasm/src/3rdparty/libethash/ethash_internal.c:
-
-/root/emsdk/upstream/lib/clang/23/include/__stddef_ptrdiff_t.h:
-
-/root/emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h:
-
-/root/emsdk/upstream/lib/clang/23/include/__stddef_wchar_t.h:

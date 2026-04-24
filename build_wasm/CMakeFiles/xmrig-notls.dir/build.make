@@ -1203,10 +1203,24 @@ CMakeFiles/xmrig-notls.dir/src/xmrig.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xmrig-notls.dir/src/xmrig.cpp.s"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/xmrig_wasm/src/xmrig.cpp -o CMakeFiles/xmrig-notls.dir/src/xmrig.cpp.s
 
+CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o: /root/xmrig_wasm/src/base/net/stratum/WebSocketClient.cpp
+CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o -c /root/xmrig_wasm/src/base/net/stratum/WebSocketClient.cpp
+
+CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.i"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/xmrig_wasm/src/base/net/stratum/WebSocketClient.cpp > CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.i
+
+CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.s"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/xmrig_wasm/src/base/net/stratum/WebSocketClient.cpp -o CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.s
+
 CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o: /root/xmrig_wasm/src/base/io/json/Json_unix.cpp
 CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o -c /root/xmrig_wasm/src/base/io/json/Json_unix.cpp
 
 CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.i: cmake_force
@@ -1220,7 +1234,7 @@ CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o: /root/xmrig_wasm/src/base/kernel/Platform_unix.cpp
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o -c /root/xmrig_wasm/src/base/kernel/Platform_unix.cpp
 
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.i: cmake_force
@@ -1234,7 +1248,7 @@ CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o: /root/xmrig_wasm/src/base/kernel/Process_unix.cpp
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o -c /root/xmrig_wasm/src/base/kernel/Process_unix.cpp
 
 CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.i: cmake_force
@@ -1248,7 +1262,7 @@ CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o: /root/xmrig_wasm/src/App_wasm.cpp
 CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o -c /root/xmrig_wasm/src/App_wasm.cpp
 
 CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.i: cmake_force
@@ -1262,7 +1276,7 @@ CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o: /root/xmrig_wasm/src/crypto/common/VirtualMemory_wasm.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o -c /root/xmrig_wasm/src/crypto/common/VirtualMemory_wasm.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.i: cmake_force
@@ -1276,7 +1290,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.s: cmake_for
 CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o: /root/xmrig_wasm/src/wasm/uv_wasm.cpp
 CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o -c /root/xmrig_wasm/src/wasm/uv_wasm.cpp
 
 CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.i: cmake_force
@@ -1287,10 +1301,94 @@ CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.s"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/xmrig_wasm/src/wasm/uv_wasm.cpp -o CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.s
 
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o: /root/xmrig_wasm/src/crypto/cn/c_blake256.c
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o -c /root/xmrig_wasm/src/crypto/cn/c_blake256.c
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.i"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/xmrig_wasm/src/crypto/cn/c_blake256.c > CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.i
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.s"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/xmrig_wasm/src/crypto/cn/c_blake256.c -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.s
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o: /root/xmrig_wasm/src/crypto/cn/c_groestl.c
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o -c /root/xmrig_wasm/src/crypto/cn/c_groestl.c
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.i"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/xmrig_wasm/src/crypto/cn/c_groestl.c > CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.i
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.s"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/xmrig_wasm/src/crypto/cn/c_groestl.c -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.s
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o: /root/xmrig_wasm/src/crypto/cn/c_jh.c
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o -c /root/xmrig_wasm/src/crypto/cn/c_jh.c
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.i"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/xmrig_wasm/src/crypto/cn/c_jh.c > CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.i
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.s"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/xmrig_wasm/src/crypto/cn/c_jh.c -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.s
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o: /root/xmrig_wasm/src/crypto/cn/c_skein.c
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o -c /root/xmrig_wasm/src/crypto/cn/c_skein.c
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.i"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /root/xmrig_wasm/src/crypto/cn/c_skein.c > CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.i
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.s"
+	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /root/xmrig_wasm/src/crypto/cn/c_skein.c -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.s
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o: /root/xmrig_wasm/src/crypto/cn/CnCtx.cpp
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o -c /root/xmrig_wasm/src/crypto/cn/CnCtx.cpp
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.i"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/xmrig_wasm/src/crypto/cn/CnCtx.cpp > CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.i
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.s"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/xmrig_wasm/src/crypto/cn/CnCtx.cpp -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.s
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o: /root/xmrig_wasm/src/crypto/cn/CnHash.cpp
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o -c /root/xmrig_wasm/src/crypto/cn/CnHash.cpp
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.i"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /root/xmrig_wasm/src/crypto/cn/CnHash.cpp > CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.i
+
+CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.s"
+	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /root/xmrig_wasm/src/crypto/cn/CnHash.cpp -o CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.s
+
 CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o: /root/xmrig_wasm/src/crypto/common/HugePagesInfo.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o -c /root/xmrig_wasm/src/crypto/common/HugePagesInfo.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.i: cmake_force
@@ -1304,7 +1402,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o: /root/xmrig_wasm/src/crypto/common/MemoryPool.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o -c /root/xmrig_wasm/src/crypto/common/MemoryPool.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.i: cmake_force
@@ -1318,7 +1416,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o: /root/xmrig_wasm/src/crypto/common/Nonce.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o -c /root/xmrig_wasm/src/crypto/common/Nonce.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.i: cmake_force
@@ -1332,7 +1430,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o: /root/xmrig_wasm/src/crypto/common/VirtualMemory.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.o -c /root/xmrig_wasm/src/crypto/common/VirtualMemory.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.i: cmake_force
@@ -1346,7 +1444,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o: /root/xmrig_wasm/src/crypto/randomx/aes_hash.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/aes_hash.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.i: cmake_force
@@ -1360,7 +1458,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/aes_hash.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o: /root/xmrig_wasm/src/crypto/randomx/allocator.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/allocator.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.i: cmake_force
@@ -1374,7 +1472,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/allocator.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o: /root/xmrig_wasm/src/crypto/randomx/blake2_generator.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/blake2_generator.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.i: cmake_force
@@ -1388,7 +1486,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2_generator.cpp.s: cmake_forc
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o: /root/xmrig_wasm/src/crypto/randomx/blake2/blake2b.c
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o"
 	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.o -c /root/xmrig_wasm/src/crypto/randomx/blake2/blake2b.c
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.i: cmake_force
@@ -1402,7 +1500,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/blake2/blake2b.c.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o: /root/xmrig_wasm/src/crypto/randomx/bytecode_machine.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/bytecode_machine.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.i: cmake_force
@@ -1416,7 +1514,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.s: cmake_forc
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o: /root/xmrig_wasm/src/crypto/randomx/dataset.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/dataset.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.i: cmake_force
@@ -1430,7 +1528,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/dataset.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o: /root/xmrig_wasm/src/crypto/randomx/instructions_portable.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/instructions_portable.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.i: cmake_force
@@ -1444,7 +1542,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/instructions_portable.cpp.s: cmake
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o: /root/xmrig_wasm/src/crypto/randomx/randomx.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/randomx.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.i: cmake_force
@@ -1458,7 +1556,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/randomx.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o: /root/xmrig_wasm/src/crypto/randomx/reciprocal.c
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building C object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o"
 	/root/emsdk/upstream/emscripten/emcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.o -c /root/xmrig_wasm/src/crypto/randomx/reciprocal.c
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.i: cmake_force
@@ -1472,7 +1570,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/reciprocal.c.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o: /root/xmrig_wasm/src/crypto/randomx/soft_aes.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/soft_aes.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.i: cmake_force
@@ -1486,7 +1584,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/soft_aes.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o: /root/xmrig_wasm/src/crypto/randomx/superscalar.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/superscalar.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.i: cmake_force
@@ -1500,7 +1598,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/superscalar.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o: /root/xmrig_wasm/src/crypto/randomx/virtual_machine.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/virtual_machine.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.i: cmake_force
@@ -1514,7 +1612,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_machine.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o: /root/xmrig_wasm/src/crypto/randomx/virtual_memory.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/virtual_memory.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.i: cmake_force
@@ -1528,7 +1626,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/virtual_memory.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o: /root/xmrig_wasm/src/crypto/randomx/vm_compiled_light.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/vm_compiled_light.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.i: cmake_force
@@ -1542,7 +1640,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled_light.cpp.s: cmake_for
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o: /root/xmrig_wasm/src/crypto/randomx/vm_compiled.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/vm_compiled.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.i: cmake_force
@@ -1556,7 +1654,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_compiled.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o: /root/xmrig_wasm/src/crypto/randomx/vm_interpreted_light.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/vm_interpreted_light.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.i: cmake_force
@@ -1570,7 +1668,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted_light.cpp.s: cmake_
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o: /root/xmrig_wasm/src/crypto/randomx/vm_interpreted.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/vm_interpreted.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.i: cmake_force
@@ -1584,7 +1682,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/vm_interpreted.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o: /root/xmrig_wasm/src/crypto/rx/Rx.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.o -c /root/xmrig_wasm/src/crypto/rx/Rx.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.i: cmake_force
@@ -1598,7 +1696,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/Rx.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxAlgo.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxAlgo.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.i: cmake_force
@@ -1612,7 +1710,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxAlgo.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxBasicStorage.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxBasicStorage.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.i: cmake_force
@@ -1626,7 +1724,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxBasicStorage.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxCache.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxCache.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.i: cmake_force
@@ -1640,7 +1738,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxCache.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxConfig.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxConfig.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.i: cmake_force
@@ -1654,7 +1752,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxConfig.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxDataset.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxDataset.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.i: cmake_force
@@ -1668,7 +1766,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxDataset.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxQueue.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxQueue.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.i: cmake_force
@@ -1682,7 +1780,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxQueue.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxVm.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxVm.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.i: cmake_force
@@ -1696,7 +1794,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o: /root/xmrig_wasm/src/crypto/randomx/jit_compiler_fallback.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.o -c /root/xmrig_wasm/src/crypto/randomx/jit_compiler_fallback.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.i: cmake_force
@@ -1710,7 +1808,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/jit_compiler_fallback.cpp.s: cmake
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o: /root/xmrig_wasm/src/crypto/rx/RxFix_wasm.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.o -c /root/xmrig_wasm/src/crypto/rx/RxFix_wasm.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.i: cmake_force
@@ -1724,7 +1822,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxFix_wasm.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o: /root/xmrig_wasm/src/crypto/argon2/Impl.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.o -c /root/xmrig_wasm/src/crypto/argon2/Impl.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.i: cmake_force
@@ -1738,7 +1836,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o: /root/xmrig_wasm/src/crypto/kawpow/KPCache.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.o -c /root/xmrig_wasm/src/crypto/kawpow/KPCache.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.i: cmake_force
@@ -1752,7 +1850,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPCache.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o: /root/xmrig_wasm/src/crypto/kawpow/KPHash.cpp
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.o -c /root/xmrig_wasm/src/crypto/kawpow/KPHash.cpp
 
 CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.i: cmake_force
@@ -1766,7 +1864,7 @@ CMakeFiles/xmrig-notls.dir/src/crypto/kawpow/KPHash.cpp.s: cmake_force
 CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o: CMakeFiles/xmrig-notls.dir/flags.make
 CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o: /root/xmrig_wasm/src/base/io/log/backends/SysLog.cpp
 CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o: CMakeFiles/xmrig-notls.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o"
 	/root/emsdk/upstream/emscripten/em++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o -MF CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o.d -o CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.o -c /root/xmrig_wasm/src/base/io/log/backends/SysLog.cpp
 
 CMakeFiles/xmrig-notls.dir/src/base/io/log/backends/SysLog.cpp.i: cmake_force
@@ -1860,12 +1958,19 @@ xmrig__notls_OBJECTS = \
 "CMakeFiles/xmrig-notls.dir/src/net/strategies/DonateStrategy.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/Summary.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/xmrig.cpp.o" \
+"CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o" \
+"CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o" \
+"CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o" \
+"CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o" \
+"CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o" \
+"CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o" \
+"CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o" \
 "CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o" \
@@ -1986,12 +2091,19 @@ xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/net/Network.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/net/strategies/DonateStrategy.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/Summary.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/xmrig.cpp.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/base/io/json/Json_unix.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/base/kernel/Platform_unix.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/base/kernel/Process_unix.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/App_wasm.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/common/VirtualMemory_wasm.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/wasm/uv_wasm.cpp.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o
+xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/common/HugePagesInfo.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/common/MemoryPool.cpp.o
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/src/crypto/common/Nonce.cpp.o
@@ -2031,7 +2143,7 @@ xmrig-notls.js: CMakeFiles/xmrig-notls.dir/build.make
 xmrig-notls.js: src/3rdparty/argon2/libargon2.a
 xmrig-notls.js: src/3rdparty/libethash/libethash.a
 xmrig-notls.js: CMakeFiles/xmrig-notls.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Linking CXX executable xmrig-notls.js"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/root/xmrig_wasm/build_wasm/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Linking CXX executable xmrig-notls.js"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/xmrig-notls.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

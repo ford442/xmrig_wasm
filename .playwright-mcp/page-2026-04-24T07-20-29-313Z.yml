@@ -1,0 +1,5 @@
+- generic [ref=e2]:
+  - heading "🪨 XMRig WASM Real Miner Test" [level=1] [ref=e3]
+  - generic [ref=e4]: ✅ WASM ready - benchmark queued
+  - button "▶ Run Benchmark (100 hashes)" [ref=e6] [cursor=pointer]
+  - generic [ref=e7]: "[9:20:00 AM] WASM runtime initialized successfully [9:20:00 AM] [WASM] [2026-04-24 09:20:00.601] unable to open \"\". [9:20:00 AM] [WASM] [2026-04-24 09:20:00.604] unable to open \"\". [9:20:00 AM] [WASM] [2026-04-24 09:20:00.604] unable to open \"\". [9:20:00 AM] [WASM] [2026-04-24 09:20:00.604] no valid configuration found, try https://xmrig.com/wizard"

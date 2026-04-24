@@ -135,13 +135,17 @@ const char *xmrig::BenchClient::tag() const
 
 void xmrig::BenchClient::connect()
 {
+    fprintf(stderr, "DEBUG BenchClient::connect mode=%u\n", m_mode);
 #   ifdef XMRIG_FEATURE_HTTP
     if (m_mode == ONLINE_BENCH || m_mode == ONLINE_VERIFY) {
+        fprintf(stderr, "DEBUG BenchClient::connect resolving\n");
         return resolve();
     }
 #   endif
 
+    fprintf(stderr, "DEBUG BenchClient::connect starting\n");
     start();
+    fprintf(stderr, "DEBUG BenchClient::connect start done\n");
 }
 
 
@@ -291,6 +295,7 @@ void xmrig::BenchClient::printExit() const
 
 void xmrig::BenchClient::start()
 {
+    fprintf(stderr, "DEBUG BenchClient::start enter\n");
     const uint32_t size = BenchState::size();
 
     LOG_NOTICE("%s " MAGENTA_BOLD("start benchmark ") "hashes " CYAN_BOLD("%u%s") " algo " WHITE_BOLD("%s"),
@@ -299,8 +304,11 @@ void xmrig::BenchClient::start()
                size < 1000000 ? "K" : "M",
                m_job.algorithm().name());
 
+    fprintf(stderr, "DEBUG BenchClient::start calling onLoginSuccess\n");
     m_listener->onLoginSuccess(this);
+    fprintf(stderr, "DEBUG BenchClient::start calling onJobReceived\n");
     m_listener->onJobReceived(this, m_job, rapidjson::Value());
+    fprintf(stderr, "DEBUG BenchClient::start done\n");
 }
 
 

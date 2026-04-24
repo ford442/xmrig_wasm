@@ -209,11 +209,13 @@ void xmrig::RxDataset::allocate(bool hugePages, bool oneGbPages)
         return;
     }
 
+#   ifndef XMRIG_OS_WASM
     if (m_mode == RxConfig::AutoMode && uv_get_total_memory() < (maxSize() + RxCache::maxSize())) {
         LOG_ERR(CLEAR "%s" RED_BOLD_S "not enough memory for RandomX dataset", Tags::randomx());
 
         return;
     }
+#   endif
 
     m_memory  = new VirtualMemory(maxSize(), hugePages, oneGbPages, false, m_node, VirtualMemory::kDefaultHugePageSize);
 

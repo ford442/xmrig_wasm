@@ -39,7 +39,7 @@ CMAKE_COLOR_MAKEFILE:BOOL=ON
 CMAKE_CROSSCOMPILING_EMULATOR:UNINITIALIZED=/root/emsdk/node/22.16.0_64bit/bin/node
 
 //Flags used by the CXX compiler during all build types.
-CMAKE_CXX_FLAGS:STRING=
+CMAKE_CXX_FLAGS:STRING=-g
 
 //Flags used by the CXX compiler during DEBUG builds.
 CMAKE_CXX_FLAGS_DEBUG:STRING=-g
@@ -57,7 +57,7 @@ CMAKE_CXX_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_C_COMPILER_CLANG_SCAN_DEPS:FILEPATH=CMAKE_C_COMPILER_CLANG_SCAN_DEPS-NOTFOUND
 
 //Flags used by the C compiler during all build types.
-CMAKE_C_FLAGS:STRING=
+CMAKE_C_FLAGS:STRING=-g
 
 //Flags used by the C compiler during DEBUG builds.
 CMAKE_C_FLAGS_DEBUG:STRING=-g
@@ -75,7 +75,7 @@ CMAKE_C_FLAGS_RELWITHDEBINFO:STRING=-O2 -g -DNDEBUG
 CMAKE_DLLTOOL:FILEPATH=/usr/bin/llvm-dlltool
 
 //Flags used by the linker during all build types.
-CMAKE_EXE_LINKER_FLAGS:STRING=
+CMAKE_EXE_LINKER_FLAGS:STRING=-g --profiling-funcs
 
 //Flags used by the linker during DEBUG builds.
 CMAKE_EXE_LINKER_FLAGS_DEBUG:STRING=
@@ -226,13 +226,17 @@ WITH_AVX2:BOOL=OFF
 //Enable builtin RandomX benchmark and stress test
 WITH_BENCHMARK:BOOL=ON
 
-WITH_CN_FEMTO:BOOL=OFF
+//Enable CryptoNight-UPX2 algorithm
+WITH_CN_FEMTO:BOOL=ON
 
-WITH_CN_HEAVY:BOOL=OFF
+//Enable CryptoNight-Heavy algorithms family
+WITH_CN_HEAVY:BOOL=ON
 
-WITH_CN_LITE:BOOL=OFF
+//Enable CryptoNight-Lite algorithms family
+WITH_CN_LITE:BOOL=ON
 
-WITH_CN_PICO:BOOL=OFF
+//Enable CryptoNight-Pico algorithm
+WITH_CN_PICO:BOOL=ON
 
 WITH_CUDA:BOOL=OFF
 
@@ -284,15 +288,6 @@ WITH_STRICT_CACHE:BOOL=ON
 WITH_TLS:BOOL=OFF
 
 WITH_VAES:BOOL=OFF
-
-//No help, variable specified on the command line.
-XMRIG_FEATURE_CN:UNINITIALIZED=ON
-
-//No help, variable specified on the command line.
-XMRIG_FEATURE_CN_LITE:UNINITIALIZED=ON
-
-//No help, variable specified on the command line.
-XMRIG_FEATURE_RANDOMX:UNINITIALIZED=ON
 
 //Value Computed by CMake
 argon2_BINARY_DIR:STATIC=/root/xmrig_wasm/build_wasm/src/3rdparty/argon2

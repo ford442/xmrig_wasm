@@ -655,6 +655,12 @@ CMakeFiles/xmrig-notls.dir/src/crypto/randomx/bytecode_machine.cpp.o: \
   /root/xmrig_wasm/src/crypto/randomx/configuration.h \
   /root/xmrig_wasm/src/crypto/randomx/randomx.h \
   /root/xmrig_wasm/src/crypto/randomx/intrin_portable.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/emmintrin.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/xmmintrin.h \
+  /root/emsdk/upstream/lib/clang/23/include/wasm_simd128.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdbool.h \
+  /root/emsdk/upstream/lib/clang/23/include/stdbool.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdbool.h \
   /root/xmrig_wasm/src/crypto/randomx/instruction.hpp \
   /root/xmrig_wasm/src/crypto/randomx/program.hpp \
   /root/xmrig_wasm/src/crypto/randomx/reciprocal.h

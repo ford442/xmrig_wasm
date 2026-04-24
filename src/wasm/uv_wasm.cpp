@@ -25,9 +25,11 @@
 #include <cstdlib>
 #include <vector>
 #include <algorithm>
+#include <atomic>
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
+#include <emscripten/threading.h>
 #endif
 
 /* -------------------------------------------------------------------------
@@ -52,6 +54,8 @@ static uint64_t now_ms()
 #endif
 }
 
+} // anonymous namespace
+
 static void tick_timers()
 {
     uint64_t t = now_ms();
@@ -66,7 +70,14 @@ static void tick_timers()
                 e.handle->active = 0;
             }
             if (e.handle->timer_cb) {
+                void *data = e.handle->data;
+                void **vtable = nullptr;
+                if (data) {
+                    vtable = *(void***)data;
+                }
+                fprintf(stderr, "DEBUG tick_timers calling cb=%p handle=%p data=%p vtable=%p\n", (void*)(uintptr_t)e.handle->timer_cb, (void*)e.handle, data, (void*)vtable);
                 e.handle->timer_cb(e.handle);
+                fprintf(stderr, "DEBUG tick_timers cb returned\n");
             }
         }
     }
@@ -79,12 +90,17 @@ static void tick_timers()
         g_timers.end());
 }
 
-static void main_loop_iter()
+extern "C" {
+
+#ifdef __EMSCRIPTEN__
+EMSCRIPTEN_KEEPALIVE
+#endif
+void xmrig_uv_tick()
 {
     tick_timers();
 }
 
-} // anonymous namespace
+} // extern "C"
 
 
 /* -------------------------------------------------------------------------
@@ -92,6 +108,7 @@ static void main_loop_iter()
  * ---------------------------------------------------------------------- */
 
 static uv_loop_t g_default_loop;
+static std::atomic<int> g_uv_stop{0};
 
 uv_loop_t *uv_default_loop(void)
 {
@@ -101,14 +118,20 @@ uv_loop_t *uv_default_loop(void)
 int uv_run(uv_loop_t * /*loop*/, uv_run_mode /*mode*/)
 {
 #ifdef __EMSCRIPTEN__
-    /* Hand control to the browser event loop. Never returns. */
-    emscripten_set_main_loop(main_loop_iter, 0, 1);
+    /* With pthreads, blocking the main thread is acceptable because worker
+     * threads run the actual mining.  Use a sleep loop instead of
+     * emscripten_set_main_loop to avoid a function-pointer-table bug in
+     * Emscripten that causes signature mismatches under optimisation. */
+    while (!g_uv_stop.load()) {
+        tick_timers();
+        emscripten_thread_sleep(1.0);
+    }
 #endif
     return 0;
 }
 
 void uv_loop_close(uv_loop_t * /*loop*/) {}
-void uv_stop(uv_loop_t * /*loop*/) {}
+void uv_stop(uv_loop_t * /*loop*/) { g_uv_stop = 1; }
 
 /* -------------------------------------------------------------------------
  * Version / error helpers
@@ -199,8 +222,10 @@ int uv_is_writable(const uv_stream_t * /*s*/)
 
 int uv_timer_init(uv_loop_t * /*loop*/, uv_timer_t *h)
 {
+    void *data = h->data;
     memset(h, 0, sizeof(*h));
     h->type = UV_TIMER;
+    h->data = data;
     return 0;
 }
 
@@ -250,9 +275,11 @@ void uv_timer_set_repeat(uv_timer_t *h, uint64_t repeat)
 int uv_async_init(uv_loop_t * /*loop*/, uv_async_t *h, uv_async_cb cb)
 {
     if (!h) return UV_EINVAL;
+    void *data = h->data;
     memset(h, 0, sizeof(*h));
     h->type     = UV_ASYNC;
     h->async_cb = cb;
+    h->data     = data;
     return 0;
 }
 

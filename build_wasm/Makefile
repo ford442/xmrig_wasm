@@ -1619,6 +1619,30 @@ src/base/net/stratum/Url.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/base/net/stratum/Url.cpp.s
 .PHONY : src/base/net/stratum/Url.cpp.s
 
+src/base/net/stratum/WebSocketClient.o: src/base/net/stratum/WebSocketClient.cpp.o
+.PHONY : src/base/net/stratum/WebSocketClient.o
+
+# target to build an object file
+src/base/net/stratum/WebSocketClient.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.o
+.PHONY : src/base/net/stratum/WebSocketClient.cpp.o
+
+src/base/net/stratum/WebSocketClient.i: src/base/net/stratum/WebSocketClient.cpp.i
+.PHONY : src/base/net/stratum/WebSocketClient.i
+
+# target to preprocess a source file
+src/base/net/stratum/WebSocketClient.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.i
+.PHONY : src/base/net/stratum/WebSocketClient.cpp.i
+
+src/base/net/stratum/WebSocketClient.s: src/base/net/stratum/WebSocketClient.cpp.s
+.PHONY : src/base/net/stratum/WebSocketClient.s
+
+# target to generate assembly for a file
+src/base/net/stratum/WebSocketClient.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/base/net/stratum/WebSocketClient.cpp.s
+.PHONY : src/base/net/stratum/WebSocketClient.cpp.s
+
 src/base/net/stratum/benchmark/BenchClient.o: src/base/net/stratum/benchmark/BenchClient.cpp.o
 .PHONY : src/base/net/stratum/benchmark/BenchClient.o
 
@@ -2146,6 +2170,150 @@ src/crypto/argon2/Impl.s: src/crypto/argon2/Impl.cpp.s
 src/crypto/argon2/Impl.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/argon2/Impl.cpp.s
 .PHONY : src/crypto/argon2/Impl.cpp.s
+
+src/crypto/cn/CnCtx.o: src/crypto/cn/CnCtx.cpp.o
+.PHONY : src/crypto/cn/CnCtx.o
+
+# target to build an object file
+src/crypto/cn/CnCtx.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.o
+.PHONY : src/crypto/cn/CnCtx.cpp.o
+
+src/crypto/cn/CnCtx.i: src/crypto/cn/CnCtx.cpp.i
+.PHONY : src/crypto/cn/CnCtx.i
+
+# target to preprocess a source file
+src/crypto/cn/CnCtx.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.i
+.PHONY : src/crypto/cn/CnCtx.cpp.i
+
+src/crypto/cn/CnCtx.s: src/crypto/cn/CnCtx.cpp.s
+.PHONY : src/crypto/cn/CnCtx.s
+
+# target to generate assembly for a file
+src/crypto/cn/CnCtx.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnCtx.cpp.s
+.PHONY : src/crypto/cn/CnCtx.cpp.s
+
+src/crypto/cn/CnHash.o: src/crypto/cn/CnHash.cpp.o
+.PHONY : src/crypto/cn/CnHash.o
+
+# target to build an object file
+src/crypto/cn/CnHash.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.o
+.PHONY : src/crypto/cn/CnHash.cpp.o
+
+src/crypto/cn/CnHash.i: src/crypto/cn/CnHash.cpp.i
+.PHONY : src/crypto/cn/CnHash.i
+
+# target to preprocess a source file
+src/crypto/cn/CnHash.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.i
+.PHONY : src/crypto/cn/CnHash.cpp.i
+
+src/crypto/cn/CnHash.s: src/crypto/cn/CnHash.cpp.s
+.PHONY : src/crypto/cn/CnHash.s
+
+# target to generate assembly for a file
+src/crypto/cn/CnHash.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/CnHash.cpp.s
+.PHONY : src/crypto/cn/CnHash.cpp.s
+
+src/crypto/cn/c_blake256.o: src/crypto/cn/c_blake256.c.o
+.PHONY : src/crypto/cn/c_blake256.o
+
+# target to build an object file
+src/crypto/cn/c_blake256.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.o
+.PHONY : src/crypto/cn/c_blake256.c.o
+
+src/crypto/cn/c_blake256.i: src/crypto/cn/c_blake256.c.i
+.PHONY : src/crypto/cn/c_blake256.i
+
+# target to preprocess a source file
+src/crypto/cn/c_blake256.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.i
+.PHONY : src/crypto/cn/c_blake256.c.i
+
+src/crypto/cn/c_blake256.s: src/crypto/cn/c_blake256.c.s
+.PHONY : src/crypto/cn/c_blake256.s
+
+# target to generate assembly for a file
+src/crypto/cn/c_blake256.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_blake256.c.s
+.PHONY : src/crypto/cn/c_blake256.c.s
+
+src/crypto/cn/c_groestl.o: src/crypto/cn/c_groestl.c.o
+.PHONY : src/crypto/cn/c_groestl.o
+
+# target to build an object file
+src/crypto/cn/c_groestl.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.o
+.PHONY : src/crypto/cn/c_groestl.c.o
+
+src/crypto/cn/c_groestl.i: src/crypto/cn/c_groestl.c.i
+.PHONY : src/crypto/cn/c_groestl.i
+
+# target to preprocess a source file
+src/crypto/cn/c_groestl.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.i
+.PHONY : src/crypto/cn/c_groestl.c.i
+
+src/crypto/cn/c_groestl.s: src/crypto/cn/c_groestl.c.s
+.PHONY : src/crypto/cn/c_groestl.s
+
+# target to generate assembly for a file
+src/crypto/cn/c_groestl.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_groestl.c.s
+.PHONY : src/crypto/cn/c_groestl.c.s
+
+src/crypto/cn/c_jh.o: src/crypto/cn/c_jh.c.o
+.PHONY : src/crypto/cn/c_jh.o
+
+# target to build an object file
+src/crypto/cn/c_jh.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.o
+.PHONY : src/crypto/cn/c_jh.c.o
+
+src/crypto/cn/c_jh.i: src/crypto/cn/c_jh.c.i
+.PHONY : src/crypto/cn/c_jh.i
+
+# target to preprocess a source file
+src/crypto/cn/c_jh.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.i
+.PHONY : src/crypto/cn/c_jh.c.i
+
+src/crypto/cn/c_jh.s: src/crypto/cn/c_jh.c.s
+.PHONY : src/crypto/cn/c_jh.s
+
+# target to generate assembly for a file
+src/crypto/cn/c_jh.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_jh.c.s
+.PHONY : src/crypto/cn/c_jh.c.s
+
+src/crypto/cn/c_skein.o: src/crypto/cn/c_skein.c.o
+.PHONY : src/crypto/cn/c_skein.o
+
+# target to build an object file
+src/crypto/cn/c_skein.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o
+.PHONY : src/crypto/cn/c_skein.c.o
+
+src/crypto/cn/c_skein.i: src/crypto/cn/c_skein.c.i
+.PHONY : src/crypto/cn/c_skein.i
+
+# target to preprocess a source file
+src/crypto/cn/c_skein.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.i
+.PHONY : src/crypto/cn/c_skein.c.i
+
+src/crypto/cn/c_skein.s: src/crypto/cn/c_skein.c.s
+.PHONY : src/crypto/cn/c_skein.s
+
+# target to generate assembly for a file
+src/crypto/cn/c_skein.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/xmrig-notls.dir/build.make CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.s
+.PHONY : src/crypto/cn/c_skein.c.s
 
 src/crypto/common/HugePagesInfo.o: src/crypto/common/HugePagesInfo.cpp.o
 .PHONY : src/crypto/common/HugePagesInfo.o
@@ -3277,6 +3445,9 @@ help:
 	@echo "... src/base/net/stratum/Url.o"
 	@echo "... src/base/net/stratum/Url.i"
 	@echo "... src/base/net/stratum/Url.s"
+	@echo "... src/base/net/stratum/WebSocketClient.o"
+	@echo "... src/base/net/stratum/WebSocketClient.i"
+	@echo "... src/base/net/stratum/WebSocketClient.s"
 	@echo "... src/base/net/stratum/benchmark/BenchClient.o"
 	@echo "... src/base/net/stratum/benchmark/BenchClient.i"
 	@echo "... src/base/net/stratum/benchmark/BenchClient.s"
@@ -3343,6 +3514,24 @@ help:
 	@echo "... src/crypto/argon2/Impl.o"
 	@echo "... src/crypto/argon2/Impl.i"
 	@echo "... src/crypto/argon2/Impl.s"
+	@echo "... src/crypto/cn/CnCtx.o"
+	@echo "... src/crypto/cn/CnCtx.i"
+	@echo "... src/crypto/cn/CnCtx.s"
+	@echo "... src/crypto/cn/CnHash.o"
+	@echo "... src/crypto/cn/CnHash.i"
+	@echo "... src/crypto/cn/CnHash.s"
+	@echo "... src/crypto/cn/c_blake256.o"
+	@echo "... src/crypto/cn/c_blake256.i"
+	@echo "... src/crypto/cn/c_blake256.s"
+	@echo "... src/crypto/cn/c_groestl.o"
+	@echo "... src/crypto/cn/c_groestl.i"
+	@echo "... src/crypto/cn/c_groestl.s"
+	@echo "... src/crypto/cn/c_jh.o"
+	@echo "... src/crypto/cn/c_jh.i"
+	@echo "... src/crypto/cn/c_jh.s"
+	@echo "... src/crypto/cn/c_skein.o"
+	@echo "... src/crypto/cn/c_skein.i"
+	@echo "... src/crypto/cn/c_skein.s"
 	@echo "... src/crypto/common/HugePagesInfo.o"
 	@echo "... src/crypto/common/HugePagesInfo.i"
 	@echo "... src/crypto/common/HugePagesInfo.s"

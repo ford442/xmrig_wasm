@@ -38,6 +38,27 @@
 #include "crypto/cn/soft_aes.h"
 
 
+#ifdef __EMSCRIPTEN__
+// Emscripten/WASM: no AES-NI, no NEON. Use soft AES and SSE2 intrinsics.
+#define _mm_aesenc_si128(a, b) soft_aesenc((a), (b))
+
+static inline __m128i int_sqrt_v2(const uint64_t n0)
+{
+    __m128d x = _mm_castsi128_pd(_mm_add_epi64(_mm_cvtsi64_si128(n0 >> 12), _mm_set_epi64x(0, 1023ULL << 52)));
+    x = _mm_sqrt_sd(_mm_setzero_pd(), x);
+    uint64_t r = static_cast<uint64_t>(_mm_cvtsi128_si64(_mm_castpd_si128(x)));
+
+    const uint64_t s = r >> 20;
+    r >>= 19;
+
+    uint64_t x2 = (s - (1022ULL << 32)) * (r - s - (1022ULL << 32) + 1);
+    if (x2 < n0) ++r;
+
+    return _mm_cvtsi64_si128(r);
+}
+#endif
+
+
 extern "C"
 {
 #include "crypto/cn/c_groestl.h"
@@ -372,7 +393,11 @@ static inline void cryptonight_monero_tweak(const uint8_t* l, uint64_t idx, __m1
         __m128i tmp = _mm_xor_si128(bx0, cx);
         mem_out[0] = _mm_cvtsi128_si64(tmp);
 
+#       ifdef __EMSCRIPTEN__
+        uint64_t vh = _mm_cvtsi128_si64(_mm_srli_si128(tmp, 8));
+#       else
         uint64_t vh = vgetq_lane_u64(tmp, 1);
+#       endif
 
         mem_out[1] = vh ^ tweak1_table[static_cast<uint8_t>(vh >> 24)];
     }
@@ -517,9 +542,15 @@ inline void cryptonight_single_hash(const uint8_t *__restrict__ input, size_t si
 
 #       ifdef XMRIG_ALGO_CN_HEAVY
         if (props.isHeavy()) {
+#           ifdef __EMSCRIPTEN__
+            const __m128i x   = _mm_load_si128(reinterpret_cast<const __m128i *>(&l0[idx0 & MASK]));
+            const int64_t n   = _mm_cvtsi128_si64(x);
+            const int32_t d   = _mm_cvtsi128_si32(_mm_srli_si128(x, 8));
+#           else
             const int64x2_t x = vld1q_s64(reinterpret_cast<const int64_t *>(&l0[idx0 & MASK]));
             const int64_t n   = vgetq_lane_s64(x, 0);
             const int32_t d   = vgetq_lane_s32(x, 2);
+#           endif
             const int64_t q   = n / (d | 0x5);
 
             ((int64_t*)&l0[idx0 & MASK])[0] = n ^ q;
@@ -693,9 +724,15 @@ inline void cryptonight_double_hash(const uint8_t *__restrict__ input, size_t si
 
 #       ifdef XMRIG_ALGO_CN_HEAVY
         if (props.isHeavy()) {
+#           ifdef __EMSCRIPTEN__
+            const __m128i x   = _mm_load_si128(reinterpret_cast<const __m128i *>(&l0[idx0 & MASK]));
+            const int64_t n   = _mm_cvtsi128_si64(x);
+            const int32_t d   = _mm_cvtsi128_si32(_mm_srli_si128(x, 8));
+#           else
             const int64x2_t x = vld1q_s64(reinterpret_cast<const int64_t *>(&l0[idx0 & MASK]));
             const int64_t n   = vgetq_lane_s64(x, 0);
             const int32_t d   = vgetq_lane_s32(x, 2);
+#           endif
             const int64_t q   = n / (d | 0x5);
 
             ((int64_t*)&l0[idx0 & MASK])[0] = n ^ q;
@@ -753,9 +790,15 @@ inline void cryptonight_double_hash(const uint8_t *__restrict__ input, size_t si
 
 #       ifdef XMRIG_ALGO_CN_HEAVY
         if (props.isHeavy()) {
+#           ifdef __EMSCRIPTEN__
+            const __m128i x   = _mm_load_si128(reinterpret_cast<const __m128i *>(&l1[idx1 & MASK]));
+            const int64_t n   = _mm_cvtsi128_si64(x);
+            const int32_t d   = _mm_cvtsi128_si32(_mm_srli_si128(x, 8));
+#           else
             const int64x2_t x = vld1q_s64(reinterpret_cast<const int64_t *>(&l1[idx1 & MASK]));
             const int64_t n   = vgetq_lane_s64(x, 0);
             const int32_t d   = vgetq_lane_s32(x, 2);
+#           endif
             const int64_t q   = n / (d | 0x5);
 
             ((int64_t*)&l1[idx1 & MASK])[0] = n ^ q;

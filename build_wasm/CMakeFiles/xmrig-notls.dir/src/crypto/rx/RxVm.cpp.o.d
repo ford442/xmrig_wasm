@@ -120,6 +120,40 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/emmintrin.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/xmmintrin.h \
+  /root/emsdk/upstream/lib/clang/23/include/wasm_simd128.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdbool.h \
+  /root/emsdk/upstream/lib/clang/23/include/stdbool.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdbool.h \
+  /root/emsdk/upstream/lib/clang/23/include/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/math.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/math.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/abs.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/copysign.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/promote.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/error_functions.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/exponential_functions.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/fdim.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/fma.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/gamma.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/hyperbolic_functions.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/hypot.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/min_max.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/roots.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/limits \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__undef_macros \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/inverse_hyperbolic_functions.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/inverse_trigonometric_functions.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/logarithms.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/modulo.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/remainder.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/rounding_functions.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/traits.h \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/trigonometric_functions.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdexcept \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/exception.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/string.h \
@@ -131,7 +165,6 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/stdlib.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/stdlib.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/alloca.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/abs.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/exception \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/exception_ptr.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/operations.h \
@@ -142,7 +175,6 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__log_hardening_failure \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__verbose_trap \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__new/placement_new_delete.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__undef_macros \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/typeinfo \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_constant_evaluated.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__exception/nested_exception.h \
@@ -165,31 +197,6 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__fwd/streambuf.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__std_mbstate_t.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__mbstate_t.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cmath \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/hypot.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/exponential_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/promote.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/min_max.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/roots.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/limits \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/special_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/copysign.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/traits.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/math.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/math.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/math.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/error_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/fdim.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/fma.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/gamma.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/hyperbolic_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/inverse_hyperbolic_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/inverse_trigonometric_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/logarithms.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/modulo.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/remainder.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/rounding_functions.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/trigonometric_functions.h \
   /root/xmrig_wasm/src/backend/cpu/Cpu.h \
   /root/xmrig_wasm/src/backend/cpu/interfaces/ICpuInfo.h \
   /root/xmrig_wasm/src/backend/cpu/CpuThreads.h \
@@ -365,9 +372,6 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__vector/vector_bool.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__bit_reference \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/climits \
-  /root/emsdk/upstream/lib/clang/23/include/limits.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/unary_function.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/access.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/data.h \
@@ -375,6 +379,8 @@ CMakeFiles/xmrig-notls.dir/src/crypto/rx/RxVm.cpp.o: \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/reverse_access.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__iterator/size.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/compare \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cmath \
+  /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__math/special_functions.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__functional/hash.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_unqualified.h \
   /root/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstring \
