@@ -33,6 +33,7 @@ public:
         CPU,
         OPENCL,
         CUDA,
+        WEBGPU,
         MAX
     };
 

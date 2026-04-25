@@ -54,13 +54,11 @@ xmrig::App::~App()
 
 int xmrig::App::exec()
 {
-    fprintf(stderr, "DEBUG App::exec start\n");
     if (!m_controller->isReady()) {
         LOG_EMERG("no valid configuration found, try https://xmrig.com/wizard");
 
         return 2;
     }
-    fprintf(stderr, "DEBUG App::exec ready\n");
 
     int rc = 0;
     if (background(rc)) {
@@ -68,10 +66,8 @@ int xmrig::App::exec()
     }
 
     m_signals = std::make_shared<Signals>(this);
-    fprintf(stderr, "DEBUG App::exec signals\n");
 
     rc = m_controller->init();
-    fprintf(stderr, "DEBUG App::exec init rc=%d\n", rc);
     if (rc != 0) {
         return rc;
     }
@@ -81,7 +77,6 @@ int xmrig::App::exec()
     }
 
     Summary::print(m_controller.get());
-    fprintf(stderr, "DEBUG App::exec summary printed\n");
 
     if (m_controller->config()->isDryRun()) {
         LOG_NOTICE("%s " WHITE_BOLD("OK"), Tags::config());
@@ -90,10 +85,8 @@ int xmrig::App::exec()
     }
 
     m_controller->start();
-    fprintf(stderr, "DEBUG App::exec started\n");
 
     rc = uv_run(uv_default_loop(), UV_RUN_DEFAULT);
-    fprintf(stderr, "DEBUG App::exec uv_run returned %d\n", rc);
     uv_loop_close(uv_default_loop());
 
     return rc;

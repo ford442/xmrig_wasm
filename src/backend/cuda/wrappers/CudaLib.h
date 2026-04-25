@@ -16,6 +16,18 @@
  *   along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * This file defines the CUDA plugin ABI. There are NO CUDA kernels in this
+ * repository — they live in the separate xmrig-cuda project. For WebGPU we
+ * do NOT port this file; instead we model the new backend on the OpenCL
+ * backend (src/backend/opencl/) which contains the actual GPU kernels.
+ *
+ * The ICudaRunner interface (see src/backend/cuda/interfaces/ICudaRunner.h)
+ * is a useful reference for designing IWebGpuRunner.
+ * ============================================================================ */
+
 #ifndef XMRIG_CUDALIB_H
 #define XMRIG_CUDALIB_H
 

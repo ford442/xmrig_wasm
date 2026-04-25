@@ -1,3 +1,21 @@
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * Groestl-256 branch hash kernel (used by cn2 final stage when State[0]&3 == 1).
+ * Translation target: inlined into cryptonight.wgsl as fn groestl256_branch().
+ *
+ * Key porting considerations:
+ *   1. T0_G[], T1_G[], T2_G[], T3_G[], T4_G[], T5_G[], T6_G[], T7_G[] are
+ *      large 256-entry u64 lookup tables (~16 KB total). In WGSL these can be
+ *      const arrays or uniform buffers. const arrays are preferred if they fit
+ *      in the shader's constant memory limit.
+ *   2. SPH_ROTL64(x, y) → (x << y) | (x >> (64u - y)).
+ *   3. C64e() is a byte-swap / endianness conversion macro.
+ *   4. All state is u64 — WGSL supports u64 but some mobile GPUs may not.
+ *      If u64 is unavailable, emulate with vec2<u32> pairs.
+ *   5. The P/Q permutation rounds are pure XOR + table lookups + rotates.
+ * ============================================================================ */
+
 /* $Id: groestl.c 260 2011-07-21 01:02:38Z tp $ */
 /*
  * Groestl256

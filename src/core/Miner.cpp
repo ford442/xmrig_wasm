@@ -55,6 +55,11 @@
 #endif
 
 
+#ifdef XMRIG_FEATURE_WEBGPU
+#   include "backend/webgpu/WebGpuBackend.h"
+#endif
+
+
 #ifdef XMRIG_ALGO_RANDOMX
 #   include "crypto/rx/Profiler.h"
 #   include "crypto/rx/Rx.h"
@@ -117,22 +122,16 @@ public:
 
     inline void handleJobChange()
     {
-        fprintf(stderr, "DEBUG handleJobChange enter\n");
         if (!enabled) {
-            fprintf(stderr, "DEBUG handleJobChange not enabled\n");
             Nonce::pause(true);
         }
 
         if (reset) {
-            fprintf(stderr, "DEBUG handleJobChange resetting nonce\n");
             Nonce::reset(job.index());
         }
 
-        fprintf(stderr, "DEBUG handleJobChange setting job on backends\n");
         for (IBackend *backend : backends) {
-            fprintf(stderr, "DEBUG handleJobChange calling backend->setJob\n");
             backend->setJob(job);
-            fprintf(stderr, "DEBUG handleJobChange backend->setJob done\n");
         }
 
         Nonce::touch();
@@ -145,7 +144,6 @@ public:
             ticks++;
             timer->start(500, 500);
         }
-        fprintf(stderr, "DEBUG handleJobChange done\n");
     }
 
 
@@ -434,6 +432,10 @@ xmrig::Miner::Miner(Controller *controller)
     d_ptr->backends.push_back(new CudaBackend(controller));
 #   endif
 
+#   ifdef XMRIG_FEATURE_WEBGPU
+    d_ptr->backends.push_back(new WebGpuBackend(controller));
+#   endif
+
     d_ptr->rebuild();
 }
 
@@ -561,24 +563,17 @@ void xmrig::Miner::setEnabled(bool enabled)
 
 void xmrig::Miner::setJob(const Job &job, bool donate)
 {
-    fprintf(stderr, "DEBUG Miner::setJob enter\n");
     for (IBackend *backend : d_ptr->backends) {
-        fprintf(stderr, "DEBUG Miner::setJob preparing backend\n");
         backend->prepare(job);
-        fprintf(stderr, "DEBUG Miner::setJob backend prepared\n");
     }
 
 #   ifdef XMRIG_ALGO_RANDOMX
-    fprintf(stderr, "DEBUG Miner::setJob checking RandomX\n");
     if (job.algorithm().family() == Algorithm::RANDOM_X) {
-        fprintf(stderr, "DEBUG Miner::setJob is RandomX\n");
         if (d_ptr->algorithm != job.algorithm()) {
-            fprintf(stderr, "DEBUG Miner::setJob algorithm changed\n");
             stop();
             RxAlgo::apply(job.algorithm());
         }
         else if (!Rx::isReady(job)) {
-            fprintf(stderr, "DEBUG Miner::setJob not ready\n");
             Nonce::pause(true);
             Nonce::touch();
         }
@@ -587,38 +582,29 @@ void xmrig::Miner::setJob(const Job &job, bool donate)
 
     d_ptr->algorithm = job.algorithm();
 
-    fprintf(stderr, "DEBUG Miner::setJob locking mutex\n");
 #   ifndef XMRIG_OS_WASM
     mutex.lock();
 #   endif
 
-    fprintf(stderr, "DEBUG Miner::setJob after mutex\n");
     const uint8_t index = donate ? 1 : 0;
-    fprintf(stderr, "DEBUG Miner::setJob index=%u\n", index);
     const bool same_job_index = d_ptr->job.index() == index;
-    fprintf(stderr, "DEBUG Miner::setJob same_job_index=%d\n", same_job_index);
 
     d_ptr->reset = !(d_ptr->job.index() == 1 && index == 0 && d_ptr->userJobId == job.id());
-    fprintf(stderr, "DEBUG Miner::setJob reset=%d\n", d_ptr->reset);
 
     // Don't reset nonce if pool sends the same hashing blob again, but with different difficulty (for example)
     if (d_ptr->job.isEqualBlob(job)) {
         d_ptr->reset = false;
     }
-    fprintf(stderr, "DEBUG Miner::setJob after isEqualBlob\n");
 
     d_ptr->job   = job;
     d_ptr->job.setIndex(index);
-    fprintf(stderr, "DEBUG Miner::setJob after job assignment\n");
 
     if (index == 0) {
         d_ptr->userJobId = job.id();
     }
 
 #   ifdef XMRIG_ALGO_RANDOMX
-    fprintf(stderr, "DEBUG Miner::setJob calling initRX\n");
     const bool ready = d_ptr->initRX();
-    fprintf(stderr, "DEBUG Miner::setJob initRX returned %d\n", ready);
 
     // Always reset nonce on RandomX dataset change
     // Except for switching to/from donation
@@ -777,14 +763,10 @@ void xmrig::Miner::onRequest(IApiRequest &request)
 #ifdef XMRIG_ALGO_RANDOMX
 void xmrig::Miner::onDatasetReady()
 {
-    fprintf(stderr, "DEBUG Miner::onDatasetReady enter\n");
     if (!Rx::isReady(job())) {
-        fprintf(stderr, "DEBUG Miner::onDatasetReady not ready\n");
         return;
     }
 
-    fprintf(stderr, "DEBUG Miner::onDatasetReady calling handleJobChange\n");
     d_ptr->handleJobChange();
-    fprintf(stderr, "DEBUG Miner::onDatasetReady done\n");
 }
 #endif

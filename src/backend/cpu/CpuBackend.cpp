@@ -380,22 +380,16 @@ void xmrig::CpuBackend::setJob(const Job &job)
 
 void xmrig::CpuBackend::start(IWorker *worker, bool ready)
 {
-    fprintf(stderr, "DEBUG CpuBackend::start enter\n");
     mutex.lock();
-    fprintf(stderr, "DEBUG CpuBackend::start mutex locked\n");
 
     if (d_ptr->status.started(worker, ready)) {
         d_ptr->status.print();
     }
-    fprintf(stderr, "DEBUG CpuBackend::start status done\n");
 
     mutex.unlock();
-    fprintf(stderr, "DEBUG CpuBackend::start mutex unlocked\n");
 
     if (ready) {
-        fprintf(stderr, "DEBUG CpuBackend::start calling worker->start\n");
         worker->start();
-        fprintf(stderr, "DEBUG CpuBackend::start worker->start done\n");
     }
 }
 

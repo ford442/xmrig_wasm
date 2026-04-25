@@ -306,5 +306,12 @@ xmrig::RxConfig::Mode xmrig::RxConfig::readMode(const rapidjson::Value &value)
         }
     }
 
+#   ifdef __EMSCRIPTEN__
+    // Full dataset init in WASM is prohibitively slow (~tens of minutes)
+    // because the superscalar interpreter runs ~100× slower than native
+    // JIT-compiled code. Light mode starts instantly.
+    return LightMode;
+#   else
     return AutoMode;
+#   endif
 }

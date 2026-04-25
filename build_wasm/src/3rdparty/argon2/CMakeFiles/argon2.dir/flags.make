@@ -6,5 +6,5 @@ C_DEFINES = -DHAVE_POSIX_MEMALIGN -DHAVE_SYSLOG_H -DNDEBUG -DRAPIDJSON_WRITE_DEF
 
 C_INCLUDES = -I/root/xmrig_wasm/src/wasm -I/root/xmrig_wasm/src/3rdparty/argon2/../.. -I/root/xmrig_wasm/src/3rdparty/argon2/lib
 
-C_FLAGS = -g -Wall -pthread -msimd128 -msse -msse2 -O3 -DNDEBUG -funroll-loops -fmerge-all-constants -std=gnu99
+C_FLAGS =  -Wall -pthread -msimd128 -msse -msse2 -O3 -DNDEBUG -funroll-loops -fmerge-all-constants -std=gnu99
 

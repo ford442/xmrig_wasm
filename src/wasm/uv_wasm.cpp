@@ -70,14 +70,7 @@ static void tick_timers()
                 e.handle->active = 0;
             }
             if (e.handle->timer_cb) {
-                void *data = e.handle->data;
-                void **vtable = nullptr;
-                if (data) {
-                    vtable = *(void***)data;
-                }
-                fprintf(stderr, "DEBUG tick_timers calling cb=%p handle=%p data=%p vtable=%p\n", (void*)(uintptr_t)e.handle->timer_cb, (void*)e.handle, data, (void*)vtable);
                 e.handle->timer_cb(e.handle);
-                fprintf(stderr, "DEBUG tick_timers cb returned\n");
             }
         }
     }

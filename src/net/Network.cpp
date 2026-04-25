@@ -165,14 +165,11 @@ void xmrig::Network::onConfigChanged(Config *config, Config *previousConfig)
 
 void xmrig::Network::onJob(IStrategy *strategy, IClient *client, const Job &job, const rapidjson::Value &)
 {
-    fprintf(stderr, "DEBUG Network::onJob enter\n");
     if (m_donate && m_donate->isActive() && m_donate != strategy) {
-        fprintf(stderr, "DEBUG Network::onJob donate active, returning\n");
         return;
     }
 
     setJob(client, job, m_donate == strategy);
-    fprintf(stderr, "DEBUG Network::onJob done\n");
 }
 
 
@@ -267,29 +264,21 @@ void xmrig::Network::onRequest(IApiRequest &request)
 
 void xmrig::Network::setJob(IClient *client, const Job &job, bool donate)
 {
-    fprintf(stderr, "DEBUG Network::setJob enter\n");
 #   ifdef XMRIG_FEATURE_BENCHMARK
-    fprintf(stderr, "DEBUG Network::setJob checking BenchState::size\n");
     if (!BenchState::size())
 #   endif
     {
-        fprintf(stderr, "DEBUG Network::setJob in log block\n");
         uint64_t diff       = job.diff();
-        fprintf(stderr, "DEBUG Network::setJob diff=%llu\n", (unsigned long long)diff);
         const char *scale   = NetworkState::scaleDiff(diff);
-        fprintf(stderr, "DEBUG Network::setJob scale=%s\n", scale ? scale : "(null)");
 
         char zmq_buf[32] = {};
-        fprintf(stderr, "DEBUG Network::setJob getting pool\n");
         const Pool &pool = client->pool();
-        fprintf(stderr, "DEBUG Network::setJob got pool, zmq_port=%d\n", pool.zmq_port());
         if (pool.zmq_port() >= 0) {
             snprintf(zmq_buf, sizeof(zmq_buf), " (ZMQ:%d)", pool.zmq_port());
         }
 
         char tx_buf[32] = {};
         const uint32_t num_transactions = job.getNumTransactions();
-        fprintf(stderr, "DEBUG Network::setJob num_transactions=%u\n", num_transactions);
         if (num_transactions > 0) {
             snprintf(tx_buf, sizeof(tx_buf), " (%u tx)", num_transactions);
         }
@@ -299,10 +288,8 @@ void xmrig::Network::setJob(IClient *client, const Job &job, bool donate)
             snprintf(height_buf, sizeof(height_buf), " height " WHITE_BOLD("%" PRIu64), job.height());
         }
 
-        fprintf(stderr, "DEBUG Network::setJob about to LOG_INFO\n");
         LOG_INFO("%s " MAGENTA_BOLD("new job") " from " WHITE_BOLD("%s:%d%s") " diff " WHITE_BOLD("%" PRIu64 "%s") " algo " WHITE_BOLD("%s") "%s%s",
                  Tags::network(), pool.host().data(), pool.port(), zmq_buf, diff, scale, job.algorithm().name(), height_buf, tx_buf);
-        fprintf(stderr, "DEBUG Network::setJob LOG_INFO done\n");
     }
 
     if (!donate && m_donate) {

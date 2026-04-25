@@ -64,15 +64,11 @@ int xmrig::Controller::init()
 
 void xmrig::Controller::start()
 {
-    fprintf(stderr, "DEBUG Controller::start Base::start\n");
     Base::start();
-    fprintf(stderr, "DEBUG Controller::start creating Miner\n");
 
     m_miner = std::make_shared<Miner>(this);
-    fprintf(stderr, "DEBUG Controller::start connecting network\n");
 
     network()->connect();
-    fprintf(stderr, "DEBUG Controller::start done\n");
 }
 
 

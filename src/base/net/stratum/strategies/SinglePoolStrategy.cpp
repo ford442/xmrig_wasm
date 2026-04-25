@@ -107,9 +107,7 @@ void xmrig::SinglePoolStrategy::onClose(IClient *, int)
 
 void xmrig::SinglePoolStrategy::onJobReceived(IClient *client, const Job &job, const rapidjson::Value &params)
 {
-    fprintf(stderr, "DEBUG SinglePoolStrategy::onJobReceived enter\n");
     m_listener->onJob(this, client, job, params);
-    fprintf(stderr, "DEBUG SinglePoolStrategy::onJobReceived done\n");
 }
 
 

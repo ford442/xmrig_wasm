@@ -95,7 +95,6 @@ public:
         config = std::unique_ptr<Config>(new Config());
 
         bool result = config->read(chain, chain.fileName());
-        fprintf(stderr, "DEBUG BasePrivate::read returned %d\n", result);
         return result;
     }
 

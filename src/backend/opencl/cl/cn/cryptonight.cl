@@ -22,6 +22,36 @@
  *   along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * This file is the PRIMARY SOURCE for translating CryptoNight GPU kernels
+ * to WGSL compute shaders. The translation target is:
+ *   src/backend/webgpu/shaders/wgsl/cn/cryptonight.wgsl
+ *
+ * Key porting considerations:
+ *   1. Preprocessor macros (ALGO, STRIDED_INDEX, WORKSIZE, MEMORY, etc.)
+ *      must be replaced by WGSL pipeline-overridable constants or by
+ *      generating multiple shader permutations at build time.
+ *   2. __local arrays (AES0-AES3, State_buf, xin) map to var<workgroup>.
+ *   3. barrier(CLK_LOCAL_MEM_FENCE) maps to workgroupBarrier().
+ *   4. barrier(CLK_GLOBAL_MEM_FENCE) maps to storageBarrier(); workgroupBarrier().
+ *   5. get_global_id(0) → global_invocation_id.x
+ *   6. get_local_id(0/1) → local_invocation_id.x / .y
+ *   7. __attribute__((reqd_work_group_size(8,8,1))) → @compute @workgroup_size(8,8,1)
+ *   8. uint4 / ulong2 → vec4<u32> / vec2<u64> (u64 vectors may need emulation).
+ *   9. mul_hi() must be emulated with 32-bit limb multiplication in WGSL.
+ *  10. rotate() must be emulated: (x << n) | (x >> (32u - n)).
+ *  11. vload4 / vstore4 become direct array loads/stores with vec4<u32>.
+ *  12. The CN_0 / CN_1 / CN_2 / CN_R branches compile to SEPARATE entry points
+ *      in WGSL because they have different main-loop logic.
+ *  13. fast_int_math_v2.cl uses float32 operations (native_recip, native_sqrt,
+ *      fma) — these are straightforward in WGSL but note that CN_2 variants
+ *      are the only ones using floats in CryptoNight.
+ *  14. fast_div_heavy.cl uses 64-bit division emulation — same mul_hi emulation
+ *      applies.
+ * ============================================================================ */
+
 #ifdef STATIC
 #   undef STATIC
 #endif

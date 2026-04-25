@@ -1,3 +1,27 @@
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * This file defines AES round functions and the AES0_C constant table used by
+ * all CryptoNight kernels. Translation target:
+ *   src/backend/webgpu/shaders/wgsl/cn/wolf-aes.wgsl
+ *
+ * Key porting considerations:
+ *   1. AES0_C[256] is a __constant table. In WGSL it can be a const array
+ *      inside the shader or a small uniform buffer. Recommended: const array
+ *      (only 1 KB, well within uniform limits).
+ *   2. AES1/AES2/AES3 are derived at runtime from AES0_C by rotate(). In the
+ *      OpenCL kernel these are loaded into __local memory by the first threads
+ *      in a workgroup. In WGSL, use var<workgroup> and have threads 0..63
+ *      initialize them in a loop, followed by workgroupBarrier().
+ *   3. AES_Round, AES_Round_Two_Tables, AESExpandKey256 are pure integer
+ *      bit-manipulation and translate directly to WGSL functions.
+ *   4. BYTE(x,y) uses amd_bfe() which is just bit-field extraction. In WGSL:
+ *      fn byte(x: u32, y: u32) -> u32 { return (x >> (y * 8u)) & 0xFFu; }
+ *   5. SubWord() uses the sbox[] lookup table. In WGSL: same logic, sbox as
+ *      const array<u32, 256> or inline the 256-byte table.
+ *   6. rcon[] and sbox[] are small constant tables — keep as const arrays.
+ * ============================================================================ */
+
 #ifndef WOLF_AES_CL
 #define WOLF_AES_CL
 

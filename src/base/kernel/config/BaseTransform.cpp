@@ -48,17 +48,13 @@ void xmrig::BaseTransform::load(JsonChain &chain, Process *process, IConfigTrans
     const int argc = process->arguments().argc();
     char **argv    = process->arguments().argv();
 
-    fprintf(stderr, "DEBUG BaseTransform::load argc=%d\n", argc);
     for (int i = 0; i < argc; ++i) {
-        fprintf(stderr, "DEBUG argv[%d]=%s\n", i, argv[i] ? argv[i] : "(null)");
     }
 
     Document doc(kObjectType);
 
     while (true) {
-        fprintf(stderr, "DEBUG calling getopt_long\n");
         key = getopt_long(argc, argv, short_options, options, nullptr); // NOLINT(concurrency-mt-unsafe)
-        fprintf(stderr, "DEBUG getopt_long returned %d\n", key);
         if (key < 0) {
             break;
         }
@@ -70,9 +66,7 @@ void xmrig::BaseTransform::load(JsonChain &chain, Process *process, IConfigTrans
             doc = Document(kObjectType);
         }
         else {
-            fprintf(stderr, "DEBUG calling transform %d optarg=%s\n", key, optarg ? optarg : "(null)");
             transform.transform(doc, key, optarg);
-            fprintf(stderr, "DEBUG transform returned\n");
         }
     }
 

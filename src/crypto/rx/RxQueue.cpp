@@ -122,11 +122,9 @@ bool xmrig::RxQueue::isReadyUnsafe(const T &seed) const
 
 void xmrig::RxQueue::processOne()
 {
-    fprintf(stderr, "DEBUG RxQueue::processOne enter\n");
     std::unique_lock<std::mutex> lock(m_mutex);
 
     if (m_state != STATE_PENDING) {
-        fprintf(stderr, "DEBUG RxQueue::processOne not pending\n");
         return;
     }
 
@@ -143,23 +141,18 @@ void xmrig::RxQueue::processOne()
              Cvt::toHex(item.seed.data().data(), 8).data()
              );
 
-    fprintf(stderr, "DEBUG RxQueue::processOne calling m_storage->init\n");
     m_storage->init(item.seed, item.threads, item.hugePages, item.oneGbPages, item.mode, item.priority);
-    fprintf(stderr, "DEBUG RxQueue::processOne m_storage->init done\n");
 
     lock.lock();
 
     if (m_state == STATE_SHUTDOWN || !m_queue.empty()) {
-        fprintf(stderr, "DEBUG RxQueue::processOne shutdown or queue not empty\n");
         return;
     }
 
     // Update seed here again in case there was more than one item in the queue
     m_seed = item.seed;
     m_state = STATE_IDLE;
-    fprintf(stderr, "DEBUG RxQueue::processOne calling onReady\n");
     onReady();
-    fprintf(stderr, "DEBUG RxQueue::processOne onReady done\n");
 }
 
 
@@ -200,6 +193,7 @@ void xmrig::RxQueue::backgroundInit()
         // Update seed here again in case there was more than one item in the queue
         m_seed = item.seed;
         m_state = STATE_IDLE;
+        lock.unlock();
         onReady();
     }
 }
@@ -207,16 +201,12 @@ void xmrig::RxQueue::backgroundInit()
 
 void xmrig::RxQueue::onReady()
 {
-    fprintf(stderr, "DEBUG RxQueue::onReady enter\n");
     std::unique_lock<std::mutex> lock(m_mutex);
     const bool ready = m_callback && m_state == STATE_IDLE;
     lock.unlock();
-    fprintf(stderr, "DEBUG RxQueue::onReady ready=%d\n", ready);
 
     if (ready) {
-        fprintf(stderr, "DEBUG RxQueue::onReady calling callback\n");
         m_callback();
-        fprintf(stderr, "DEBUG RxQueue::onReady callback done\n");
     }
 }
 
