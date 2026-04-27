@@ -31,6 +31,9 @@
 #   include "crypto/cn/sse2neon.h"
 #elif defined(XMRIG_RISCV)
 #   include "crypto/cn/sse2rvv.h"
+#elif defined(__EMSCRIPTEN__)
+#   include <xmmintrin.h>
+#   include <emmintrin.h>
 #elif defined(__GNUC__)
 #   include <x86intrin.h>
 #else

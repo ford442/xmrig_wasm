@@ -456,6 +456,11 @@ hashAndFillAes1Rx4_impl* softAESImpl = &hashAndFillAes1Rx4<1,1>;
 
 void SelectSoftAESImpl(size_t threadsCount)
 {
+#   ifdef XMRIG_OS_WASM
+    softAESImpl = &hashAndFillAes1Rx4<2,4>;
+    return;
+#   endif
+
 	constexpr uint64_t test_length_ms = 100;
 
 	const std::array<hashAndFillAes1Rx4_impl *, 4> impl = {

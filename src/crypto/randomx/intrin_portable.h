@@ -90,7 +90,9 @@ void rx_set_double_precision();
 #endif
 
 #ifdef __SSE2__
-#ifdef __GNUC__
+#if defined(__EMSCRIPTEN__)
+#include <emmintrin.h>
+#elif defined(__GNUC__)
 #include <x86intrin.h>
 #else
 #include <intrin.h>
@@ -166,6 +168,15 @@ FORCE_INLINE rx_vec_f128 rx_cvt_packed_int_vec_f128(const void* addr) {
 
 constexpr uint32_t rx_mxcsr_default = 0x9FC0; //Flush to zero, denormals are zero, default rounding mode, all exceptions disabled
 
+#if defined(__EMSCRIPTEN__)
+FORCE_INLINE void rx_reset_float_state() {
+	// WASM has no MXCSR register; rounding mode is fixed
+}
+
+FORCE_INLINE void rx_set_rounding_mode(uint32_t /*mode*/) {
+	// WASM has no MXCSR register; rounding mode is fixed
+}
+#else
 FORCE_INLINE void rx_reset_float_state() {
 	_mm_setcsr(rx_mxcsr_default);
 }
@@ -173,6 +184,7 @@ FORCE_INLINE void rx_reset_float_state() {
 FORCE_INLINE void rx_set_rounding_mode(uint32_t mode) {
 	_mm_setcsr(rx_mxcsr_default | (mode << 13));
 }
+#endif
 
 #elif defined(__PPC64__) && defined(__ALTIVEC__) && defined(__VSX__) //sadly only POWER7 and newer will be able to use SIMD acceleration. Earlier processors can't use doubles or 64 bit integers with SIMD
 #include <cstdint>

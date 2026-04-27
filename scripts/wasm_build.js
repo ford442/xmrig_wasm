@@ -20,6 +20,7 @@ const os = require('os');
 
 const ROOT     = path.resolve(__dirname, '..');
 const BUILD    = path.join(ROOT, 'build_wasm');
+const DIST     = path.join(ROOT, 'dist');
 const SERVE_PORT = process.env.PORT || 8000;
 
 /* ------------------------------------------------------------------
@@ -92,29 +93,58 @@ function build(envPrefix) {
     const jobs = process.env.JOBS || os.cpus().length;
     const cmd  = `${envPrefix}emmake make -j${jobs}`;
     run(cmd, BUILD);
+    copyToDist();
+}
+
+function copyToDist() {
+    fs.mkdirSync(DIST, { recursive: true });
+
+    const files = [
+        'xmrig.js',
+        'xmrig.wasm',
+        'wasm_test.html',
+    ];
+
+    for (const f of files) {
+        const src = path.join(BUILD, f);
+        const dst = path.join(DIST, f);
+        if (fs.existsSync(src)) {
+            fs.copyFileSync(src, dst);
+            console.log(`Copied ${f} → dist/`);
+        }
+    }
 }
 
 function clean() {
+    let removed = false;
     if (fs.existsSync(BUILD)) {
         fs.rmSync(BUILD, { recursive: true, force: true });
         console.log(`Removed ${BUILD}`);
-    } else {
+        removed = true;
+    }
+    if (fs.existsSync(DIST)) {
+        fs.rmSync(DIST, { recursive: true, force: true });
+        console.log(`Removed ${DIST}`);
+        removed = true;
+    }
+    if (!removed) {
         console.log('Nothing to clean.');
     }
 }
 
 function serve() {
-    if (!fs.existsSync(BUILD)) {
+    const serveDir = fs.existsSync(DIST) ? DIST : BUILD;
+    if (!fs.existsSync(serveDir)) {
         console.error(`build_wasm/ does not exist. Run "npm run build" first.`);
         process.exit(1);
     }
 
     // Copy test harness if not already there
     const harnessSrc = path.join(ROOT, 'wasm_test.html');
-    const harnessDst = path.join(BUILD, 'wasm_test.html');
+    const harnessDst = path.join(serveDir, 'wasm_test.html');
     if (fs.existsSync(harnessSrc) && !fs.existsSync(harnessDst)) {
         fs.copyFileSync(harnessSrc, harnessDst);
-        console.log('Copied wasm_test.html to build_wasm/');
+        console.log(`Copied wasm_test.html to ${path.basename(serveDir)}/`);
     }
 
     // Use Node http module for zero-dep serving
@@ -129,9 +159,9 @@ function serve() {
 
     const server = http.createServer((req, res) => {
         let urlPath = req.url === '/' ? '/wasm_test.html' : req.url;
-        const file  = path.join(BUILD, urlPath.split('?')[0]);
+        const file  = path.join(serveDir, urlPath.split('?')[0]);
 
-        if (!file.startsWith(BUILD)) {
+        if (!file.startsWith(serveDir)) {
             res.writeHead(403);
             return res.end('Forbidden');
         }

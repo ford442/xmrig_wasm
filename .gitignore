@@ -9,3 +9,6 @@ scripts/deps
 emsdk
 bin
 build
+node_modules
+build_wasm/CMakeFiles
+build_wasm/CMakeCache.txt

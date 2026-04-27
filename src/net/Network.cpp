@@ -272,8 +272,9 @@ void xmrig::Network::setJob(IClient *client, const Job &job, bool donate)
         const char *scale   = NetworkState::scaleDiff(diff);
 
         char zmq_buf[32] = {};
-        if (client->pool().zmq_port() >= 0) {
-            snprintf(zmq_buf, sizeof(zmq_buf), " (ZMQ:%d)", client->pool().zmq_port());
+        const Pool &pool = client->pool();
+        if (pool.zmq_port() >= 0) {
+            snprintf(zmq_buf, sizeof(zmq_buf), " (ZMQ:%d)", pool.zmq_port());
         }
 
         char tx_buf[32] = {};
@@ -288,7 +289,7 @@ void xmrig::Network::setJob(IClient *client, const Job &job, bool donate)
         }
 
         LOG_INFO("%s " MAGENTA_BOLD("new job") " from " WHITE_BOLD("%s:%d%s") " diff " WHITE_BOLD("%" PRIu64 "%s") " algo " WHITE_BOLD("%s") "%s%s",
-                 Tags::network(), client->pool().host().data(), client->pool().port(), zmq_buf, diff, scale, job.algorithm().name(), height_buf, tx_buf);
+                 Tags::network(), pool.host().data(), pool.port(), zmq_buf, diff, scale, job.algorithm().name(), height_buf, tx_buf);
     }
 
     if (!donate && m_donate) {

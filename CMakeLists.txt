@@ -21,6 +21,7 @@ option(WITH_OPENCL          "Enable OpenCL backend" ON)
 set(WITH_OPENCL_VERSION 200 CACHE STRING "Target OpenCL version")
 set_property(CACHE WITH_OPENCL_VERSION PROPERTY STRINGS 120 200 210 220)
 option(WITH_CUDA            "Enable CUDA backend" ON)
+option(WITH_WEBGPU          "Enable WebGPU backend" OFF)
 option(WITH_NVML            "Enable NVML (NVIDIA Management Library) support (only if CUDA backend enabled)" ON)
 option(WITH_ADL             "Enable ADL (AMD Display Library) or sysfs support (only if OpenCL backend enabled)" ON)
 option(WITH_STRICT_CACHE    "Enable strict checks for OpenCL cache" ON)
@@ -51,12 +52,15 @@ if (EMSCRIPTEN)
     set(WITH_CUDA     OFF CACHE BOOL "" FORCE)
     set(WITH_NVML     OFF CACHE BOOL "" FORCE)
     set(WITH_ADL      OFF CACHE BOOL "" FORCE)
+    set(WITH_WEBGPU   ON  CACHE BOOL "" FORCE)
+    set(WITH_GHOSTRIDER OFF CACHE BOOL "" FORCE)
     set(WITH_SSE4_1   OFF CACHE BOOL "" FORCE)
     set(WITH_AVX2     OFF CACHE BOOL "" FORCE)
     set(WITH_VAES     OFF CACHE BOOL "" FORCE)
     set(WITH_ASM      OFF CACHE BOOL "" FORCE)
     set(WITH_SECURE_JIT OFF CACHE BOOL "" FORCE)
     set(WITH_HTTP     OFF CACHE BOOL "" FORCE)
+    include_directories(${CMAKE_SOURCE_DIR}/src/wasm)
     message(STATUS "Emscripten/WASM build detected — disabling incompatible features")
 endif()
 
@@ -136,6 +140,10 @@ set(SOURCES
     src/xmrig.cpp
    )
 
+if (EMSCRIPTEN)
+    list(APPEND SOURCES src/base/net/stratum/WebSocketClient.cpp)
+endif()
+
 set(SOURCES_CRYPTO
     src/crypto/cn/c_blake256.c
     src/crypto/cn/c_groestl.c
@@ -148,6 +156,9 @@ set(SOURCES_CRYPTO
     src/crypto/common/Nonce.cpp
     src/crypto/common/VirtualMemory.cpp
    )
+
+# CryptoNight sources kept for Emscripten builds
+# (previously removed; restored for full algorithm support)
 
 if (CMAKE_C_COMPILER_ID MATCHES GNU)
     set_source_files_properties(src/crypto/cn/CnHash.cpp PROPERTIES COMPILE_FLAGS "-Ofast -fno-tree-vectorize")
@@ -287,6 +298,6 @@ if (WIN32)
     add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_SOURCE_DIR}/scripts/rtm_ghostrider_example.cmd" $<TARGET_FILE_DIR:${CMAKE_PROJECT_NAME}>)
 endif()
 
-if (CMAKE_CXX_COMPILER_ID MATCHES Clang AND CMAKE_BUILD_TYPE STREQUAL Release AND NOT CMAKE_GENERATOR STREQUAL Xcode)
-    add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_STRIP} "$<TARGET_FILE:${CMAKE_PROJECT_NAME}>")
+if (CMAKE_CXX_COMPILER_ID MATCHES Clang AND CMAKE_BUILD_TYPE STREQUAL Release AND NOT CMAKE_GENERATOR STREQUAL Xcode AND NOT EMSCRIPTEN)
+    add_custom_command(TARGET ${CMAKE_PROJECT_NAME} POST_BUILD COMMAND ${CMAKE_STRIP} "$<TARGET_FILE:${CMAKE_PROJECT_NAME}>")
 endif()

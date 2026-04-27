@@ -209,11 +209,20 @@ void xmrig::RxDataset::allocate(bool hugePages, bool oneGbPages)
         return;
     }
 
+#   ifdef __EMSCRIPTEN__
+    // Force light mode in WASM: full dataset init via the superscalar
+    // interpreter is ~100× slower than native and takes tens of minutes.
+    LOG_WARN("%s" YELLOW_BOLD_S "WASM build: forcing RandomX light mode", Tags::randomx());
+    return;
+#   endif
+
+#   ifndef XMRIG_OS_WASM
     if (m_mode == RxConfig::AutoMode && uv_get_total_memory() < (maxSize() + RxCache::maxSize())) {
         LOG_ERR(CLEAR "%s" RED_BOLD_S "not enough memory for RandomX dataset", Tags::randomx());
 
         return;
     }
+#   endif
 
     m_memory  = new VirtualMemory(maxSize(), hugePages, oneGbPages, false, m_node, VirtualMemory::kDefaultHugePageSize);
 

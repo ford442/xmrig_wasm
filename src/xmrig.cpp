@@ -25,6 +25,9 @@ int main(int argc, char **argv)
 {
     using namespace xmrig;
 
+    for (int i = 0; i < argc; ++i) {
+    }
+
     Process process(argc, argv);
     const Entry::Id entry = Entry::get(process);
     if (entry) {

@@ -55,6 +55,11 @@
 #endif
 
 
+#ifdef XMRIG_FEATURE_WEBGPU
+#   include "backend/webgpu/WebGpuBackend.h"
+#endif
+
+
 #ifdef XMRIG_ALGO_RANDOMX
 #   include "crypto/rx/Profiler.h"
 #   include "crypto/rx/Rx.h"
@@ -405,7 +410,7 @@ xmrig::Miner::Miner(Controller *controller)
 #   endif
 
 #   ifdef XMRIG_ALGO_RANDOMX
-    Rx::init(this);
+    Rx::init([this]() { this->onDatasetReady(); });
 #   endif
 
     controller->addListener(this);
@@ -425,6 +430,10 @@ xmrig::Miner::Miner(Controller *controller)
 
 #   ifdef XMRIG_FEATURE_CUDA
     d_ptr->backends.push_back(new CudaBackend(controller));
+#   endif
+
+#   ifdef XMRIG_FEATURE_WEBGPU
+    d_ptr->backends.push_back(new WebGpuBackend(controller));
 #   endif
 
     d_ptr->rebuild();
@@ -463,7 +472,9 @@ const std::vector<xmrig::IBackend *> &xmrig::Miner::backends() const
 
 xmrig::Job xmrig::Miner::job() const
 {
+#   ifndef XMRIG_OS_WASM
     std::lock_guard<std::mutex> lock(mutex);
+#   endif
 
     return d_ptr->job;
 }
@@ -571,7 +582,9 @@ void xmrig::Miner::setJob(const Job &job, bool donate)
 
     d_ptr->algorithm = job.algorithm();
 
+#   ifndef XMRIG_OS_WASM
     mutex.lock();
+#   endif
 
     const uint8_t index = donate ? 1 : 0;
     const bool same_job_index = d_ptr->job.index() == index;
@@ -608,7 +621,9 @@ void xmrig::Miner::setJob(const Job &job, bool donate)
     }
 #   endif
 
+#   ifndef XMRIG_OS_WASM
     mutex.unlock();
+#   endif
 
     d_ptr->active = true;
     d_ptr->m_taskbar.setActive(true);

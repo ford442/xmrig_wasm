@@ -31,6 +31,10 @@
 #include "base/kernel/Platform.h"
 #include "base/net/stratum/Client.h"
 
+#ifdef XMRIG_OS_WASM
+#   include "base/net/stratum/WebSocketClient.h"
+#endif
+
 #if defined XMRIG_ALGO_KAWPOW || defined XMRIG_ALGO_GHOSTRIDER
 #   include "base/net/stratum/AutoClient.h"
 #   include "base/net/stratum/EthStratumClient.h"
@@ -234,7 +238,11 @@ xmrig::IClient *xmrig::Pool::createClient(int id, IClientListener *listener) con
         else
 #       endif
         {
+#           ifdef XMRIG_OS_WASM
+            client = new WebSocketClient(id, Platform::userAgent(), listener);
+#           else
             client = new Client(id, Platform::userAgent(), listener);
+#           endif
         }
     }
 #   ifdef XMRIG_FEATURE_HTTP

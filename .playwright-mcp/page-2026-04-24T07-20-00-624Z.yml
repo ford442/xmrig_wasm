@@ -1,0 +1,4 @@
+- generic [ref=e2]:
+  - heading "🪨 XMRig WASM Real Miner Test" [level=1] [ref=e3]
+  - generic [ref=e4]: ⏳ Loading WASM module...
+  - button "▶ Run Benchmark (100 hashes)" [disabled] [ref=e6]

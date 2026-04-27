@@ -1,3 +1,24 @@
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * This file provides fast 32-bit division and square-root approximations used
+ * by CryptoNight variant 2 (CN_2 / CN_R / CN_RWZ / CN_XAO / CN_ZLS / CN_DOUBLE).
+ * Translation target: inlined into cryptonight.wgsl (CN_2 branch only).
+ *
+ * Key porting considerations:
+ *   1. Uses float32 operations (as_float, native_recip, native_sqrt, fma,
+ *      convert_float_rte, convert_int_rte). All available in WGSL.
+ *   2. as_float(u) / as_uint(f) → bitcast<f32>(u) / bitcast<u32>(f).
+ *   3. native_recip / native_sqrt → 1.0 / x and sqrt(x) in WGSL. WGSL sqrt
+ *      is correctly rounded on most hardware; for exact bit compatibility we
+ *      may need to verify against the OpenCL reference.
+ *   4. fma(a,b,c) → fma(a,b,c) in WGSL (available since WGSL spec v1).
+ *   5. mul24(a,b) → (a & 0xFFFFFFu) * (b & 0xFFFFFFu) in WGSL.
+ *   6. get_reciprocal() returns a 32-bit reciprocal approximation. The entire
+ *      fast_div_v2() + fast_sqrt_v2() logic is self-contained and can be
+ *      translated function-by-function.
+ * ============================================================================ */
+
 /*
  * @author SChernykh
  */

@@ -1,3 +1,25 @@
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * This file defines the Keccak-f[1600] permutation used by CryptoNight init
+ * and final hash steps. Translation target:
+ *   src/backend/webgpu/shaders/wgsl/cn/keccak.wgsl
+ *
+ * Key porting considerations:
+ *   1. keccakf_rndc[24], keccakf_rotc[24], keccakf_piln[24] are small constant
+ *      tables — use const arrays in WGSL.
+ *   2. keccakf1600_1 operates on a private ulong[25] array.
+ *      keccakf1600_2 operates on a __local ulong[25] array.
+ *      In WGSL, the private version uses a function-local array; the local
+ *      version takes a pointer-like index into a var<workgroup> array.
+ *   3. rotate(x, n) for u64 must be emulated in WGSL:
+ *      fn rotl64(x: u64, n: u32) -> u64 { return (x << n) | (x >> (64u - n)); }
+ *   4. bitselect(a, b, c) is the OpenCL ternary-select: c ? b : a.
+ *      In WGSL: select(b, a, c != 0u)  (note WGSL select order is select(false, true, cond)).
+ *   5. The Theta / Rho-Pi / Chi / Iota rounds are pure bit ops — translate
+ *      literally to WGSL.
+ * ============================================================================ */
+
 #ifndef XMRIG_KECCAK_CL
 #define XMRIG_KECCAK_CL
 

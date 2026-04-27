@@ -22,6 +22,7 @@
 
 
 #include <cstdint>
+#include <functional>
 #include <utility>
 #include <vector>
 
@@ -48,7 +49,7 @@ public:
     static HugePagesInfo hugePages();
     static RxDataset *dataset(const Job &job, uint32_t nodeId);
     static void destroy();
-    static void init(IRxListener *listener);
+    static void init(std::function<void()> callback);
     template<typename T> static bool init(const T &seed, const RxConfig &config, const CpuConfig &cpu);
     template<typename T> static bool isReady(const T &seed);
 

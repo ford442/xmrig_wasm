@@ -6,570 +6,275 @@
 <title>XMRig WASM Miner</title>
 <style>
 :root {
-  --bg:       #0d1117;
-  --surface:  #161b22;
-  --border:   #30363d;
-  --accent:   #58a6ff;
-  --green:    #3fb950;
-  --yellow:   #d29922;
-  --red:      #f85149;
-  --text:     #c9d1d9;
-  --muted:    #6e7681;
-  --sidebar:  220px;
+  --bg: #0d1117; --surface: #161b22; --border: #30363d;
+  --accent: #58a6ff; --green: #3fb950; --yellow: #d29922; --red: #f85149;
+  --text: #c9d1d9; --muted: #6e7681;
 }
-
 * { margin:0; padding:0; box-sizing:border-box; }
-
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', monospace;
-  background: var(--bg);
-  color: var(--text);
-  height: 100vh;
-  display: grid;
+  background: var(--bg); color: var(--text);
+  height: 100vh; display: grid;
   grid-template-rows: 48px 1fr;
-  grid-template-columns: var(--sidebar) 1fr;
+  grid-template-columns: 240px 1fr;
   grid-template-areas: "nav nav" "side main";
   overflow: hidden;
 }
-
-/* ── Nav ─────────────────────────────────────────────── */
 nav {
-  grid-area: nav;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  padding: 0 16px;
-  gap: 12px;
+  grid-area: nav; background: var(--surface); border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; padding: 0 16px; gap: 12px;
 }
-
-nav .logo { font-weight: 700; font-size: 15px; letter-spacing: .5px; }
-nav .logo span { color: var(--accent); }
-
+.logo { font-weight: 700; font-size: 15px; letter-spacing: .5px; }
+.logo span { color: var(--accent); }
 .pill {
-  font-size: 11px;
-  padding: 2px 8px;
-  border-radius: 12px;
-  font-weight: 600;
-  letter-spacing: .3px;
+  font-size: 11px; padding: 2px 8px; border-radius: 12px;
+  font-weight: 600; letter-spacing: .3px;
 }
-.pill.idle    { background: #21262d; color: var(--muted); }
+.pill.idle { background: #21262d; color: var(--muted); }
 .pill.running { background: #0d4429; color: var(--green); }
-.pill.error   { background: #490202; color: var(--red); }
+.pill.error { background: #490202; color: var(--red); }
 
-nav .spacer { flex: 1; }
-
-.uptime-label { font-size: 12px; color: var(--muted); }
-
-/* ── Sidebar ──────────────────────────────────────────── */
 aside {
-  grid-area: side;
-  background: var(--surface);
-  border-right: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
+  grid-area: side; background: var(--surface); border-right: 1px solid var(--border);
+  overflow-y: auto; padding: 14px; display: flex; flex-direction: column; gap: 12px;
 }
-
-.section-label {
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--muted);
-  padding: 16px 14px 6px;
-}
-
-.field {
-  padding: 4px 14px;
-  margin-bottom: 4px;
-}
-.field label {
-  display: block;
-  font-size: 11px;
-  color: var(--muted);
-  margin-bottom: 3px;
-}
+.field { display: flex; flex-direction: column; }
+.field label { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
 .field input, .field select {
-  width: 100%;
-  background: var(--bg);
-  border: 1px solid var(--border);
-  color: var(--text);
-  border-radius: 6px;
-  padding: 5px 8px;
-  font-size: 12px;
-  outline: none;
-  font-family: monospace;
+  background: var(--bg); border: 1px solid var(--border); color: var(--text);
+  border-radius: 6px; padding: 6px 8px; font-size: 13px;
 }
-.field input:focus, .field select:focus {
-  border-color: var(--accent);
-}
-
-.sidebar-btns {
-  padding: 10px 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
 .btn {
-  border: none;
-  border-radius: 6px;
-  padding: 7px 12px;
-  font-size: 12px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: opacity .15s;
-  width: 100%;
+  padding: 8px 12px; border: none; border-radius: 6px; font-weight: 600;
+  cursor: pointer; font-size: 13px;
 }
-.btn:disabled { opacity: .35; cursor: not-allowed; }
-.btn.primary  { background: var(--accent); color: #000; }
-.btn.danger   { background: var(--red);    color: #fff; }
-.btn.ghost    { background: #21262d; color: var(--text); border: 1px solid var(--border); }
+.btn.primary { background: var(--accent); color: #000; }
+.btn.danger { background: var(--red); color: #fff; }
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
 
-.divider { border: none; border-top: 1px solid var(--border); margin: 8px 14px; }
-
-/* ── Main ─────────────────────────────────────────────── */
 main {
-  grid-area: main;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  overflow: hidden;
-  padding: 14px;
-  gap: 12px;
+  grid-area: main; padding: 14px; display: flex; flex-direction: column; gap: 12px;
 }
-
-/* Stats row */
 .stats-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 10px;
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
 }
-
 .stat-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 14px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 8px; padding: 12px;
 }
-.stat-card .s-label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: .8px;
-  color: var(--muted);
-  margin-bottom: 4px;
-}
-.stat-card .s-val {
-  font-size: 22px;
-  font-weight: 700;
-  font-family: 'Courier New', monospace;
-  color: var(--accent);
-  line-height: 1;
-}
-.stat-card .s-sub {
-  font-size: 10px;
-  color: var(--muted);
-  margin-top: 3px;
-}
+.stat-card .label { font-size: 10px; color: var(--muted); }
+.stat-card .value { font-size: 22px; font-weight: 700; font-family: monospace; color: var(--accent); }
 
-/* Chart area */
-.chart-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  min-height: 0;
+.chart-panel, .log-panel {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px;
+  flex: 1; display: flex; flex-direction: column;
 }
-.chart-panel .panel-title {
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .7px;
-  color: var(--muted);
-  margin-bottom: 8px;
-}
-canvas#chart { flex: 1; width: 100% !important; }
-
-/* Log panel */
-.log-panel {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  height: 180px;
-}
-.log-header {
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-bottom: 1px solid var(--border);
-  gap: 8px;
-}
-.log-header span { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .7px; }
-.log-header .clear-btn { margin-left: auto; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 11px; }
-.log-header .clear-btn:hover { color: var(--text); }
-
+canvas { flex: 1; }
 .log-body {
-  flex: 1;
-  overflow-y: auto;
-  padding: 6px 10px;
-  font-family: 'Courier New', monospace;
-  font-size: 11.5px;
-  line-height: 1.55;
+  flex: 1; overflow-y: auto; font-family: monospace; font-size: 12px; line-height: 1.5;
 }
-.log-body .l  { color: var(--text); }
-.log-body .li { color: var(--accent); }
-.log-body .ls { color: var(--green); }
-.log-body .lw { color: var(--yellow); }
-.log-body .le { color: var(--red); }
 </style>
 </head>
 <body>
 
-<!-- Nav -->
 <nav>
   <div class="logo">XMRig <span>WASM</span></div>
   <div class="pill idle" id="statusPill">Idle</div>
-  <div class="spacer"></div>
-  <div class="uptime-label" id="uptimeLabel">—</div>
+  <div class="spacer" style="flex:1"></div>
+  <div id="uptimeLabel" style="font-size:12px;color:var(--muted)">—</div>
 </nav>
 
-<!-- Sidebar -->
 <aside>
-  <div class="section-label">Pool</div>
-  <div class="field"><label>Host</label><input id="poolHost" value="pool.supportxmr.com" /></div>
-  <div class="field"><label>Port</label><input id="poolPort" value="3333" /></div>
-  <div class="field"><label>Wallet</label><input id="wallet" placeholder="Your XMR address" /></div>
-  <div class="field"><label>Password</label><input id="poolPass" value="x" /></div>
+  <div class="field">
+    <label>Pool Host</label>
+    <input id="poolHost" value="pool.supportxmr.com">
+  </div>
+  <div class="field">
+    <label>Port</label>
+    <input id="poolPort" value="3333" type="number">
+  </div>
+  <div class="field">
+    <label>Wallet</label>
+    <input id="wallet" placeholder="Your XMR address">
+  </div>
 
-  <hr class="divider">
-  <div class="section-label">Miner</div>
   <div class="field">
     <label>Algorithm</label>
     <select id="algo">
-      <option value="rx/0">RandomX  (rx/0)</option>
-      <option value="cn/1">CryptoNight v1</option>
-      <option value="cn-lite/1">CN-Lite v1</option>
+      <option value="rx/0">RandomX (rx/0)</option>
+      <option value="cn/1">CryptoNight</option>
+      <option value="cn-lite/1">CN-Lite</option>
     </select>
   </div>
-  <div class="field"><label>Threads</label><input id="threads" type="number" value="1" min="1" max="8" /></div>
-  <div class="field"><label>Priority (0–5)</label><input id="priority" type="number" value="2" min="0" max="5" /></div>
 
-  <hr class="divider">
-  <div class="sidebar-btns">
-    <button class="btn primary" id="startBtn" onclick="startMining()">▶  Start Mining</button>
-    <button class="btn danger"  id="stopBtn"  onclick="stopMining()" disabled>■  Stop</button>
-    <button class="btn ghost"   onclick="clearLog()">Clear Log</button>
+  <div class="field">
+    <label>Threads</label>
+    <input id="threads" type="number" value="2" min="1" max="8">
   </div>
+
+  <label style="font-size:11px;margin:8px 0 4px">
+    <input type="checkbox" id="lightMode" checked> Light Mode (fast start, recommended)
+  </label>
+
+  <button class="btn primary" id="startBtn">▶ Start Mining</button>
+  <button class="btn danger" id="stopBtn" disabled>■ Stop</button>
 </aside>
 
-<!-- Main -->
 <main>
-  <!-- Stats row -->
   <div class="stats-row">
-    <div class="stat-card">
-      <div class="s-label">Hashrate</div>
-      <div class="s-val" id="sHashrate">0.00</div>
-      <div class="s-sub" id="sHashUnit">H/s</div>
-    </div>
-    <div class="stat-card">
-      <div class="s-label">Accepted</div>
-      <div class="s-val" id="sAccepted">0</div>
-      <div class="s-sub">shares</div>
-    </div>
-    <div class="stat-card">
-      <div class="s-label">Rejected</div>
-      <div class="s-val" id="sRejected" style="color:var(--red)">0</div>
-      <div class="s-sub">shares</div>
-    </div>
-    <div class="stat-card">
-      <div class="s-label">Total Hashes</div>
-      <div class="s-val" id="sTotal">0</div>
-      <div class="s-sub" id="sTotalUnit">H</div>
-    </div>
-    <div class="stat-card">
-      <div class="s-label">Difficulty</div>
-      <div class="s-val" id="sDiff">—</div>
-      <div class="s-sub" id="sPool">not connected</div>
-    </div>
+    <div class="stat-card"><div class="label">Hashrate</div><div class="value" id="hashrate">0.00</div><div>H/s</div></div>
+    <div class="stat-card"><div class="label">Accepted</div><div class="value" id="accepted">0</div></div>
+    <div class="stat-card"><div class="label">Rejected</div><div class="value" id="rejected" style="color:var(--red)">0</div></div>
+    <div class="stat-card"><div class="label">Total</div><div class="value" id="total">0</div><div id="totalUnit">H</div></div>
   </div>
 
-  <!-- Chart -->
   <div class="chart-panel">
-    <div class="panel-title">Hash Rate — last 5 min</div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Hashrate (last 5 min)</div>
     <canvas id="chart"></canvas>
   </div>
 
-  <!-- Log -->
   <div class="log-panel">
-    <div class="log-header">
-      <span>Log</span>
-      <button class="clear-btn" onclick="clearLog()">clear</button>
-    </div>
+    <div style="font-size:11px;color:var(--muted);margin-bottom:6px">Log</div>
     <div class="log-body" id="logBody"></div>
   </div>
 </main>
 
 <script>
-/* ─── State ─────────────────────────────────────────────── */
-let wasmModule   = null;
-let mining       = false;
-let startTs      = 0;
-let totalHashes  = 0;
-let accepted     = 0;
-let rejected     = 0;
-let rateHistory  = [];          // {t, h} per second
-const MAX_HIST   = 300;         // 5 min @ 1 sample/s
+// ==================== CONFIG & STATE ====================
+let wasmModule = null;
+let isMining = false;
+let startTime = 0;
+let totalHashes = 0;
+let accepted = 0;
+let rejected = 0;
+let rateHistory = [];
+const MAX_HISTORY = 300;
 
-/* ─── Log ────────────────────────────────────────────────── */
-function log(msg, cls = 'l') {
+// ==================== LOGGING ====================
+function log(msg, type = 'info') {
   const body = document.getElementById('logBody');
-  const d = document.createElement('div');
-  d.className = cls;
+  const entry = document.createElement('div');
   const ts = new Date().toLocaleTimeString('en-US', {hour12:false});
-  d.textContent = `[${ts}] ${msg}`;
-  body.appendChild(d);
+  entry.style.color = type === 'success' ? '#3fb950' : type === 'error' ? '#f85149' : '#c9d1d9';
+  entry.textContent = `[${ts}] ${msg}`;
+  body.appendChild(entry);
   body.scrollTop = body.scrollHeight;
 }
-function clearLog() { document.getElementById('logBody').innerHTML = ''; }
 
-/* ─── Uptime ticker ──────────────────────────────────────── */
-let uptimeTick = null;
-function startUptime() {
-  uptimeTick = setInterval(() => {
-    if (!mining) return;
-    const s = Math.floor((Date.now() - startTs) / 1000);
-    const h = String(Math.floor(s/3600)).padStart(2,'0');
-    const m = String(Math.floor((s%3600)/60)).padStart(2,'0');
-    const sec = String(s%60).padStart(2,'0');
-    document.getElementById('uptimeLabel').textContent = `${h}:${m}:${sec}`;
-  }, 1000);
-}
-
-/* ─── Chart ──────────────────────────────────────────────── */
+// ==================== CHART ====================
 const canvas = document.getElementById('chart');
-const ctx    = canvas.getContext('2d');
-
-function resizeCanvas() {
-  canvas.width  = canvas.offsetWidth  * devicePixelRatio;
+const ctx = canvas.getContext('2d');
+function resize() {
+  canvas.width = canvas.offsetWidth * devicePixelRatio;
   canvas.height = canvas.offsetHeight * devicePixelRatio;
   ctx.scale(devicePixelRatio, devicePixelRatio);
 }
-new ResizeObserver(resizeCanvas).observe(canvas);
-resizeCanvas();
+new ResizeObserver(resize).observe(canvas);
+resize();
 
-function drawChart() {
-  const W = canvas.offsetWidth, H = canvas.offsetHeight;
-  ctx.clearRect(0, 0, W, H);
-  if (rateHistory.length < 2) return;
-
-  const vals = rateHistory.map(r => r.h);
-  const maxV = Math.max(...vals, 1);
-
-  // grid lines
-  ctx.strokeStyle = '#21262d';
-  ctx.lineWidth   = 1;
-  for (let i = 1; i <= 4; i++) {
-    const y = H - (i/4)*H;
-    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-  }
-
-  // area fill
-  const step = W / (MAX_HIST - 1);
-  const pts  = rateHistory.map((r, i) => {
-    const x = i * step + (MAX_HIST - rateHistory.length) * step;
-    return { x, y: H - (r.h / maxV) * H * 0.9 };
-  });
-
-  ctx.beginPath();
-  ctx.moveTo(pts[0].x, H);
-  ctx.lineTo(pts[0].x, pts[0].y);
-  pts.slice(1).forEach(p => ctx.lineTo(p.x, p.y));
-  ctx.lineTo(pts[pts.length-1].x, H);
-  ctx.closePath();
-  const grad = ctx.createLinearGradient(0, 0, 0, H);
-  grad.addColorStop(0, 'rgba(88,166,255,.35)');
-  grad.addColorStop(1, 'rgba(88,166,255,.01)');
-  ctx.fillStyle = grad;
-  ctx.fill();
-
-  // line
-  ctx.beginPath();
-  ctx.strokeStyle = '#58a6ff';
-  ctx.lineWidth   = 1.5;
-  ctx.moveTo(pts[0].x, pts[0].y);
-  pts.slice(1).forEach(p => ctx.lineTo(p.x, p.y));
-  ctx.stroke();
-
-  // y-axis label
-  ctx.fillStyle = '#6e7681';
-  ctx.font      = '10px monospace';
-  ctx.fillText(fmtH(maxV) + '/s', 4, 12);
-}
-
-/* ─── Formatters ─────────────────────────────────────────── */
-function fmtH(h) {
-  if (h >= 1e6) return (h/1e6).toFixed(2) + ' MH';
-  if (h >= 1e3) return (h/1e3).toFixed(2) + ' kH';
-  return h.toFixed(2) + ' H';
-}
-function fmtTotal(h) {
-  if (h >= 1e9) return [(h/1e9).toFixed(2), 'GH'];
-  if (h >= 1e6) return [(h/1e6).toFixed(2), 'MH'];
-  if (h >= 1e3) return [(h/1e3).toFixed(2), 'kH'];
-  return [Math.floor(h), 'H'];
-}
-
-/* ─── Stats update loop ──────────────────────────────────── */
-let lastHashes = 0;
-let statsInterval = null;
-
-function updateStats() {
-  const now    = Date.now();
-  const newH   = totalHashes - lastHashes;
-  lastHashes   = totalHashes;
-
-  rateHistory.push({ t: now, h: newH });
-  if (rateHistory.length > MAX_HIST) rateHistory.shift();
-
-  // smooth 10s avg
-  const window10 = rateHistory.slice(-10);
-  const avg = window10.reduce((s, r) => s + r.h, 0) / window10.length;
-
-  document.getElementById('sHashrate').textContent = avg.toFixed(2);
-  document.getElementById('sHashUnit').textContent  = 'H/s';
-
-  const [tv, tu] = fmtTotal(totalHashes);
-  document.getElementById('sTotal').textContent    = tv;
-  document.getElementById('sTotalUnit').textContent = tu;
-  document.getElementById('sAccepted').textContent  = accepted;
-  document.getElementById('sRejected').textContent  = rejected;
-
-  drawChart();
-}
-
-/* ─── WASM bootstrap ─────────────────────────────────────── */
+// ==================== WASM LOADING ====================
 async function loadWasm() {
-  log('Looking for xmrig.js…', 'li');
-  const candidates = ['./xmrig.js', '../build_wasm/xmrig.js'];
-  for (const path of candidates) {
+  log('Loading XMRig WASM...', 'info');
+  const paths = ['./xmrig.js', '../build_wasm/xmrig.js'];
+  
+  for (const path of paths) {
     try {
-      const r = await fetch(path, { method: 'HEAD' });
-      if (r.ok) {
-        log(`Found at ${path}`, 'li');
-        const s = document.createElement('script');
-        s.src = path;
-        s.onload = () => {
-          log('JS wrapper loaded — waiting for runtime…', 'li');
-          if (typeof Module !== 'undefined') {
-            Module.onRuntimeInitialized = () => {
-              wasmModule = Module;
-              log('WASM runtime ready ✓', 'ls');
-              document.getElementById('startBtn').disabled = false;
-            };
-            Module.print    = t => log('[wasm] ' + t, 'l');
-            Module.printErr = t => log('[wasm] ' + t, 'lw');
-          } else {
-            log('Module not found after script load', 'le');
-          }
-        };
-        s.onerror = () => log(`Failed to load ${path}`, 'le');
-        document.head.appendChild(s);
+      const res = await fetch(path, {method:'HEAD'});
+      if (res.ok) {
+        log(`Found module at ${path}`, 'success');
+        const script = document.createElement('script');
+        script.src = path;
+        script.onload = () => initModule();
+        document.head.appendChild(script);
         return;
       }
-    } catch {}
+    } catch(e) {}
   }
-  log('xmrig.js not found — build first with: npm run build', 'lw');
-  log('Running in UI-only demo mode', 'lw');
+  log('WASM not found — running in demo mode', 'error');
   document.getElementById('startBtn').disabled = false;
 }
 
-/* ─── Mining control ─────────────────────────────────────── */
-let hashSimInterval = null;
+function initModule() {
+  const factory = typeof createXMRig !== 'undefined' ? createXMRig : (typeof Module !== 'undefined' ? () => Module : null);
+  
+  if (factory) {
+    factory().then(mod => {
+      wasmModule = mod;
+      log('WASM runtime ready ✓', 'success');
+      document.getElementById('startBtn').disabled = false;
+    }).catch(err => {
+      log(`Module init failed: ${err.message}`, 'error');
+    });
+  }
+}
+
+// ==================== MINING CONTROL ====================
+let simInterval = null;
 
 function startMining() {
-  mining    = true;
-  startTs   = Date.now();
-  accepted  = 0;
-  rejected  = 0;
-  totalHashes = 0;
-  lastHashes  = 0;
+  if (isMining) return;
+  isMining = true;
+  startTime = Date.now();
+  totalHashes = accepted = rejected = 0;
   rateHistory = [];
 
-  const algo    = document.getElementById('algo').value;
+  const algo = document.getElementById('algo').value;
   const threads = parseInt(document.getElementById('threads').value) || 1;
-  const host    = document.getElementById('poolHost').value;
-  const port    = document.getElementById('poolPort').value;
+  const light = document.getElementById('lightMode').checked;
 
-  setStatus('running');
-  log(`Starting ${algo} on ${threads} thread(s) → ${host}:${port}`, 'li');
-
+  log(`Starting ${algo} | Threads: ${threads} | Light mode: ${light}`, 'success');
+  document.getElementById('statusPill').className = 'pill running';
+  document.getElementById('statusPill').textContent = 'Running';
   document.getElementById('startBtn').disabled = true;
-  document.getElementById('stopBtn').disabled  = false;
-  document.getElementById('sDiff').textContent = '100K';
-  document.getElementById('sPool').textContent = `${host}:${port}`;
+  document.getElementById('stopBtn').disabled = false;
 
-  startUptime();
-
-  if (wasmModule) {
-    // Real WASM path — wire up actual callbacks here once the C API is exported
-    log('WASM module active — real mining path (implement JS↔C bindings)', 'ls');
-    simulateHashes(algo, threads);   // placeholder until bindings land
+  // Real WASM path (when you export the mining functions)
+  if (wasmModule && typeof wasmModule.startMining === 'function') {
+    // TODO: Call your exported C++ functions here
+    log('Real WASM mining started (bindings active)', 'success');
   } else {
-    log('Demo mode — simulated hash rate', 'lw');
-    simulateHashes(algo, threads);
+    log('Demo mode — simulated mining', 'info');
+    simulateMining(algo, threads, light);
   }
-
-  statsInterval = setInterval(updateStats, 1000);
 }
 
 function stopMining() {
-  mining = false;
-  clearInterval(hashSimInterval);
-  clearInterval(statsInterval);
-  clearInterval(uptimeTick);
-
-  setStatus('idle');
-  log('Miner stopped', 'lw');
+  isMining = false;
+  clearInterval(simInterval);
+  document.getElementById('statusPill').className = 'pill idle';
+  document.getElementById('statusPill').textContent = 'Idle';
   document.getElementById('startBtn').disabled = false;
-  document.getElementById('stopBtn').disabled  = true;
-  document.getElementById('uptimeLabel').textContent = '—';
-  document.getElementById('sPool').textContent = 'not connected';
+  document.getElementById('stopBtn').disabled = true;
+  log('Mining stopped', 'info');
 }
 
-/* ─── Demo hash simulator ────────────────────────────────── */
-function simulateHashes(algo, threads) {
-  // Realistic rates per thread: rx≈100 H/s, cn≈400 H/s, cn-lite≈900 H/s
-  const baseRate = algo.startsWith('rx') ? 100 : algo.includes('lite') ? 900 : 400;
-  const rate     = baseRate * threads;
-  const tickMs   = 50;
-  const perTick  = rate * tickMs / 1000;
+function simulateMining(algo, threads, light) {
+  const baseRate = algo.includes('rx') ? (light ? 60 : 45) : algo.includes('lite') ? 900 : 280;
+  const rate = Math.floor(baseRate * threads * (light ? 1.3 : 1));
 
-  hashSimInterval = setInterval(() => {
-    if (!mining) return;
-    totalHashes += perTick + (Math.random() - 0.5) * perTick * 0.1;
-    // Simulate occasional share
-    if (Math.random() < 0.002) {
-      accepted++;
-      log(`Share accepted  diff:100K  algo:${algo}`, 'ls');
-    }
-  }, tickMs);
+  simInterval = setInterval(() => {
+    if (!isMining) return;
+    const increment = rate * 0.2 + Math.random() * rate * 0.1;
+    totalHashes += increment;
+
+    if (Math.random() < 0.003) accepted++;
+
+    // Update UI
+    const elapsed = (Date.now() - startTime) / 1000;
+    const currentRate = elapsed > 0 ? (totalHashes / elapsed) : 0;
+    
+    document.getElementById('hashrate').textContent = currentRate.toFixed(2);
+    document.getElementById('accepted').textContent = accepted;
+    document.getElementById('rejected').textContent = rejected;
+    document.getElementById('total').textContent = Math.floor(totalHashes);
+  }, 200);
 }
 
-/* ─── Helpers ────────────────────────────────────────────── */
-function setStatus(s) {
-  const p = document.getElementById('statusPill');
-  p.className = 'pill ' + s;
-  p.textContent = s.charAt(0).toUpperCase() + s.slice(1);
-}
+// ==================== BOOT ====================
+document.getElementById('startBtn').onclick = startMining;
+document.getElementById('stopBtn').onclick = stopMining;
 
-/* ─── Boot ───────────────────────────────────────────────── */
-document.getElementById('startBtn').disabled = true;
-log('XMRig WASM dashboard initialised', 'li');
+log('XMRig WASM UI loaded — waiting for module...', 'info');
 loadWasm();
 </script>
 </body>

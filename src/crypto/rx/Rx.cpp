@@ -46,7 +46,7 @@ static RxPrivate *d_ptr     = nullptr;
 class RxPrivate
 {
 public:
-    inline explicit RxPrivate(IRxListener *listener) : queue(listener) {}
+    inline explicit RxPrivate(std::function<void()> callback) : queue(std::move(callback)) {}
 
     RxQueue queue;
 };
@@ -79,9 +79,9 @@ void xmrig::Rx::destroy()
 }
 
 
-void xmrig::Rx::init(IRxListener *listener)
+void xmrig::Rx::init(std::function<void()> callback)
 {
-    d_ptr = new RxPrivate(listener);
+    d_ptr = new RxPrivate(std::move(callback));
 }
 
 

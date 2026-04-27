@@ -27,6 +27,21 @@
 *
 * @author   djm34
 */
+/* ============================================================================
+ * WEBGPU PORTING NOTES
+ * ----------------------------------------------------------------------------
+ * Blake-256 branch hash kernel (used by cn2 final stage when State[0]&3 == 0).
+ * Translation target: inlined into cryptonight.wgsl as fn blake256_branch().
+ *
+ * Key porting considerations:
+ *   1. sigma[16][16] is a small constant table — use const array<array<u32,16>,16>.
+ *   2. c_IV256[8], c_Padding[16], c_u256[16] are constants — const arrays.
+ *   3. GS() macro expands to a G-function round. In WGSL, use a helper function
+ *      or inline the logic.
+ *   4. rotate(v, n) for u32 → (v << n) | (v >> (32u - n)).
+ *   5. All math is u32 — straightforward in WGSL.
+ * ============================================================================ */
+
 __constant STATIC const int sigma[16][16] = {
 		{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 },
 		{ 14, 10, 4, 8, 9, 15, 13, 6, 1, 12, 0, 2, 11, 7, 5, 3 },

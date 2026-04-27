@@ -94,7 +94,8 @@ public:
     {
         config = std::unique_ptr<Config>(new Config());
 
-        return config->read(chain, chain.fileName());
+        bool result = config->read(chain, chain.fileName());
+        return result;
     }
 
 
@@ -196,9 +197,11 @@ int xmrig::Base::init()
         Log::add(new ConsoleLog(config()->title()));
     }
 
+#ifndef XMRIG_OS_WASM
     if (config()->logFile()) {
         Log::add(new FileLog(config()->logFile()));
     }
+#endif
 
 #   ifdef HAVE_SYSLOG_H
     if (config()->isSyslog()) {

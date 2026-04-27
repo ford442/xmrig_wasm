@@ -48,6 +48,9 @@ void xmrig::BaseTransform::load(JsonChain &chain, Process *process, IConfigTrans
     const int argc = process->arguments().argc();
     char **argv    = process->arguments().argv();
 
+    for (int i = 0; i < argc; ++i) {
+    }
+
     Document doc(kObjectType);
 
     while (true) {

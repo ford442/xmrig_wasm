@@ -26,7 +26,7 @@
 #ifndef XMRIG_OS_WASM
 #ifdef _MSC_VER
 #   include <intrin.h>
-#else
+#elif !defined(XMRIG_OS_WASM)
 #   include <cpuid.h>
 #endif
 #endif
@@ -80,7 +80,7 @@ static inline void cpuid(uint32_t level, int32_t output[4])
 #   ifndef XMRIG_OS_WASM
 #   ifdef _MSC_VER
     __cpuidex(output, static_cast<int>(level), 0);
-#   else
+#   elif !defined(XMRIG_OS_WASM)
     __cpuid_count(level, 0, output[0], output[1], output[2], output[3]);
 #   endif
 #   endif
@@ -139,6 +139,8 @@ static inline uint64_t xgetbv()
     return 0; /* No AVX support in WASM */
 #elif defined(_MSC_VER)
     return _xgetbv(_XCR_XFEATURE_ENABLED_MASK);
+#elif defined(XMRIG_OS_WASM)
+    return 0;
 #else
     uint32_t eax_reg = 0;
     uint32_t edx_reg = 0;
@@ -319,8 +321,10 @@ xmrig::BasicCpuInfo::BasicCpuInfo() :
     }
 #   endif
 
+#   ifndef XMRIG_OS_WASM
     cn_sse41_enabled = has(FLAG_SSE41);
-    cn_vaes_enabled = has(FLAG_VAES);
+    cn_vaes_enabled  = has(FLAG_VAES);
+#   endif
 }
 
 
