@@ -1,9 +1,0 @@
-/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/xmrig.dir
-/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/edit_cache.dir
-/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/rebuild_cache.dir
-/content/build_space/xmrig_wasm/build_wasm/src/3rdparty/argon2/CMakeFiles/argon2.dir
-/content/build_space/xmrig_wasm/build_wasm/src/3rdparty/argon2/CMakeFiles/edit_cache.dir
-/content/build_space/xmrig_wasm/build_wasm/src/3rdparty/argon2/CMakeFiles/rebuild_cache.dir
-/content/build_space/xmrig_wasm/build_wasm/src/3rdparty/libethash/CMakeFiles/ethash.dir
-/content/build_space/xmrig_wasm/build_wasm/src/3rdparty/libethash/CMakeFiles/edit_cache.dir
-/content/build_space/xmrig_wasm/build_wasm/src/3rdparty/libethash/CMakeFiles/rebuild_cache.dir
