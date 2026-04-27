@@ -32,13 +32,13 @@ void WebGpuCnRunner::build()
 {
     WebGpuDevice dev(m_deviceId);
 
-    m_scratchpads = std::make_unique<WebGpuBuffer>(dev, m_intensity * (m_memory >> 4) * 16, WebGpuBuffer::STORAGE);
-    m_states      = std::make_unique<WebGpuBuffer>(dev, m_intensity * 25 * sizeof(uint64_t), WebGpuBuffer::STORAGE);
+    m_scratchpads = std::unique_ptr<WebGpuBuffer>(new WebGpuBuffer(dev, m_intensity * (m_memory >> 4) * 16, WebGpuBuffer::STORAGE));
+    m_states      = std::unique_ptr<WebGpuBuffer>(new WebGpuBuffer(dev, m_intensity * 25 * sizeof(uint64_t), WebGpuBuffer::STORAGE));
 
     // Create compute pipelines for each kernel entry point
-    m_cn0 = std::make_unique<WebGpuKernel>(dev, cryptonight_wgsl, "cn0");
-    m_cn1 = std::make_unique<WebGpuKernel>(dev, cryptonight_wgsl, "cn1");
-    m_cn2 = std::make_unique<WebGpuKernel>(dev, cryptonight_wgsl, "cn2");
+    m_cn0 = std::unique_ptr<WebGpuKernel>(new WebGpuKernel(dev, cryptonight_wgsl, "cn0"));
+    m_cn1 = std::unique_ptr<WebGpuKernel>(new WebGpuKernel(dev, cryptonight_wgsl, "cn1"));
+    m_cn2 = std::unique_ptr<WebGpuKernel>(new WebGpuKernel(dev, cryptonight_wgsl, "cn2"));
 }
 
 bool WebGpuCnRunner::run(uint32_t startNonce, uint32_t *rescount, uint32_t *resnonce)

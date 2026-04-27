@@ -28,8 +28,8 @@ bool WebGpuBaseRunner::init()
         return false;
     }
 
-    m_inputBuffer  = std::make_unique<WebGpuBuffer>(WebGpuDevice(m_deviceId), 136, WebGpuBuffer::STORAGE | WebGpuBuffer::COPY_DST);
-    m_outputBuffer = std::make_unique<WebGpuBuffer>(WebGpuDevice(m_deviceId), 256 * sizeof(uint32_t), WebGpuBuffer::STORAGE | WebGpuBuffer::COPY_SRC);
+    m_inputBuffer  = std::unique_ptr<WebGpuBuffer>(new WebGpuBuffer(WebGpuDevice(m_deviceId), 136, WebGpuBuffer::STORAGE | WebGpuBuffer::COPY_DST));
+    m_outputBuffer = std::unique_ptr<WebGpuBuffer>(new WebGpuBuffer(WebGpuDevice(m_deviceId), 256 * sizeof(uint32_t), WebGpuBuffer::STORAGE | WebGpuBuffer::COPY_SRC));
 
     build();
     return true;

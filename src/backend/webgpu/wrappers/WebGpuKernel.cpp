@@ -35,7 +35,7 @@ void WebGpuKernel::setArg(uint32_t index, const WebGpuBuffer &buffer, uint32_t o
     if (index >= m_args.size()) {
         m_args.resize(index + 1);
     }
-    m_args[index] = { buffer.id(), offset, size ? size : buffer.size() };
+    m_args[index] = Arg{ buffer.id(), offset, size ? size : buffer.size() };
     m_argsDirty = true;
 }
 
