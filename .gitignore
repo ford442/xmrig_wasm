@@ -9,3 +9,4 @@ scripts/deps
 emsdk
 bin
 build
+node_modules
