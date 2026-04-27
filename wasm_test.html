@@ -367,17 +367,25 @@ python3 -m http.server 8000
                 document.getElementById('loadProgress').style.display = 'block';
 
                 // Try to locate xmrig.js and xmrig.wasm
-                // First, try relative to current page (build_wasm directory)
+                // First, try relative to current page
                 let wasmPath = './xmrig.js';
 
                 // Test if module file exists
                 const testFetch = await fetch(wasmPath, { method: 'HEAD' });
                 if (!testFetch.ok) {
-                    // Try parent directory
-                    wasmPath = '../build_wasm/xmrig.js';
-                    const testFetch2 = await fetch(wasmPath, { method: 'HEAD' });
-                    if (!testFetch2.ok) {
-                        throw new Error('Could not find xmrig.js. Ensure build_wasm/xmrig.js exists.');
+                    // Try dist/ or build_wasm/ in parent directory
+                    const candidates = ['../dist/xmrig.js', '../build_wasm/xmrig.js'];
+                    let found = false;
+                    for (const cand of candidates) {
+                        const resp = await fetch(cand, { method: 'HEAD' });
+                        if (resp.ok) {
+                            wasmPath = cand;
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (!found) {
+                        throw new Error('Could not find xmrig.js. Ensure build_wasm/xmrig.js or dist/xmrig.js exists.');
                     }
                 }
 

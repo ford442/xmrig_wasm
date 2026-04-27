@@ -60,5 +60,7 @@ else()
             )
     endif()
 
-    set(CMAKE_PROJECT_NAME "${CMAKE_PROJECT_NAME}-notls")
+    if (NOT EMSCRIPTEN)
+        set(CMAKE_PROJECT_NAME "${CMAKE_PROJECT_NAME}-notls")
+    endif()
 endif()
