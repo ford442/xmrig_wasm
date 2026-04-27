@@ -26,6 +26,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+#ifdef _OPENMP
+#include <omp.h>
+#endif
+
 #include "core.h"
 #include "blake2/blake2.h"
 #include "blake2/blake2-impl.h"
@@ -250,6 +254,7 @@ static int fill_memory_blocks_st(argon2_instance_t *instance) {
 
     for (r = 0; r < instance->passes; ++r) {
         for (s = 0; s < ARGON2_SYNC_POINTS; ++s) {
+            #pragma omp parallel for schedule(static)
             for (l = 0; l < instance->lanes; ++l) {
                 argon2_position_t position = { r, l, (uint8_t)s, 0 };
                 xmrig_ar2_fill_segment(instance, position);

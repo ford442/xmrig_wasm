@@ -42,6 +42,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <cstring>
 
 #include "crypto/randomx/common.hpp"
+#include "wasm/omp_compat.h"
 #include "crypto/randomx/dataset.hpp"
 #include "crypto/randomx/virtual_memory.hpp"
 #include "crypto/randomx/superscalar.hpp"
@@ -160,7 +161,8 @@ namespace randomx {
 	}
 
 	void initDataset(randomx_cache* cache, uint8_t* dataset, uint32_t startItem, uint32_t endItem) {
-		for (uint32_t itemNumber = startItem; itemNumber < endItem; ++itemNumber, dataset += CacheLineSize)
-			initDatasetItem(cache, dataset, itemNumber);
+		#pragma omp parallel for schedule(static)
+		for (uint32_t itemNumber = startItem; itemNumber < endItem; ++itemNumber)
+			initDatasetItem(cache, dataset + (itemNumber - startItem) * CacheLineSize, itemNumber);
 	}
 }

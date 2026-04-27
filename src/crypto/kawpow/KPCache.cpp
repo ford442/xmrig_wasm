@@ -22,6 +22,7 @@
 #include <thread>
 
 #include "crypto/kawpow/KPCache.h"
+#include "wasm/omp_compat.h"
 #include "3rdparty/libethash/data_sizes.h"
 #include "3rdparty/libethash/ethash_internal.h"
 #include "3rdparty/libethash/ethash.h"
@@ -82,24 +83,9 @@ bool KPCache::init(uint32_t epoch)
 
     // Init DAG cache
     {
-        const uint64_t n = std::max(std::thread::hardware_concurrency(), 1U);
-
-        std::vector<std::thread> threads;
-        threads.reserve(n);
-
-        for (uint64_t i = 0; i < n; ++i) {
-            const uint32_t a = (cache_nodes * i) / n;
-            const uint32_t b = (cache_nodes * (i + 1)) / n;
-
-            threads.emplace_back([this, a, b, &cache]() {
-                uint32_t j = a;
-                for (; j + 4 <= b; j += 4) ethash_calculate_dag_item4_opt(((node*)m_DAGCache.data()) + j, j, num_dataset_parents, &cache);
-                for (; j < b; ++j) ethash_calculate_dag_item_opt(((node*)m_DAGCache.data()) + j, j, num_dataset_parents, &cache);
-            });
-        }
-
-        for (auto& t : threads) {
-            t.join();
+        #pragma omp parallel for schedule(static)
+        for (uint64_t j = 0; j < cache_nodes; ++j) {
+            ethash_calculate_dag_item_opt(((node*)m_DAGCache.data()) + j, j, num_dataset_parents, &cache);
         }
     }
 

@@ -31,6 +31,7 @@
 #include "3rdparty/libethash/ethash.h"
 #include "3rdparty/libethash/ethash_internal.h"
 #include "3rdparty/libethash/data_sizes.h"
+#include "wasm/omp_compat.h"
 
 #ifdef _MSC_VER
 #include <intrin.h>
@@ -227,14 +228,15 @@ void KPHash::calculate(const KPCache& light_cache, uint32_t block_height, const 
     uint32_t w = fnv1a(z, keccak_state[1]);
     uint32_t jsr, jcong;
 
+    #pragma omp parallel for schedule(static)
     for (uint32_t l = 0; l < LANES; ++l) {
         uint32_t z1 = z;
         uint32_t w1 = w;
-        jsr = fnv1a(w, l);
-        jcong = fnv1a(jsr, l);
+        uint32_t jsr_l = fnv1a(w, l);
+        uint32_t jcong_l = fnv1a(jsr_l, l);
 
         for (uint32_t r = 0; r < REGS; ++r) {
-            mix[l][r] = kiss99(z1, w1, jsr, jcong);
+            mix[l][r] = kiss99(z1, w1, jsr_l, jcong_l);
         }
     }
 
@@ -300,6 +302,7 @@ void KPHash::calculate(const KPCache& light_cache, uint32_t block_height, const 
                 const uint32_t src = src_seq[(src_counter++) % REGS];
                 const uint32_t dst = dst_seq[(dst_counter++) % REGS];
                 const uint32_t sel = kiss99(z, w, jsr, jcong);
+                #pragma omp parallel for schedule(static)
                 for (uint32_t j = 0; j < LANES; ++j) {
                     random_merge(mix[j][dst], light_cache.l1_cache()[mix[j][src] % KPCache::l1_cache_num_items], sel);
                 }
@@ -318,6 +321,7 @@ void KPHash::calculate(const KPCache& light_cache, uint32_t block_height, const 
                 const uint32_t dst = dst_seq[(dst_counter++) % REGS];
                 const uint32_t sel2 = kiss99(z, w, jsr, jcong);
 
+                #pragma omp parallel for schedule(static)
                 for (size_t l = 0; l < LANES; ++l)
                 {
                     const uint32_t data = random_math(mix[l][src1], mix[l][src2], sel1, has_popcnt);
@@ -333,6 +337,7 @@ void KPHash::calculate(const KPCache& light_cache, uint32_t block_height, const 
             sels[i] = kiss99(z, w, jsr, jcong);
         }
 
+        #pragma omp parallel for schedule(static)
         for (uint32_t l = 0; l < LANES; ++l) {
             const uint32_t offset = ((l ^ r) % LANES) * num_words_per_lane;
             for (size_t i = 0; i < num_words_per_lane; ++i) {
@@ -342,6 +347,7 @@ void KPHash::calculate(const KPCache& light_cache, uint32_t block_height, const 
     }
 
     uint32_t lane_hash[LANES];
+    #pragma omp parallel for schedule(static)
     for (uint32_t l = 0; l < LANES; ++l)
     {
         lane_hash[l] = fnv_offset_basis;
