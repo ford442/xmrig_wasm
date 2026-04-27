@@ -1,2 +1,2 @@
-/content/build_space/emsdk/upstream/emscripten/emar qc libethash.a CMakeFiles/ethash.dir/ethash_internal.c.o CMakeFiles/ethash.dir/keccakf800.c.o
-/content/build_space/emsdk/upstream/emscripten/emranlib libethash.a
+/root/emsdk/upstream/emscripten/emar qc libethash.a CMakeFiles/ethash.dir/ethash_internal.c.o CMakeFiles/ethash.dir/keccakf800.c.o
+/root/emsdk/upstream/emscripten/emranlib libethash.a
