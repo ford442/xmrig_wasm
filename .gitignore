@@ -10,3 +10,4 @@ emsdk
 bin
 build
 node_modules
+build_wasm/CMakeFiles
