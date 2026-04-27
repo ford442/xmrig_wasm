@@ -365,87 +365,77 @@ python3 -m http.server 8000
             try {
                 log('Attempting to load WASM module...', 'info');
                 document.getElementById('loadProgress').style.display = 'block';
+                updateProgress(10);
 
-                // Try to locate xmrig.js and xmrig.wasm
-                // First, try relative to current page
-                let wasmPath = './xmrig.js';
-
-                // Test if module file exists
-                const testFetch = await fetch(wasmPath, { method: 'HEAD' });
-                if (!testFetch.ok) {
-                    // Try dist/ or build_wasm/ in parent directory
-                    const candidates = ['../dist/xmrig.js', '../build_wasm/xmrig.js'];
-                    let found = false;
-                    for (const cand of candidates) {
-                        const resp = await fetch(cand, { method: 'HEAD' });
-                        if (resp.ok) {
-                            wasmPath = cand;
-                            found = true;
-                            break;
-                        }
-                    }
-                    if (!found) {
-                        throw new Error('Could not find xmrig.js. Ensure build_wasm/xmrig.js or dist/xmrig.js exists.');
-                    }
-                }
-
-                log(`Found WASM module at: ${wasmPath}`, 'info');
-                updateProgress(25);
-
-                // Load the Emscripten-generated JavaScript wrapper
+                const wasmPath = './xmrig.js';
                 const script = document.createElement('script');
                 script.src = wasmPath;
-                script.onload = onWasmLoaded;
-                script.onerror = () => {
-                    log('Failed to load WASM JavaScript wrapper', 'error');
-                    setStatus('❌ Failed to load WASM module', 'error');
-                };
-                document.head.appendChild(script);
 
+                script.onload = () => {
+                    log('WASM JavaScript wrapper downloaded', 'success');
+                    updateProgress(50);
+                    waitForFactory();
+                };
+
+                script.onerror = () => {
+                    log('Failed to load WASM JavaScript wrapper (possible blocker/ext)', 'error');
+                    setStatus('Failed to load WASM module — possible blocker?', 'error');
+                    document.getElementById('loadProgress').style.display = 'none';
+                };
+
+                document.head.appendChild(script);
             } catch (error) {
-                log(`Error loading WASM: ${error.message}`, 'error');
-                setStatus(`❌ Error: ${error.message}`, 'error');
+                log(`Error: ${error.message}`, 'error');
+                setStatus(`Error: ${error.message}`, 'error');
                 document.getElementById('loadProgress').style.display = 'none';
             }
         }
 
-        // Called when Emscripten JavaScript module finishes loading
-        function onWasmLoaded() {
-            try {
-                log('WASM JavaScript wrapper loaded', 'success');
-                updateProgress(50);
+        // Poll for the createXMRig factory function to appear
+        function waitForFactory() {
+            let attempts = 0;
+            const maxAttempts = 50; // 5 seconds total
 
-                // Wait for Emscripten module initialization
-                if (typeof Module !== 'undefined') {
-                    Module.onRuntimeInitialized = () => {
-                        log('WASM module runtime initialized', 'success');
-                        updateProgress(100);
-                        xmrigModule = Module;
+            const interval = setInterval(() => {
+                attempts++;
+                const factory = typeof createXMRig !== 'undefined' ? createXMRig : null;
 
-                        // Verify key exported functions exist
-                        const requiredFunctions = [
-                            '_ZN5xmrig5Rx3v13initERKNS_5Job ER',
-                            'memory'
-                        ];
-
-                        setStatus('✅ WASM module ready', 'ready');
-                        log('WASM module is ready for mining tests', 'success');
-
-                        // Enable start button
-                        document.getElementById('startBtn').disabled = false;
-                        document.getElementById('duration').disabled = false;
-                        document.getElementById('hashTarget').disabled = false;
-                        document.getElementById('threads').disabled = false;
-                        document.getElementById('algorithm').disabled = false;
-                    };
-                } else {
-                    throw new Error('Emscripten Module object not found');
+                if (factory && typeof factory === 'function') {
+                    clearInterval(interval);
+                    log(`Factory found after ${attempts} poll(s)`, 'success');
+                    initModule(factory);
+                    return;
                 }
-            } catch (error) {
-                log(`Error initializing WASM: ${error.message}`, 'error');
-                setStatus(`❌ Initialization error: ${error.message}`, 'error');
+
+                if (attempts >= maxAttempts) {
+                    clearInterval(interval);
+                    log('Factory function never appeared — script may be blocked or failed to parse', 'error');
+                    setStatus('Module load failed (script blocked?)', 'error');
+                    document.getElementById('loadProgress').style.display = 'none';
+                }
+            }, 100);
+        }
+
+        // Instantiate the modularized Emscripten module
+        function initModule(factory) {
+            factory().then(module => {
+                log('WASM module runtime initialized', 'success');
+                updateProgress(100);
+                xmrigModule = module;
+
+                setStatus('WASM module ready', 'ready');
+                log('WASM module is ready for mining tests', 'success');
+
+                document.getElementById('startBtn').disabled = false;
+                document.getElementById('duration').disabled = false;
+                document.getElementById('hashTarget').disabled = false;
+                document.getElementById('threads').disabled = false;
+                document.getElementById('algorithm').disabled = false;
+            }).catch(err => {
+                log(`Module initialization failed: ${err.message}`, 'error');
+                setStatus('Module initialization failed', 'error');
                 document.getElementById('loadProgress').style.display = 'none';
-            }
+            });
         }
 
         // Start mining test
