@@ -327,7 +327,7 @@ python3 -m http.server 8000
     </div>
 
     <script>
-        let wasmModule = null;
+        let xmrigModule = null;
         let isRunning = false;
         let startTime = 0;
         let hashCount = 0;
@@ -420,7 +420,7 @@ python3 -m http.server 8000
                     Module.onRuntimeInitialized = () => {
                         log('WASM module runtime initialized', 'success');
                         updateProgress(100);
-                        wasmModule = Module;
+                        xmrigModule = Module;
 
                         // Verify key exported functions exist
                         const requiredFunctions = [
@@ -450,7 +450,7 @@ python3 -m http.server 8000
 
         // Start mining test
         function startTest() {
-            if (!wasmModule) {
+            if (!xmrigModule) {
                 log('WASM module not loaded yet', 'error');
                 return;
             }
