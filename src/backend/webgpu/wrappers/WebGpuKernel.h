@@ -60,9 +60,11 @@ private:
 
     struct Arg
     {
-        int bufferId = -1;
-        uint32_t offset = 0;
-        uint32_t size = 0;
+        int bufferId;
+        uint32_t offset;
+        uint32_t size;
+
+        Arg(int b = -1, uint32_t o = 0, uint32_t s = 0) : bufferId(b), offset(o), size(s) {}
     };
     std::vector<Arg> m_args;
     bool m_argsDirty = false;

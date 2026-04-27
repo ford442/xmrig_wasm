@@ -57,7 +57,6 @@ const char *uv_version_string(void);
 #define UV__EPIPE        (-32)
 #define UV__ENOENT       (-2)
 #define UV__EACCES       (-13)
-#define UV__ENOBUFS      (-105)
 #define UV__EAI_NONAME   (-3008)
 #define UV__EAI_AGAIN    (-3001)
 #define UV__EAI_FAIL     (-3002)
