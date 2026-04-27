@@ -1,23 +1,22 @@
 CMakeFiles/xmrig-notls.dir/src/crypto/cn/c_skein.c.o: \
-  /root/xmrig_wasm/src/crypto/cn/c_skein.c \
-  /root/emsdk/upstream/lib/clang/23/include/stddef.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/stddef.h \
-  /root/emsdk/upstream/lib/clang/23/include/__stddef_header_macro.h \
-  /root/emsdk/upstream/lib/clang/23/include/__stddef_ptrdiff_t.h \
-  /root/emsdk/upstream/lib/clang/23/include/__stddef_size_t.h \
-  /root/emsdk/upstream/lib/clang/23/include/__stddef_wchar_t.h \
-  /root/emsdk/upstream/lib/clang/23/include/__stddef_null.h \
-  /root/emsdk/upstream/lib/clang/23/include/__stddef_offsetof.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
-  /root/xmrig_wasm/src/crypto/cn/c_skein.h \
-  /root/xmrig_wasm/src/crypto/cn/skein_port.h \
-  /root/emsdk/upstream/lib/clang/23/include/limits.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
-  /root/emsdk/upstream/lib/clang/23/include/stdint.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h
+  /content/build_space/xmrig_wasm/src/crypto/cn/c_skein.c \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/stddef.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/stddef.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/__stddef_header_macro.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/__stddef_ptrdiff_t.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/__stddef_size_t.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/__stddef_wchar_t.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/__stddef_null.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/__stddef_offsetof.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /content/build_space/xmrig_wasm/src/crypto/cn/c_skein.h \
+  /content/build_space/xmrig_wasm/src/crypto/cn/skein_port.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/limits.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/limits.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/bits/limits.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h

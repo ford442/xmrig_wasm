@@ -1,0 +1,23 @@
+CMakeFiles/xmrig.dir/src/base/crypto/keccak.cpp.o: \
+  /content/build_space/xmrig_wasm/src/base/crypto/keccak.cpp \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/memory.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/compat/string.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/string.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__config_site \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/abi.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/compiler.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/platform.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/availability.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__configuration/language.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/string.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/strings.h \
+  /content/build_space/xmrig_wasm/src/base/crypto/keccak.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstdint \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/cstring \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__cstddef/size_t.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/c++/v1/__type_traits/is_constant_evaluated.h

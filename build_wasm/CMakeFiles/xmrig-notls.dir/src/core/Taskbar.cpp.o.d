@@ -1,3 +1,3 @@
 CMakeFiles/xmrig-notls.dir/src/core/Taskbar.cpp.o: \
-  /root/xmrig_wasm/src/core/Taskbar.cpp \
-  /root/xmrig_wasm/src/core/Taskbar.h
+  /content/build_space/xmrig_wasm/src/core/Taskbar.cpp \
+  /content/build_space/xmrig_wasm/src/core/Taskbar.h

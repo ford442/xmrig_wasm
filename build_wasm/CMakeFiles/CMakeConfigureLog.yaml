@@ -154,3 +154,159 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CMakeDetermineSystem.cmake:200 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The target system is: Emscripten - 1 - x86
+      The host system is: Linux - 6.6.113+ - x86_64
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/Internal/CheckSourceCompiles.cmake:108 (try_compile)"
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/Internal/CheckCompilerFlag.cmake:18 (cmake_check_source_compiles)"
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckCXXCompilerFlag.cmake:55 (cmake_check_compiler_flag)"
+      - "cmake/cpu.cmake:17 (CHECK_CXX_COMPILER_FLAG)"
+      - "CMakeLists.txt:68 (include)"
+    checks:
+      - "Performing Test VAES_SUPPORTED"
+    directories:
+      source: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-hskhNZ"
+      binary: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-hskhNZ"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/content/build_space/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/xmrig_wasm/cmake"
+    buildResult:
+      variable: "VAES_SUPPORTED"
+      cached: true
+      stdout: |
+        Change Dir: '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-hskhNZ'
+        
+        Run Build Command(s): /usr/local/lib/python3.12/dist-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f58ed/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f58ed.dir/build.make CMakeFiles/cmTC_f58ed.dir/build
+        gmake[1]: Entering directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-hskhNZ'
+        Building CXX object CMakeFiles/cmTC_f58ed.dir/src.cxx.o
+        /content/build_space/emsdk/upstream/emscripten/em++ -DVAES_SUPPORTED  -mavx2 -mvaes -MD -MT CMakeFiles/cmTC_f58ed.dir/src.cxx.o -MF CMakeFiles/cmTC_f58ed.dir/src.cxx.o.d -o CMakeFiles/cmTC_f58ed.dir/src.cxx.o -c /content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-hskhNZ/src.cxx
+        em++: error: passing any of -msse, -msse2, -msse3, -mssse3, -msse4.1, -msse4.2, -msse4, -mavx, -mavx2, -mfpu=neon flags also requires passing -msimd128 (or -mrelaxed-simd)!
+        gmake[1]: *** [CMakeFiles/cmTC_f58ed.dir/build.make:82: CMakeFiles/cmTC_f58ed.dir/src.cxx.o] Error 1
+        gmake[1]: Leaving directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-hskhNZ'
+        gmake: *** [Makefile:134: cmTC_f58ed/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "src/base/base.cmake:182 (CHECK_INCLUDE_FILE)"
+      - "CMakeLists.txt:70 (include)"
+    checks:
+      - "Looking for syslog.h"
+    directories:
+      source: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-FSVrp4"
+      binary: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-FSVrp4"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/content/build_space/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/xmrig_wasm/cmake"
+    buildResult:
+      variable: "HAVE_SYSLOG_H"
+      cached: true
+      stdout: |
+        Change Dir: '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-FSVrp4'
+        
+        Run Build Command(s): /usr/local/lib/python3.12/dist-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3aeaa/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3aeaa.dir/build.make CMakeFiles/cmTC_3aeaa.dir/build
+        gmake[1]: Entering directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-FSVrp4'
+        Building C object CMakeFiles/cmTC_3aeaa.dir/CheckIncludeFile.c.o
+        /content/build_space/emsdk/upstream/emscripten/emcc    -MD -MT CMakeFiles/cmTC_3aeaa.dir/CheckIncludeFile.c.o -MF CMakeFiles/cmTC_3aeaa.dir/CheckIncludeFile.c.o.d -o CMakeFiles/cmTC_3aeaa.dir/CheckIncludeFile.c.o -c /content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-FSVrp4/CheckIncludeFile.c
+        Linking C executable cmTC_3aeaa.js
+        /usr/local/lib/python3.12/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3aeaa.dir/link.txt --verbose=1
+        /content/build_space/emsdk/upstream/emscripten/emcc CMakeFiles/cmTC_3aeaa.dir/CheckIncludeFile.c.o -o cmTC_3aeaa.js
+        gmake[1]: Leaving directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-FSVrp4'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckSymbolExists.cmake:163 (try_compile)"
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckSymbolExists.cmake:68 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "cmake/flags.cmake:113 (check_symbol_exists)"
+      - "CMakeLists.txt:237 (include)"
+    checks:
+      - "Looking for __builtin___clear_cache"
+    directories:
+      source: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd"
+      binary: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/content/build_space/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: " -Wall -pthread -msimd128 -msse -msse2"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: " -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=536870912 -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap','callMain','FS'] -s EXPORTED_FUNCTIONS=['_main','_malloc','_free'] -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=4 -s PTHREAD_POOL_SIZE_STRICT=0"
+      CMAKE_MODULE_PATH: "/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/xmrig_wasm/cmake"
+    buildResult:
+      variable: "HAVE_BUILTIN_CLEAR_CACHE"
+      cached: true
+      stdout: |
+        Change Dir: '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd'
+        
+        Run Build Command(s): /usr/local/lib/python3.12/dist-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8b900/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8b900.dir/build.make CMakeFiles/cmTC_8b900.dir/build
+        gmake[1]: Entering directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd'
+        Building C object CMakeFiles/cmTC_8b900.dir/CheckSymbolExists.c.o
+        /content/build_space/emsdk/upstream/emscripten/emcc   -Wall -pthread -msimd128 -msse -msse2  -std=gnu99 -MD -MT CMakeFiles/cmTC_8b900.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_8b900.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_8b900.dir/CheckSymbolExists.c.o -c /content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd/CheckSymbolExists.c
+        /content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd/CheckSymbolExists.c:8:19: error: builtin functions must be directly called
+            8 |   return ((int*)(&__builtin___clear_cache))[argc];
+              |                   ^
+        1 error generated.
+        gmake[1]: *** [CMakeFiles/cmTC_8b900.dir/build.make:82: CMakeFiles/cmTC_8b900.dir/CheckSymbolExists.c.o] Error 1
+        gmake[1]: Leaving directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-I1zXhd'
+        gmake: *** [Makefile:134: cmTC_8b900/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckSymbolExists.cmake:163 (try_compile)"
+      - "/usr/local/lib/python3.12/dist-packages/cmake/data/share/cmake-3.31/Modules/CheckSymbolExists.cmake:68 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "cmake/randomx.cmake:10 (check_symbol_exists)"
+      - "CMakeLists.txt:238 (include)"
+    checks:
+      - "Looking for posix_memalign"
+    directories:
+      source: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-xqQchQ"
+      binary: "/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-xqQchQ"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "/content/build_space/emsdk/upstream/emscripten/emscan-deps"
+      CMAKE_C_FLAGS: " -Wall -pthread -msimd128 -msse -msse2"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: " -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=536870912 -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap','callMain','FS'] -s EXPORTED_FUNCTIONS=['_main','_malloc','_free'] -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=4 -s PTHREAD_POOL_SIZE_STRICT=0"
+      CMAKE_MODULE_PATH: "/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/emsdk/upstream/emscripten/cmake/Modules;/content/build_space/xmrig_wasm/cmake"
+    buildResult:
+      variable: "HAVE_POSIX_MEMALIGN"
+      cached: true
+      stdout: |
+        Change Dir: '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-xqQchQ'
+        
+        Run Build Command(s): /usr/local/lib/python3.12/dist-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_38e57/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_38e57.dir/build.make CMakeFiles/cmTC_38e57.dir/build
+        gmake[1]: Entering directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-xqQchQ'
+        Building C object CMakeFiles/cmTC_38e57.dir/CheckSymbolExists.c.o
+        /content/build_space/emsdk/upstream/emscripten/emcc   -Wall -pthread -msimd128 -msse -msse2  -std=gnu99 -MD -MT CMakeFiles/cmTC_38e57.dir/CheckSymbolExists.c.o -MF CMakeFiles/cmTC_38e57.dir/CheckSymbolExists.c.o.d -o CMakeFiles/cmTC_38e57.dir/CheckSymbolExists.c.o -c /content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-xqQchQ/CheckSymbolExists.c
+        Linking C executable cmTC_38e57.js
+        /usr/local/lib/python3.12/dist-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_38e57.dir/link.txt --verbose=1
+        emcc: warning: -pthread + ALLOW_MEMORY_GROWTH may run non-wasm code slowly, see https://github.com/WebAssembly/design/issues/1271 [-Wpthreads-mem-growth]
+        /content/build_space/emsdk/upstream/emscripten/emcc  -Wall -pthread -msimd128 -msse -msse2   -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s INITIAL_MEMORY=536870912 -s MAXIMUM_MEMORY=4294967296 -s EXPORTED_RUNTIME_METHODS=['ccall','cwrap','callMain','FS'] -s EXPORTED_FUNCTIONS=['_main','_malloc','_free'] -s USE_PTHREADS=1 -s PTHREAD_POOL_SIZE=4 -s PTHREAD_POOL_SIZE_STRICT=0  CMakeFiles/cmTC_38e57.dir/CheckSymbolExists.c.o -o cmTC_38e57.js
+        gmake[1]: Leaving directory '/content/build_space/xmrig_wasm/build_wasm/CMakeFiles/CMakeScratch/TryCompile-xqQchQ'
+        
+      exitCode: 0
+...

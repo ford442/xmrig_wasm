@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/root/xmrig_wasm/src/3rdparty/libethash/ethash_internal.c" "src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o" "gcc" "src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o.d"
-  "/root/xmrig_wasm/src/3rdparty/libethash/keccakf800.c" "src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o" "gcc" "src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o.d"
+  "/content/build_space/xmrig_wasm/src/3rdparty/libethash/ethash_internal.c" "src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o" "gcc" "src/3rdparty/libethash/CMakeFiles/ethash.dir/ethash_internal.c.o.d"
+  "/content/build_space/xmrig_wasm/src/3rdparty/libethash/keccakf800.c" "src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o" "gcc" "src/3rdparty/libethash/CMakeFiles/ethash.dir/keccakf800.c.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

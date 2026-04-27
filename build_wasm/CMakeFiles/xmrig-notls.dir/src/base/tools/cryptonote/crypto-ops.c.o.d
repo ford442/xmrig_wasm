@@ -1,9 +1,8 @@
 CMakeFiles/xmrig-notls.dir/src/base/tools/cryptonote/crypto-ops.c.o: \
-  /root/xmrig_wasm/src/base/tools/cryptonote/crypto-ops.c \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
-  /root/emsdk/upstream/lib/clang/23/include/stdint.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
-  /root/emsdk/upstream/emscripten/cache/sysroot/include/bits/stdint.h \
-  /root/xmrig_wasm/src/base/tools/cryptonote/crypto-ops.h
+  /content/build_space/xmrig_wasm/src/base/tools/cryptonote/crypto-ops.c \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/assert.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/features.h \
+  /content/build_space/emsdk/upstream/lib/clang/23/include/stdint.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/stdint.h \
+  /content/build_space/emsdk/upstream/emscripten/cache/sysroot/include/bits/alltypes.h \
+  /content/build_space/xmrig_wasm/src/base/tools/cryptonote/crypto-ops.h
